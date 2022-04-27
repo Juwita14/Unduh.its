@@ -165,7 +165,7 @@
                                         <a href="spesifikasi">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="preview">Preview</a>
+                                        <a href="be_blocks_api.html">Preview</a>
                                     </li>
                                 </ul>
                             </li>
@@ -323,32 +323,32 @@
                                 <h3 class="block-title">Ringkasan</h3>
                             </div>
                             <div class="block-content">
-                                <a href="ringkasan/create" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                                <a href="preview/create" class="btn btn-md btn-success mb-3">TAMBAH GAMBAR</a>
                                 <table class="table table-hover table-vcenter">
                                     <thead>
                                         <tr>
                                             <th style="width: 50px;">#</th>
-                                            <th>Nama</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 20%;">Pendiri</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 50%;">Ringkasan</th>
+                                            <th>Nama Gambar</th>
+                                            <th class="d-none d-sm-table-cell" style="width: 60%;">Gambar</th>
                                             <th class="text-center" style="width: 100px;">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($software as $s)
+                                    @foreach($preview as $p)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td>{{$s->nama_software}}</td>
-                                            <td>{{$s->nama_perusahaan}}</td>
-                                            <td>{{$s->ringkasan}}</td>
+                                            <td>{{$p->nama_gambar}}</td>
+                                            <td>
+                                                <img src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
+                                            </td>
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <a href="ringkasan/{{$s->id}}/edit" >
+                                                        <a href="preview/{{$p->id}}/edit" >
                                                             <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                                         </a>
                                                     </button>
-                                                    <form action="ringkasan/{{$s->id}}" method="POST">
+                                                    <form action="preview/{{$p->id}}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">

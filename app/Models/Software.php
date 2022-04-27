@@ -29,4 +29,9 @@ class Software extends Model
     {
         return $persyaratan_sistem->hasMany('App\Models\Persyaratan_sistem');
     }
+
+    public function preview()
+    {
+        return $fitur->hasMany('App\Models\Preview');
+    }
 }

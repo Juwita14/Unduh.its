@@ -90,3 +90,10 @@ Route::post('/spesifikasi/storePS', [FiturController::class, 'storePS']);
 Route::get('/spesifikasi/{id}/editPS', [FiturController::class, 'editPS']);
 Route::put('/spesifikasi/{id}', [FiturController::class, 'updatePS']);
 Route::delete('/spesifikasi/{id}', [FiturController::class, 'destroyPS']); 
+
+Route::get('/preview', [App\Http\Controllers\PreviewController::class, 'index']); 
+Route::get('/preview/create', [App\Http\Controllers\PreviewController::class, 'create']);
+Route::post('/preview/store', [App\Http\Controllers\PreviewController::class, 'store']);
+Route::get('/preview/{id}/edit', [App\Http\Controllers\PreviewController::class, 'edit']);
+Route::put('/preview/{id}', [App\Http\Controllers\PreviewController::class, 'update']); 
+Route::delete('/preview/{id}', [App\Http\Controllers\PreviewController::class, 'destroy']);
