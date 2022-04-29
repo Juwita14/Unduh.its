@@ -156,7 +156,7 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="ringkasan">Ringkasan</a>
+                                        <a href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="filedownload">File Download</a>
@@ -165,7 +165,7 @@
                                         <a href="spesifikasi">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a class="active" href="preview">Preview</a>
                                     </li>
                                 </ul>
                             </li>

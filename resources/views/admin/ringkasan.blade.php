@@ -208,7 +208,7 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
                                 <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                        <a href="ringkasanLabview">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
@@ -329,26 +329,26 @@
                                         <tr>
                                             <th style="width: 50px;">#</th>
                                             <th>Nama</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 20%;">Pendiri</th>
                                             <th class="d-none d-sm-table-cell" style="width: 50%;">Ringkasan</th>
                                             <th class="text-center" style="width: 100px;">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($software as $s)
+                                    @foreach($ringkasan as $r)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
+                                            @foreach ($software as $s)
                                             <td>{{$s->nama_software}}</td>
-                                            <td>{{$s->nama_perusahaan}}</td>
-                                            <td>{{$s->ringkasan}}</td>
+                                            @endforeach
+                                            <td>{{$r->ringkasan}}</td>
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <a href="ringkasan/{{$s->id}}/edit" >
+                                                        <a href="ringkasan/{{$r->id}}/edit" >
                                                             <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                                         </a>
                                                     </button>
-                                                    <form action="ringkasan/{{$s->id}}" method="POST">
+                                                    <form action="ringkasan/{{$r->id}}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">

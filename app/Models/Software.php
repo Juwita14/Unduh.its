@@ -34,4 +34,9 @@ class Software extends Model
     {
         return $fitur->hasMany('App\Models\Preview');
     }
+
+    public function ringkasan()
+    {
+        return $ringkasan->hasMany('App\Models\Ringkasan');
+    }
 }

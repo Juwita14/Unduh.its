@@ -326,18 +326,6 @@
                             <form action="/ringkasan/store" method="POST" >
                                 @csrf
                                 <div class="form-group row">
-                                    <label class="col-12" >Nama</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="nama_software" placeholder="Software..">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-12">Pendiri</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="nama_perusahaan" placeholder="Pendiri..">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <label class="col-12">Ringkasan</label>
                                     <div class="col-12">
                                         <textarea style="width:715px" class="form-control" name="ringkasan" rows="6" placeholder="Ringkasan.."></textarea>

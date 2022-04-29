@@ -156,7 +156,7 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="be_blocks.html">Ringkasan</a>
+                                        <a class="active" href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="filedownload">File Download</a>
@@ -320,21 +320,20 @@
                     <!-- Hover Table -->
                     <div class="block">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Edit Data</h3>
+                            <h3 class="block-title">Tambah</h3>
                         </div>
                         <div class="block-content">
-                            <form action="/ringkasan/{{$ringkasan->id}}" method="POST" >
-                                @method('PUT')
+                            <form action="/ringkasan/storeLabview" method="POST" >
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-12">Ringkasan</label>
                                     <div class="col-12">
-                                        <textarea style="width:715px" class="form-control" name="ringkasan"  rows="6" placeholder="Ringkasan..">{{$ringkasan->ringkasan}}</textarea>
+                                        <textarea style="width:715px" class="form-control" name="ringkasan" rows="6" placeholder="Ringkasan.."></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-12">
-                                        <button type="submit" name=submit value="Update" class="btn btn-alt-primary">Submit</button>
+                                        <button type="submit" name=submit value="Save" class="btn btn-alt-primary">Submit</button>
                                     </div>
                                 </div>
                             </form>

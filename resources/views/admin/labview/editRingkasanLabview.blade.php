@@ -152,11 +152,11 @@
                             <li>
                                 <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                             </li>
-                            <li class="open">
+                            <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="be_blocks.html">Ringkasan</a>
+                                        <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="filedownload">File Download</a>
@@ -204,11 +204,11 @@
                                     
                                 </ul>
                             </li>
-                            <li>
+                            <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
                                 <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                        <a class="active" href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
@@ -323,7 +323,7 @@
                             <h3 class="block-title">Edit Data</h3>
                         </div>
                         <div class="block-content">
-                            <form action="/ringkasan/{{$ringkasan->id}}" method="POST" >
+                            <form action="/ringkasanLabview/{{$ringkasan->id}}" method="POST" >
                                 @method('PUT')
                                 @csrf
                                 <div class="form-group row">

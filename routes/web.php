@@ -97,3 +97,10 @@ Route::post('/preview/store', [App\Http\Controllers\PreviewController::class, 's
 Route::get('/preview/{id}/edit', [App\Http\Controllers\PreviewController::class, 'edit']);
 Route::put('/preview/{id}', [App\Http\Controllers\PreviewController::class, 'update']); 
 Route::delete('/preview/{id}', [App\Http\Controllers\PreviewController::class, 'destroy']);
+
+Route::get('/ringkasanLabview', [RingkasanController::class, 'indexLabview']);
+Route::get('/ringkasan/createLabview', [RingkasanController::class, 'createLabview']);
+Route::post('/ringkasan/storeLabview', [RingkasanController::class, 'storeLabview']);
+Route::get('/ringkasanLabview/{id}/editLabview', [RingkasanController::class, 'editLabview']); 
+Route::put('/ringkasanLabview/{id}', [RingkasanController::class, 'updateLabview']); 
+Route::delete('/ringkasanLabview/{id}', [RingkasanController::class, 'destroyLabview']); 
