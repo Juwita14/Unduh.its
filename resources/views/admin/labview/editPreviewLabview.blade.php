@@ -152,11 +152,11 @@
                             <li>
                                 <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                             </li>
-                            <li class="open">
+                            <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="ringkasan">Ringkasan</a>
+                                        <a href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="filedownload">File Download</a>
@@ -204,7 +204,7 @@
                                     
                                 </ul>
                             </li>
-                            <li>
+                            <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
                                 <li>
@@ -217,7 +217,7 @@
                                         <a href="be_blocks_api.html">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a class="active" href="be_blocks_api.html">Preview</a>
                                     </li>
                                 </ul>
                             </li>
@@ -320,15 +320,27 @@
                     <!-- Hover Table -->
                     <div class="block">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Tambah</h3>
+                            <h3 class="block-title">Ubah Preview</h3>
                         </div>
                         <div class="block-content">
-                            <form action="/ringkasanLabview/storeLabview" method="POST" >
+                            <form action="/previewLabview/updateLabview/{{$preview->id}}" method="POST" enctype='multipart/form-data'>
+                                @method('PUT')
                                 @csrf
                                 <div class="form-group row">
-                                    <label class="col-12">Ringkasan</label>
-                                    <div class="col-12">
-                                        <textarea style="width:715px" class="form-control" name="ringkasan" rows="6" placeholder="Ringkasan.."></textarea>
+                                    <label class="col-12" >Nama Gambar</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="nama_gambar" value="{{$preview->nama_gambar}}"placeholder="Nama Gambar">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-12">File Gambar</label>
+                                    <div class="col-md-9">
+                                        <input type="file" class="form-control" name="namaFiles" placeholder="Pendiri..">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-9">
+                                    <img src="{{ asset('assets/media/preview/'.$preview->namaFiles) }}" alt="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group row">

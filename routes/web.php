@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RingkasanController;
-use App\Http\Controllers\FiturController;
+use App\Http\Controllers\SpesifikasiController;
+use App\Http\Controllers\PreviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,29 +79,49 @@ Route::get('/ringkasan/{id}/edit', [RingkasanController::class, 'edit']);
 Route::put('/ringkasan/{id}', [RingkasanController::class, 'update']); 
 Route::delete('/ringkasan/{id}', [RingkasanController::class, 'destroy']); 
 
-Route::get('/spesifikasi', [FiturController::class, 'index']); 
-Route::get('/spesifikasi/create', [FiturController::class, 'create']);
-Route::post('/spesifikasi/store', [FiturController::class, 'store']);
-Route::get('/spesifikasi/{id}/edit', [FiturController::class, 'edit']);
-Route::put('/spesifikasi/{id}', [FiturController::class, 'update']); 
-Route::delete('/spesifikasi/{id}', [FiturController::class, 'destroy']); 
+Route::get('/spesifikasi', [SpesifikasiController::class, 'index']); 
+Route::get('/spesifikasi/create', [SpesifikasiController::class, 'create']);
+Route::post('/spesifikasi/store', [SpesifikasiController::class, 'store']);
+Route::get('/spesifikasi/edit/{id}', [SpesifikasiController::class, 'edit']);
+Route::put('/spesifikasi/update/{id}', [SpesifikasiController::class, 'update']); 
+Route::delete('/spesifikasi/destroy/{id}', [SpesifikasiController::class, 'destroy']); 
 
-Route::get('/spesifikasi/createPS', [FiturController::class, 'createPS']);
-Route::post('/spesifikasi/storePS', [FiturController::class, 'storePS']);
-Route::get('/spesifikasi/{id}/editPS', [FiturController::class, 'editPS']);
-Route::put('/spesifikasi/{id}', [FiturController::class, 'updatePS']);
-Route::delete('/spesifikasi/{id}', [FiturController::class, 'destroyPS']); 
+Route::get('/spesifikasi/createPS', [SpesifikasiController::class, 'createPS']);
+Route::post('/spesifikasi/storePS', [SpesifikasiController::class, 'storePS']);
+Route::get('/spesifikasi/editPS/{id}', [SpesifikasiController::class, 'editPS']);
+Route::put('/spesifikasi/updatePS/{id}', [SpesifikasiController::class, 'updatePS']);
+Route::delete('/spesifikasi/destroyPS/{id}', [SpesifikasiController::class, 'destroyPS']); 
 
-Route::get('/preview', [App\Http\Controllers\PreviewController::class, 'index']); 
-Route::get('/preview/create', [App\Http\Controllers\PreviewController::class, 'create']);
-Route::post('/preview/store', [App\Http\Controllers\PreviewController::class, 'store']);
-Route::get('/preview/{id}/edit', [App\Http\Controllers\PreviewController::class, 'edit']);
-Route::put('/preview/{id}', [App\Http\Controllers\PreviewController::class, 'update']); 
-Route::delete('/preview/{id}', [App\Http\Controllers\PreviewController::class, 'destroy']);
+Route::get('/preview', [PreviewController::class, 'index']); 
+Route::get('/preview/create', [PreviewController::class, 'create']);
+Route::post('/preview/store', [PreviewController::class, 'store']);
+Route::get('/preview/{id}/edit', [PreviewController::class, 'edit']);
+Route::put('/preview/{id}', [PreviewController::class, 'update']); 
+Route::delete('/preview/{id}', [PreviewController::class, 'destroy']);
 
 Route::get('/ringkasanLabview', [RingkasanController::class, 'indexLabview']);
-Route::get('/ringkasan/createLabview', [RingkasanController::class, 'createLabview']);
-Route::post('/ringkasan/storeLabview', [RingkasanController::class, 'storeLabview']);
+Route::get('/ringkasanLabview/createLabview', [RingkasanController::class, 'createLabview']);
+Route::post('/ringkasanLabview/storeLabview', [RingkasanController::class, 'storeLabview']);
 Route::get('/ringkasanLabview/{id}/editLabview', [RingkasanController::class, 'editLabview']); 
 Route::put('/ringkasanLabview/{id}', [RingkasanController::class, 'updateLabview']); 
 Route::delete('/ringkasanLabview/{id}', [RingkasanController::class, 'destroyLabview']); 
+
+Route::get('/spesifikasiLabview', [SpesifikasiController::class, 'indexLabview']);
+Route::get('/spesifikasiLabview/createLabview', [SpesifikasiController::class, 'createLabview']);
+Route::post('/spesifikasiLabview/storeLabview', [SpesifikasiController::class, 'storeLabview']);
+Route::get('/spesifikasiLabview/editLabview/{id}', [SpesifikasiController::class, 'editLabview']); 
+Route::put('/spesifikasiLabview/updateLabview/{id}', [SpesifikasiController::class, 'updateLabview']); 
+Route::delete('/spesifikasiLabview/destroyLabview/{id}', [SpesifikasiController::class, 'destroyLabview']);
+
+Route::get('/spesifikasiLabview/createLabviewPS', [SpesifikasiController::class, 'createLabviewPS']);
+Route::post('/spesifikasiLabview/storeLabviewPS', [SpesifikasiController::class, 'storeLabviewPS']);
+Route::get('/spesifikasiLabview/editLabviewPS/{id}', [SpesifikasiController::class, 'editLabviewPS']); 
+Route::put('/spesifikasiLabview/updateLabviewPS/{id}', [SpesifikasiController::class, 'updateLabviewPS']); 
+Route::delete('/spesifikasiLabview/destroyLabviewPS/{id}', [SpesifikasiController::class, 'destroyLabviewPS']);
+
+Route::get('/previewLabview', [PreviewController::class, 'indexLabview']); 
+Route::get('/previewLabview/createLabview', [PreviewController::class, 'createLabview']);
+Route::post('/previewLabview/storeLabview', [PreviewController::class, 'storeLabview']);
+Route::get('/previewLabview/editLabview/{id}', [PreviewController::class, 'editLabview']);
+Route::put('/previewLabview/updateLabview/{id}', [PreviewController::class, 'updateLabview']); 
+Route::delete('/previewLabview/destroyLabview/{id}', [PreviewController::class, 'destroyLabview']);

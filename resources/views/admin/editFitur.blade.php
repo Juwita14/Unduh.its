@@ -323,7 +323,7 @@
                             <h3 class="block-title">Edit Fitur</h3>
                         </div>
                         <div class="block-content">
-                            <form action="/spesifikasi/{{$fitur->id}}" method="POST" >
+                            <form action="/spesifikasi/update/{{$fitur->id}}" method="POST" >
                                 @method('PUT')
                                 @csrf
                                 <div class="form-group row">

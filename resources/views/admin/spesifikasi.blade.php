@@ -340,11 +340,11 @@
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <a href="spesifikasi/{{$f->id}}/edit" >
+                                                        <a href="spesifikasi/edit/{{$f->id}}" >
                                                             <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                                         </a>
                                                     </button>
-                                                    <form action="spesifikasi/{{$f->id}}" method="POST">
+                                                    <form action="spesifikasi/destroy/{{$f->id}}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
@@ -379,11 +379,11 @@
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <a href="spesifikasi/{{$p->id}}/editPS" >
+                                                        <a href="spesifikasi/editPS/{{$p->id}}" >
                                                             <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                                         </a>
                                                     </button>
-                                                    <form action="spesifikasi/{{$p->id}}" method="POST">
+                                                    <form action="spesifikasi/destroyPS/{{$p->id}}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">

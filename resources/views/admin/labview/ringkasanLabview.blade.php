@@ -214,7 +214,7 @@
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a href="spesifikasiLabview">Spesifikasi</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_api.html">Preview</a>
@@ -323,7 +323,7 @@
                                 <h3 class="block-title">Ringkasan</h3>
                             </div>
                             <div class="block-content">
-                                <a href="ringkasan/createLabview" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                                <a href="ringkasanLabview/createLabview" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
                                 <table class="table table-hover table-vcenter">
                                     <thead>
                                         <tr>

@@ -323,7 +323,7 @@
                             <h3 class="block-title">Edit Persyaratan Sistem</h3>
                         </div>
                         <div class="block-content">
-                            <form action="/spesifikasi/{{$persyaratan_sistem->id}}" method="POST" >
+                            <form action="/spesifikasi/updatePS/{{$persyaratan_sistem->id}}" method="POST" >
                                 @method('PUT')
                                 @csrf
                                 <div class="form-group row">
