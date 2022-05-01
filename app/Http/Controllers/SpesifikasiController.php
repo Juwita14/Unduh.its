@@ -30,6 +30,16 @@ class SpesifikasiController extends Controller
         // return $fitur;
     }
 
+    public function indexMinitab()
+    {
+        // $fitur = Fitur::all();
+        $fitur = Fitur::where('id_software', '5')->get();
+        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '5')->get();
+        // dd($persyaratan_sistem);
+        return view('admin.minitab.spesifikasiMinitab', compact(['fitur', 'persyaratan_sistem']));
+        // return $fitur;
+    }
+
     public function create()
     {
         return view('admin.createFitur');
@@ -62,6 +72,23 @@ class SpesifikasiController extends Controller
         ]);
         // Fitur::create($request->except(['_token','submit']));
         return redirect('/spesifikasiLabview');
+    }
+
+    public function createMinitab()
+    {
+        return view('admin.minitab.createFiturMinitab');
+    }
+
+    public function storeMinitab(Request $request)
+    {
+        //dd($request->except(['_token','submit']));
+        $software = Software::where('id', 5)->value('id');
+        Fitur::create([
+            'id_software' => $software,
+            'fitur' =>$request->fitur
+        ]);
+        // Fitur::create($request->except(['_token','submit']));
+        return redirect('/spesifikasiMinitab');
     }
 
     public function edit($id)
@@ -102,6 +129,25 @@ class SpesifikasiController extends Controller
         return redirect('/spesifikasiLabview');
     }
 
+    public function editMinitab($id)
+    {
+        //dd($id);
+        $fitur = Fitur::find($id);
+        //dd($fitur);
+        return view('admin.minitab.editFiturMinitab', compact(['fitur']));
+    }
+
+    public function updateMinitab($id, Request $request)
+    {
+        $software = Software::where('id', 5)->value('id');
+        Fitur::where('id', $id)
+        ->update([
+            'id_software' => $software,
+            'fitur' =>$request->fitur
+        ]);
+        return redirect('/spesifikasiMinitab');
+    }
+
     public function destroy($id)
     {
         $fitur = Fitur::find($id);
@@ -114,6 +160,13 @@ class SpesifikasiController extends Controller
         $fitur = Fitur::find($id);
         $fitur->delete();
         return redirect('/spesifikasiLabview');
+    }
+
+    public function destroyMinitab($id)
+    {
+        $fitur = Fitur::find($id);
+        $fitur->delete();
+        return redirect('/spesifikasiMinitab');
     }
 
     public function createPS()
@@ -148,6 +201,23 @@ class SpesifikasiController extends Controller
         ]);
         // Fitur::create($request->except(['_token','submit']));
         return redirect('/spesifikasiLabview');
+    }
+
+    public function createMinitabPS()
+    {
+        return view('admin.minitab.createPersyaratanSistemMinitab');
+    }
+
+    public function storeMinitabPS(Request $request)
+    {
+        //dd($request->except(['_token','submit']));
+        $software = Software::where('id', 5)->value('id');
+        Persyaratan_sistem::create([
+            'id_software' => $software,
+            'persyaratan_sistem' =>$request->persyaratan_sistem
+        ]);
+        // Fitur::create($request->except(['_token','submit']));
+        return redirect('/spesifikasiMinitab');
     }
 
     public function editPS($id)
@@ -188,6 +258,25 @@ class SpesifikasiController extends Controller
         return redirect('/spesifikasiLabview');
     }
 
+    public function editMinitabPS($id)
+    {
+        //dd($id);
+        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        //dd($fitur);
+        return view('admin.minitab.editPersyaratanSistemMinitab', compact(['persyaratan_sistem']));
+    }
+
+    public function updateMinitabPS($id, Request $request)
+    {
+        $software = Software::where('id', 5)->value('id');
+        Persyaratan_sistem::where('id', $id)
+        ->update([
+            'id_software' => $software,
+            'persyaratan_sistem' =>$request->persyaratan_sistem
+        ]);
+        return redirect('/spesifikasiMinitab');
+    }
+
     public function destroyPS($id)
     {
         $persyaratan_sistem = Persyaratan_sistem::find($id);
@@ -200,5 +289,12 @@ class SpesifikasiController extends Controller
         $persyaratan_sistem = Persyaratan_sistem::find($id);
         $persyaratan_sistem->delete();
         return redirect('/spesifikasiLabview');
+    }
+
+    public function destroyMinitabPS($id)
+    {
+        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem->delete();
+        return redirect('/spesifikasiMinitab');
     }
 }

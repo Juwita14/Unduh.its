@@ -25,6 +25,14 @@ class RingkasanController extends Controller
         return view('admin.labview.ringkasanLabview', compact(['ringkasan', 'software']));
     }
 
+    public function indexMinitab()
+    {
+        $software = Software::where('id', '5')->get();
+        $ringkasan = Ringkasan::where('id_software', '5')->get();
+        //dd($software);
+        return view('admin.minitab.ringkasanMinitab', compact(['ringkasan', 'software']));
+    }
+
     public function create()
     {
         return view('admin.createRingkasan');
@@ -55,6 +63,22 @@ class RingkasanController extends Controller
             'ringkasan' =>$request->ringkasan
         ]);
         return redirect('/ringkasanLabview');
+    }
+
+    public function createMinitab()
+    {
+        return view('admin.minitab.createRingkasanMinitab');
+    }
+
+    public function storeMinitab(Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $software = Software::where('id', 5)->value('id');
+        Ringkasan::create([
+            'id_software' => $software,
+            'ringkasan' =>$request->ringkasan
+        ]);
+        return redirect('/ringkasanMinitab');
     }
 
     public function edit($id)
@@ -90,6 +114,23 @@ class RingkasanController extends Controller
         return redirect('/ringkasanLabview');
     }
 
+    public function editMinitab($id)
+    {
+        //dd($id);
+        $software = Software::find($id);
+        $ringkasan = Ringkasan::find($id);
+        //dd($software);
+        return view('admin.minitab.editRingkasanMinitab', compact(['ringkasan', 'software']));
+    }
+
+    public function updateMinitab($id, Request $request)
+    {
+        // $software = Software::find($id);
+        $ringkasan = Ringkasan::find($id);
+        $ringkasan->update($request->except(['_token','submit']));
+        return redirect('/ringkasanMinitab');
+    }
+
     public function destroy($id)
     {
         $ringkasan = Ringkasan::find($id);
@@ -102,5 +143,12 @@ class RingkasanController extends Controller
         $ringkasan = Ringkasan::find($id);
         $ringkasan->delete();
         return redirect('/ringkasanLabview');
+    }
+
+    public function destroyMinitab($id)
+    {
+        $ringkasan = Ringkasan::find($id);
+        $ringkasan->delete();
+        return redirect('/ringkasanMinitab');
     }
 }

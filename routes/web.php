@@ -125,3 +125,30 @@ Route::post('/previewLabview/storeLabview', [PreviewController::class, 'storeLab
 Route::get('/previewLabview/editLabview/{id}', [PreviewController::class, 'editLabview']);
 Route::put('/previewLabview/updateLabview/{id}', [PreviewController::class, 'updateLabview']); 
 Route::delete('/previewLabview/destroyLabview/{id}', [PreviewController::class, 'destroyLabview']);
+
+Route::get('/ringkasanMinitab', [RingkasanController::class, 'indexMinitab']);
+Route::get('/ringkasanMinitab/createMinitab', [RingkasanController::class, 'createMinitab']);
+Route::post('/ringkasanMinitab/storeMinitab', [RingkasanController::class, 'storeMinitab']);
+Route::get('/ringkasanMinitab/editMinitab/{id}', [RingkasanController::class, 'editMinitab']); 
+Route::put('/ringkasanMinitab/updateMinitab/{id}', [RingkasanController::class, 'updateMinitab']); 
+Route::delete('/ringkasanMinitab/destroyMinitab/{id}', [RingkasanController::class, 'destroyMinitab']); 
+
+Route::get('/spesifikasiMinitab', [SpesifikasiController::class, 'indexMinitab']);
+Route::get('/spesifikasiMinitab/createMinitab', [SpesifikasiController::class, 'createMinitab']);
+Route::post('/spesifikasiMinitab/storeMinitab', [SpesifikasiController::class, 'storeMinitab']);
+Route::get('/spesifikasiMinitab/editMinitab/{id}', [SpesifikasiController::class, 'editMinitab']); 
+Route::put('/spesifikasiMinitab/updateMinitab/{id}', [SpesifikasiController::class, 'updateMinitab']); 
+Route::delete('/spesifikasiMinitab/destroyMinitab/{id}', [SpesifikasiController::class, 'destroyMinitab']);
+
+Route::get('/spesifikasiMinitab/createMinitabPS', [SpesifikasiController::class, 'createMinitabPS']);
+Route::post('/spesifikasiMinitab/storeMinitabPS', [SpesifikasiController::class, 'storeMinitabPS']);
+Route::get('/spesifikasiMinitab/editMinitabPS/{id}', [SpesifikasiController::class, 'editMinitabPS']); 
+Route::put('/spesifikasiMinitab/updateMinitabPS/{id}', [SpesifikasiController::class, 'updateMinitabPS']); 
+Route::delete('/spesifikasiMinitab/destroyMinitabPS/{id}', [SpesifikasiController::class, 'destroyMinitabPS']);
+
+Route::get('/previewMinitab', [PreviewController::class, 'indexMinitab']); 
+Route::get('/previewMinitab/createMinitab', [PreviewController::class, 'createMinitab']);
+Route::post('/previewMinitab/storeMinitab', [PreviewController::class, 'storeMinitab']);
+Route::get('/previewMinitab/editMinitab/{id}', [PreviewController::class, 'editMinitab']);
+Route::put('/previewMinitab/updateMinitab/{id}', [PreviewController::class, 'updateMinitab']); 
+Route::delete('/previewMinitab/destroyMinitab/{id}', [PreviewController::class, 'destroyMinitab']);

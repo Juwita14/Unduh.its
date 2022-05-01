@@ -204,11 +204,11 @@
                                     
                                 </ul>
                             </li>
-                            <li class="open">
+                            <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                    <li>
-                                        <a class="active" href="be_blocks.html">Ringkasan</a>
+                                <li>
+                                        <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
@@ -221,7 +221,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
                                 <li>
@@ -231,7 +231,7 @@
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a class="active" href="be_blocks_api.html">Spesifikasi</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_api.html">Preview</a>
@@ -323,12 +323,12 @@
                             <h3 class="block-title">Tambah</h3>
                         </div>
                         <div class="block-content">
-                            <form action="/ringkasanLabview/storeLabview" method="POST" >
-                                @csrf
+                        <form action="/spesifikasiMinitab/storeMinitab" method="POST" >
+                            @csrf
                                 <div class="form-group row">
-                                    <label class="col-12">Ringkasan</label>
+                                    <label class="col-12">Fitur</label>
                                     <div class="col-12">
-                                        <textarea style="width:715px" class="form-control" name="ringkasan" rows="6" placeholder="Ringkasan.."></textarea>
+                                        <textarea style="width:715px" class="form-control" name="fitur"rows="6" placeholder="Fitur.."></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">

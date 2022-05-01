@@ -204,11 +204,11 @@
                                     
                                 </ul>
                             </li>
-                            <li class="open">
+                            <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                    <li>
-                                        <a class="active" href="be_blocks.html">Ringkasan</a>
+                                <li>
+                                        <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
@@ -221,11 +221,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
                                 <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                        <a class="active" href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
@@ -323,7 +323,7 @@
                             <h3 class="block-title">Tambah</h3>
                         </div>
                         <div class="block-content">
-                            <form action="/ringkasanLabview/storeLabview" method="POST" >
+                            <form action="/ringkasanMinitab/storeMinitab" method="POST" >
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-12">Ringkasan</label>

@@ -204,11 +204,11 @@
                                     
                                 </ul>
                             </li>
-                            <li class="open">
+                            <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                    <li>
-                                        <a class="active" href="be_blocks.html">Ringkasan</a>
+                                <li>
+                                        <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
@@ -221,7 +221,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
                                 <li>
@@ -231,7 +231,7 @@
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a class="active" href="be_blocks_api.html">Spesifikasi</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_api.html">Preview</a>
@@ -320,20 +320,21 @@
                     <!-- Hover Table -->
                     <div class="block">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Tambah</h3>
+                            <h3 class="block-title">Edit Persyaratan Sistem</h3>
                         </div>
                         <div class="block-content">
-                            <form action="/ringkasanLabview/storeLabview" method="POST" >
+                            <form action="/spesifikasiMinitab/updateMinitabPS/{{$persyaratan_sistem->id}}" method="POST" >
+                                @method('PUT')
                                 @csrf
                                 <div class="form-group row">
-                                    <label class="col-12">Ringkasan</label>
+                                    <label class="col-12">Persyaratan Sistem</label>
                                     <div class="col-12">
-                                        <textarea style="width:715px" class="form-control" name="ringkasan" rows="6" placeholder="Ringkasan.."></textarea>
+                                        <textarea style="width:715px" class="form-control" name="persyaratan_sistem"  rows="6" placeholder="Persyaratan Sistem..">{{$persyaratan_sistem->persyaratan_sistem}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-12">
-                                        <button type="submit" name=submit value="Save" class="btn btn-alt-primary">Submit</button>
+                                        <button type="submit" name=submit value="Update" class="btn btn-alt-primary">Submit</button>
                                     </div>
                                 </div>
                             </form>

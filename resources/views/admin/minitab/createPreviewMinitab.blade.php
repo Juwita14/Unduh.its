@@ -204,25 +204,8 @@
                                     
                                 </ul>
                             </li>
-                            <li class="open">
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
-                                <ul>
-                                    <li>
-                                        <a class="active" href="be_blocks.html">Ringkasan</a>
-                                    </li>
-                                    <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
-                                    </li>
-                                    <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
-                                    </li>
-                                    <li>
-                                        <a href="be_blocks_api.html">Preview</a>
-                                    </li>
-                                </ul>
-                            </li>
                             <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
                                 <li>
                                         <a href="be_blocks.html">Ringkasan</a>
@@ -235,6 +218,23 @@
                                     </li>
                                     <li>
                                         <a href="be_blocks_api.html">Preview</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="open">
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
+                                <ul>
+                                <li>
+                                        <a href="be_blocks.html">Ringkasan</a>
+                                    </li>
+                                    <li>
+                                        <a href="be_blocks_draggable.html">File Download</a>
+                                    </li>
+                                    <li>
+                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                    </li>
+                                    <li>
+                                        <a class="active" href="be_blocks_api.html">Preview</a>
                                     </li>
                                     
                                 </ul>
@@ -323,12 +323,18 @@
                             <h3 class="block-title">Tambah</h3>
                         </div>
                         <div class="block-content">
-                            <form action="/ringkasanLabview/storeLabview" method="POST" >
+                            <form action="/previewMinitab/storeMinitab" method="POST" enctype='multipart/form-data'>
                                 @csrf
                                 <div class="form-group row">
-                                    <label class="col-12">Ringkasan</label>
-                                    <div class="col-12">
-                                        <textarea style="width:715px" class="form-control" name="ringkasan" rows="6" placeholder="Ringkasan.."></textarea>
+                                    <label class="col-12" >Nama Gambar</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="nama_gambar" placeholder="Nama Gambar">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-12">File Gambar</label>
+                                    <div class="col-md-9">
+                                        <input type="file" class="form-control" name="namaFiles" placeholder="Pendiri..">
                                     </div>
                                 </div>
                                 <div class="form-group row">
