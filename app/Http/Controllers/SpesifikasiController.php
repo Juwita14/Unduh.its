@@ -20,6 +20,16 @@ class SpesifikasiController extends Controller
         // return $fitur;
     }
 
+    public function indexMathematica()
+    {
+        // $fitur = Fitur::all();
+        $fitur = Fitur::where('id_software', '3')->get();
+        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '3')->get();
+        // dd($persyaratan_sistem);
+        return view('admin.mathematica.spesifikasiMathematica', compact(['fitur', 'persyaratan_sistem']));
+        // return $fitur;
+    }
+
     public function indexLabview()
     {
         // $fitur = Fitur::all();
@@ -55,6 +65,23 @@ class SpesifikasiController extends Controller
         ]);
         // Fitur::create($request->except(['_token','submit']));
         return redirect('/spesifikasi');
+    }
+
+    public function createMathematica()
+    {
+        return view('admin.mathematica.createFiturMathematica');
+    }
+
+    public function storeMathematica(Request $request)
+    {
+        //dd($request->except(['_token','submit']));
+        $software = Software::where('id', 3)->value('id');
+        Fitur::create([
+            'id_software' => $software,
+            'fitur' =>$request->fitur
+        ]);
+        // Fitur::create($request->except(['_token','submit']));
+        return redirect('/spesifikasiMathematica');
     }
 
     public function createLabview()
@@ -110,6 +137,25 @@ class SpesifikasiController extends Controller
         return redirect('/spesifikasi');
     }
 
+    public function editMathematica($id)
+    {
+        //dd($id);
+        $fitur = Fitur::find($id);
+        //dd($fitur);
+        return view('admin.mathematica.editFiturMathematica', compact(['fitur']));
+    }
+
+    public function updateMathematica($id, Request $request)
+    {
+        $software = Software::where('id', 3)->value('id');
+        Fitur::where('id', $id)
+        ->update([
+            'id_software' => $software,
+            'fitur' =>$request->fitur
+        ]);
+        return redirect('/spesifikasiMathematica');
+    }
+
     public function editLabview($id)
     {
         //dd($id);
@@ -155,6 +201,13 @@ class SpesifikasiController extends Controller
         return redirect('/spesifikasi');
     }
 
+    public function destroyMathematica($id)
+    {
+        $fitur = Fitur::find($id);
+        $fitur->delete();
+        return redirect('/spesifikasiMathematica');
+    }
+
     public function destroyLabview($id)
     {
         $fitur = Fitur::find($id);
@@ -184,6 +237,23 @@ class SpesifikasiController extends Controller
         ]);
         // Fitur::create($request->except(['_token','submit']));
         return redirect('/spesifikasi');
+    }
+
+    public function createMathematicaPS()
+    {
+        return view('admin.mathematica.createPersyaratanSistemMathematica');
+    }
+
+    public function storeMathematicaPS(Request $request)
+    {
+        //dd($request->except(['_token','submit']));
+        $software = Software::where('id', 3)->value('id');
+        Persyaratan_sistem::create([
+            'id_software' => $software,
+            'persyaratan_sistem' =>$request->persyaratan_sistem
+        ]);
+        // Fitur::create($request->except(['_token','submit']));
+        return redirect('/spesifikasiMathematica');
     }
 
     public function createLabviewPS()
@@ -239,6 +309,25 @@ class SpesifikasiController extends Controller
         return redirect('/spesifikasi');
     }
 
+    public function editMathematicaPS($id)
+    {
+        //dd($id);
+        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        //dd($fitur);
+        return view('admin.mathematica.editPersyaratanSistemMathematica', compact(['persyaratan_sistem']));
+    }
+
+    public function updateMathematicaPS($id, Request $request)
+    {
+        $software = Software::where('id', 3)->value('id');
+        Persyaratan_sistem::where('id', $id)
+        ->update([
+            'id_software' => $software,
+            'persyaratan_sistem' =>$request->persyaratan_sistem
+        ]);
+        return redirect('/spesifikasiMathematica');
+    }
+
     public function editLabviewPS($id)
     {
         //dd($id);
@@ -282,6 +371,13 @@ class SpesifikasiController extends Controller
         $persyaratan_sistem = Persyaratan_sistem::find($id);
         $persyaratan_sistem->delete();
         return redirect('/spesifikasi');
+    }
+
+    public function destroyMathematicaPS($id)
+    {
+        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem->delete();
+        return redirect('/spesifikasiMathematica');
     }
 
     public function destroyLabviewPS($id)

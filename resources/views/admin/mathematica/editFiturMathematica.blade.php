@@ -20,7 +20,7 @@
 
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-        <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+        <link rel="shortcut icon" href="/assets/media/favicons/favicon.png">
         <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
         <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
         <!-- END Icons -->
@@ -29,7 +29,7 @@
 
         <!-- Fonts and Codebase framework -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700&display=swap">
-        <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
+        <link rel="stylesheet" id="css-main" href="/assets/css/codebase.min.css">
 
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
@@ -125,7 +125,7 @@
                             <!-- Logo -->
                             <div class="content-header-item">
                                 <div class="float-left mr-5 mb-5">
-                                    <img style="height: 48px; width: 45px;" class="img-avatar" src="assets/media/photos/logo-its-biru-transparan.png" alt=""> 
+                                    <img style="height: 48px; width: 45px;" class="img-avatar" src="/assets/media/photos/logo-its-biru-transparan.png" alt=""> 
                                 </div>
                                 <div class="content-header-item">
                                     <a class=" font-w700" href="index">
@@ -152,11 +152,11 @@
                             <li>
                                 <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                             </li>
-                            <li class="open">
+                            <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="ringkasan">Ringkasan</a>
+                                        <a href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="filedownload">File Download</a>
@@ -165,7 +165,7 @@
                                         <a href="spesifikasi">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="preview">Preview</a>
+                                        <a href="be_blocks_api.html">Preview</a>
                                     </li>
                                 </ul>
                             </li>
@@ -186,17 +186,17 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-energy"></i><span class="sidebar-mini-hide">Mathematica</span></a>
                                 <ul>
                                 <li>
-                                        <a href="ringkasanMathematica">Ringkasan</a>
+                                        <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a class="active" href="be_blocks_api.html">Spesifikasi</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_api.html">Preview</a>
@@ -207,8 +207,8 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                <li>
-                                        <a href="ringkasanLabview">Ringkasan</a>
+                                    <li>
+                                        <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
@@ -319,50 +319,27 @@
                     <!-- Page Content -->
                     <!-- Hover Table -->
                     <div class="block">
-                            <div class="block-header block-header-default">
-                                <h3 class="block-title">Ringkasan</h3>
-                            </div>
-                            <div class="block-content">
-                                <a href="ringkasan/create" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
-                                <table class="table table-hover table-vcenter">
-                                    <thead>
-                                        <tr>
-                                            <th style="width: 50px;">#</th>
-                                            <th>Nama</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 50%;">Ringkasan</th>
-                                            <th class="text-center" style="width: 100px;">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($ringkasan as $r)
-                                        <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            @foreach ($software as $s)
-                                            <td>{{$s->nama_software}}</td>
-                                            @endforeach
-                                            <td>{{$r->ringkasan}}</td>
-                                            <td class="text-center">
-                                                <div class="btn-group">
-                                                    <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <a href="ringkasan/{{$r->id}}/edit" >
-                                                            <i style="color:#3A8CBD"class="fa fa-pencil"></i>
-                                                        </a>
-                                                    </button>
-                                                    <form action="ringkasan/{{$r->id}}" method="POST">
-                                                        @method('delete')
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
-                                                            <i style="color:#EF5350" class="fa fa-times"></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Edit Fitur</h3>
                         </div>
+                        <div class="block-content">
+                            <form action="/spesifikasiMathematica/updateMathematica/{{$fitur->id}}" method="POST" >
+                                @method('PUT')
+                                @csrf
+                                <div class="form-group row">
+                                    <label class="col-12">Fitur</label>
+                                    <div class="col-12">
+                                        <textarea style="width:715px" class="form-control" name="fitur"  rows="6" placeholder="Ringkasan..">{{$fitur->fitur}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <button type="submit" name=submit value="Update" class="btn btn-alt-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                         <!-- END Hover Table -->
                 </div>
                 <!-- END Page Content -->
@@ -402,7 +379,7 @@
             assets/js/core/jquery.countTo.min.js
             assets/js/core/js.cookie.min.js
         -->
-        <script src="assets/js/codebase.core.min.js"></script>
+        <script src="/assets/js/codebase.core.min.js"></script>
 
         <!--
             Codebase JS
@@ -410,12 +387,12 @@
             Custom functionality including Blocks/Layout API as well as other vital and optional helpers
             webpack is putting everything together at assets/_es6/main/app.js
         -->
-        <script src="assets/js/codebase.app.min.js"></script>
+        <script src="/assets/js/codebase.app.min.js"></script>
 
         <!-- Page JS Plugins -->
-        <script src="assets/js/plugins/chartjs/Chart.bundle.min.js"></script>
+        <script src="/assets/js/plugins/chartjs/Chart.bundle.min.js"></script>
 
         <!-- Page JS Code -->
-        <script src="assets/js/pages/be_pages_dashboard.min.js"></script>
+        <script src="/assets/js/pages/be_pages_dashboard.min.js"></script>
     </body>
 </html>

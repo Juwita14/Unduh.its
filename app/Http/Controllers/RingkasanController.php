@@ -17,6 +17,14 @@ class RingkasanController extends Controller
         return view('admin.ringkasan', compact(['ringkasan', 'software']));
     }
 
+    public function indexMathematica()
+    {
+    	$software = Software::where('id', '3')->get();
+        $ringkasan = Ringkasan::where('id_software', '3')->get();
+        //dd($software);
+        return view('admin.mathematica.ringkasanMathematica', compact(['ringkasan', 'software']));
+    }
+
     public function indexLabview()
     {
         $software = Software::where('id', '4')->get();
@@ -47,6 +55,22 @@ class RingkasanController extends Controller
             'ringkasan' =>$request->ringkasan
         ]);
         return redirect('/ringkasan');
+    }
+
+    public function createMathematica()
+    {
+        return view('admin.mathematica.createRingkasanMathematica');
+    }
+
+    public function storeMathematica(Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $software = Software::where('id', 3)->value('id');
+        Ringkasan::create([
+            'id_software' => $software,
+            'ringkasan' =>$request->ringkasan
+        ]);
+        return redirect('/ringkasanMathematica');
     }
 
     public function createLabview()
@@ -98,6 +122,22 @@ class RingkasanController extends Controller
         return redirect('/ringkasan');
     }
 
+    public function editMathematica($id)
+    {
+        //dd($id);
+        $software = Software::find($id);
+        $ringkasan = Ringkasan::find($id);
+        //dd($software);
+        return view('admin.mathematica.editRingkasanMathematica', compact(['ringkasan', 'software']));
+    }
+
+    public function updateMathematica($id, Request $request)
+    {
+        $ringkasan = Ringkasan::find($id);
+        $ringkasan->update($request->except(['_token','submit']));
+        return redirect('/ringkasanMathematica');
+    }
+
     public function editLabview($id)
     {
         //dd($id);
@@ -136,6 +176,13 @@ class RingkasanController extends Controller
         $ringkasan = Ringkasan::find($id);
         $ringkasan->delete();
         return redirect('/ringkasan');
+    }
+
+    public function destroyMathematica($id)
+    {
+        $ringkasan = Ringkasan::find($id);
+        $ringkasan->delete();
+        return redirect('/ringkasanMathematica');
     }
 
     public function destroyLabview($id)

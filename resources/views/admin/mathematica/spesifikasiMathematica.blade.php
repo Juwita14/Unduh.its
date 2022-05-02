@@ -152,11 +152,11 @@
                             <li>
                                 <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                             </li>
-                            <li class="open">
+                            <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="ringkasan">Ringkasan</a>
+                                        <a href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="filedownload">File Download</a>
@@ -186,20 +186,20 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-energy"></i><span class="sidebar-mini-hide">Mathematica</span></a>
                                 <ul>
-                                <li>
-                                        <a href="ringkasanMathematica">Ringkasan</a>
+                                    <li>
+                                        <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a class="active" href="be_blocks_api.html">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewMathematica">Preview</a>
                                     </li>
                                     
                                 </ul>
@@ -207,8 +207,8 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                <li>
-                                        <a href="ringkasanLabview">Ringkasan</a>
+                                    <li>
+                                        <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
@@ -217,7 +217,7 @@
                                         <a href="be_blocks_api.html">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewLabview">Preview</a>
                                     </li>
                                 </ul>
                             </li>
@@ -234,7 +234,7 @@
                                         <a href="be_blocks_api.html">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewMinitab">Preview</a>
                                     </li>
                                     
                                 </ul>
@@ -320,35 +320,70 @@
                     <!-- Hover Table -->
                     <div class="block">
                             <div class="block-header block-header-default">
-                                <h3 class="block-title">Ringkasan</h3>
+                                <h3 class="block-title">Fitur</h3>
                             </div>
                             <div class="block-content">
-                                <a href="ringkasan/create" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                                <a href="spesifikasiMathematica/createMathematica" class="btn btn-md btn-success mb-3">TAMBAH FITUR</a>
                                 <table class="table table-hover table-vcenter">
                                     <thead>
                                         <tr>
                                             <th style="width: 50px;">#</th>
-                                            <th>Nama</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 50%;">Ringkasan</th>
+                                            <th>Fitur</th>
                                             <th class="text-center" style="width: 100px;">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($ringkasan as $r)
+                                    @foreach($fitur as $f)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            @foreach ($software as $s)
-                                            <td>{{$s->nama_software}}</td>
-                                            @endforeach
-                                            <td>{{$r->ringkasan}}</td>
+                                            <td>{{$f->fitur}}</td>
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <a href="ringkasan/{{$r->id}}/edit" >
+                                                        <a href="spesifikasiMathematica/editMathematica/{{$f->id}}" >
                                                             <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                                         </a>
                                                     </button>
-                                                    <form action="ringkasan/{{$r->id}}" method="POST">
+                                                    <form action="spesifikasiMathematica/destroyMathematica/{{$f->id}}" method="POST">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
+                                                            <i style="color:#EF5350" class="fa fa-times"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="block-header block-header-default">
+                                <h3 class="block-title">Persyaratan Sistem</h3>
+                            </div>
+                            <div class="block-content">
+                                <a href="spesifikasiMathematica/createMathematicaPS" class="btn btn-md btn-success mb-3">TAMBAH PERSYARATAN SISTEM</a>
+                                <table class="table table-hover table-vcenter">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="width: 50px;">#</th>
+                                            <th>Persyaratan Sistem</th>
+                                            <th class="text-center" style="width: 100px;">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($persyaratan_sistem as $p)
+                                        <tr>
+                                            <td>{{$loop->iteration}}</td>
+                                            <td>{{$p->persyaratan_sistem}}</td>
+                                            <td class="text-center">
+                                                <div class="btn-group">
+                                                    <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
+                                                        <a href="spesifikasiMathematica/editMathematicaPS/{{$p->id}}" >
+                                                            <i style="color:#3A8CBD"class="fa fa-pencil"></i>
+                                                        </a>
+                                                    </button>
+                                                    <form action="spesifikasiMathematica/destroyMathematicaPS/{{$p->id}}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">

@@ -152,3 +152,30 @@ Route::post('/previewMinitab/storeMinitab', [PreviewController::class, 'storeMin
 Route::get('/previewMinitab/editMinitab/{id}', [PreviewController::class, 'editMinitab']);
 Route::put('/previewMinitab/updateMinitab/{id}', [PreviewController::class, 'updateMinitab']); 
 Route::delete('/previewMinitab/destroyMinitab/{id}', [PreviewController::class, 'destroyMinitab']);
+
+Route::get('/ringkasanMathematica', [RingkasanController::class, 'indexMathematica']);
+Route::get('/ringkasanMathematica/createMathematica', [RingkasanController::class, 'createMathematica']);
+Route::post('/ringkasanMathematica/storeMathematica', [RingkasanController::class, 'storeMathematica']);
+Route::get('/ringkasanMathematica/editMathematica/{id}', [RingkasanController::class, 'editMathematica']); 
+Route::put('/ringkasanMathematica/updateMathematica/{id}', [RingkasanController::class, 'updateMathematica']); 
+Route::delete('/ringkasanMathematica/destroyMathematica/{id}', [RingkasanController::class, 'destroyMathematica']); 
+
+Route::get('/spesifikasiMathematica', [SpesifikasiController::class, 'indexMathematica']);
+Route::get('/spesifikasiMathematica/createMathematica', [SpesifikasiController::class, 'createMathematica']);
+Route::post('/spesifikasiMathematica/storeMathematica', [SpesifikasiController::class, 'storeMathematica']);
+Route::get('/spesifikasiMathematica/editMathematica/{id}', [SpesifikasiController::class, 'editMathematica']); 
+Route::put('/spesifikasiMathematica/updateMathematica/{id}', [SpesifikasiController::class, 'updateMathematica']); 
+Route::delete('/spesifikasiMathematica/destroyMathematica/{id}', [SpesifikasiController::class, 'destroyMathematica']);
+
+Route::get('/spesifikasiMathematica/createMathematicaPS', [SpesifikasiController::class, 'createMathematicaPS']);
+Route::post('/spesifikasiMathematica/storeMathematicaPS', [SpesifikasiController::class, 'storeMathematicaPS']);
+Route::get('/spesifikasiMathematica/editMathematicaPS/{id}', [SpesifikasiController::class, 'editMathematicaPS']); 
+Route::put('/spesifikasiMathematica/updateMathematicaPS/{id}', [SpesifikasiController::class, 'updateMathematicaPS']); 
+Route::delete('/spesifikasiMathematica/destroyMathematicaPS/{id}', [SpesifikasiController::class, 'destroyMathematicaPS']);
+
+Route::get('/previewMathematica', [PreviewController::class, 'indexMathematica']); 
+Route::get('/previewMathematica/createMathematica', [PreviewController::class, 'createMathematica']);
+Route::post('/previewMathematica/storeMathematica', [PreviewController::class, 'storeMathematica']);
+Route::get('/previewMathematica/editMathematica/{id}', [PreviewController::class, 'editMathematica']);
+Route::put('/previewMathematica/updateMathematica/{id}', [PreviewController::class, 'updateMathematica']); 
+Route::delete('/previewMathematica/destroyMathematica/{id}', [PreviewController::class, 'destroyMathematica']);

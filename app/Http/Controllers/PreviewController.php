@@ -15,6 +15,12 @@ class PreviewController extends Controller
         return view('admin.preview', compact(['preview']));
     }
 
+    public function indexMathematica()
+    {
+        $preview = Preview::where('id_software', '3')->get();
+        return view('admin.mathematica.previewMathematica', compact(['preview']));
+    }
+
     public function indexLabview()
     {
         $preview = Preview::where('id_software', '4')->get();
@@ -47,6 +53,28 @@ class PreviewController extends Controller
 
         $namaFiles->move($destinationPath, $namaFile); 
         return redirect('/preview');
+    }
+
+    public function createMathematica()
+    {
+        return view('admin.mathematica.createPreviewMathematica');
+    }
+
+    public function storeMathematica(Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $namaFiles = $request->namaFiles;
+        $namaFile = $namaFiles-> getClientOriginalName();
+        $destinationPath = 'assets/media/preview';
+        $software = Software::where('id', 3)->value('id');
+        Preview::create([
+            'id_software' => $software,
+            'nama_gambar' =>$request->nama_gambar,
+            'namaFiles' =>$namaFile
+        ]);
+
+        $namaFiles->move($destinationPath, $namaFile); 
+        return redirect('/previewMathematica');
     }
 
     public function createLabview()
@@ -118,6 +146,31 @@ class PreviewController extends Controller
         return redirect('/preview');
     }
 
+    public function editMathematica($id)
+    {
+        //dd($id);
+        $preview = Preview::find($id);
+        //dd($fitur);
+        return view('admin.mathematica.editPreviewMathematica', compact(['preview']));
+    }
+
+    public function updateMathematica($id, Request $request)
+    {
+        $ubah = Preview::findorfail($id);
+        $awal = $ubah->namaFiles;
+        
+        $destinationPath = 'assets/media/preview';
+        $software = Software::where('id', 4)->value('id');
+        Preview::where('id', $id)
+        ->update([
+            'nama_gambar' =>$request->nama_gambar,
+            'namaFiles' =>$awal
+        ]);
+
+        $request->namaFiles->move($destinationPath, $awal); 
+        return redirect('/previewMathematica');
+    }
+
     public function editLabview($id)
     {
         //dd($id);
@@ -173,6 +226,13 @@ class PreviewController extends Controller
         $preview = Preview::find($id);
         $preview->delete();
         return redirect('/preview');
+    }
+
+    public function destroyMathematica($id)
+    {
+        $preview = Preview::find($id);
+        $preview->delete();
+        return redirect('/previewMathematica');
     }
 
     public function destroyLabview($id)
