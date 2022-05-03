@@ -156,7 +156,7 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="ringkasan">Ringkasan</a>
+                                        <a href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="filedownload">File Download</a>
@@ -165,7 +165,7 @@
                                         <a href="spesifikasi">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="preview">Preview</a>
+                                        <a class="active" href="preview">Preview</a>
                                     </li>
                                 </ul>
                             </li>
@@ -196,10 +196,10 @@
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a href="spesifikasiMathematica">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewMathematica">Preview</a>
                                     </li>
                                     
                                 </ul>
@@ -214,10 +214,10 @@
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a href="spesifikasiLabview">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewLabview">Preview</a>
                                     </li>
                                 </ul>
                             </li>
@@ -225,16 +225,16 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
                                 <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                        <a href="ringkasanMinitab">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a href="spesifikasiMinitab">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewMinitab">Preview</a>
                                     </li>
                                     
                                 </ul>
@@ -323,32 +323,32 @@
                                 <h3 class="block-title">Ringkasan</h3>
                             </div>
                             <div class="block-content">
-                                <a href="ringkasan/create" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                                <a href="preview/create" class="btn btn-md btn-success mb-3">TAMBAH GAMBAR</a>
                                 <table class="table table-hover table-vcenter">
                                     <thead>
                                         <tr>
                                             <th style="width: 50px;">#</th>
-                                            <th>Nama</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 50%;">Ringkasan</th>
+                                            <th>Nama Gambar</th>
+                                            <th class="d-none d-sm-table-cell" style="width: 60%;">Gambar</th>
                                             <th class="text-center" style="width: 100px;">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($ringkasan as $r)
+                                    @foreach($preview as $p)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            @foreach ($software as $s)
-                                            <td>{{$s->nama_software}}</td>
-                                            @endforeach
-                                            <td>{{$r->ringkasan}}</td>
+                                            <td>{{$p->nama_gambar}}</td>
+                                            <td>
+                                                <img src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
+                                            </td>
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <a href="ringkasan/{{$r->id}}/edit" >
+                                                        <a href="preview/{{$p->id}}/edit" >
                                                             <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                                         </a>
                                                     </button>
-                                                    <form action="ringkasan/{{$r->id}}" method="POST">
+                                                    <form action="preview/{{$p->id}}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">

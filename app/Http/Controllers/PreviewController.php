@@ -12,7 +12,7 @@ class PreviewController extends Controller
     public function index()
     {
         $preview = Preview::where('id_software', '1')->get();
-        return view('admin.preview', compact(['preview']));
+        return view('admin.adobe.preview', compact(['preview']));
     }
 
     public function indexMathematica()
@@ -35,7 +35,7 @@ class PreviewController extends Controller
 
     public function create()
     {
-        return view('admin.createPreview');
+        return view('admin.adobe.createPreview');
     }
 
     public function store(Request $request)
@@ -126,7 +126,7 @@ class PreviewController extends Controller
         //dd($id);
         $preview = Preview::find($id);
         //dd($fitur);
-        return view('admin.editPreview', compact(['preview']));
+        return view('admin.adobe.editPreview', compact(['preview']));
     }
 
     public function update($id, Request $request)

@@ -156,16 +156,16 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a href="ringkasan">Ringkasan</a>
+                                        <a class=" {{ Request::is('ringkasan') ? 'active open' : ''}}" href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="filedownload">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="spesifikasi">Spesifikasi</a>
+                                        <a class="{{ Request::is('spesifikasi') ? 'active open' : ''}}" href="spesifikasi">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="preview">Preview</a>
+                                        <a class="{{ Request::is('preview') ? 'active open' : ''}}" href="preview">Preview</a>
                                     </li>
                                 </ul>
                             </li>
@@ -190,16 +190,16 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-energy"></i><span class="sidebar-mini-hide">Mathematica</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="be_blocks.html">Ringkasan</a>
+                                        <a class="{{ (request()->is('ringkasanMathematica')) ? 'active open' : '' }}" href="ringkasanMathematica">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="spesifikasiMathematica">Spesifikasi</a>
+                                        <a class="{{ (request()->is('spesifikasiMathematica')) ? 'active' : '' }}" href="spesifikasiMathematica">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a class="{{ (request()->is('previewMathematica')) ? 'active' : '' }}" href="previewMathematica">Preview</a>
                                     </li>
                                     
                                 </ul>
@@ -207,8 +207,8 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                    <li>
+                                        <a href="ringkasanLabview">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
@@ -217,24 +217,24 @@
                                         <a href="spesifikasiLabview">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewLabview">Preview</a>
                                     </li>
                                 </ul>
                             </li>
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
-                                <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                    <li>
+                                        <a href="ringkasanMinitab">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a href="spesifikasiMinitab">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewMinitab">Preview</a>
                                     </li>
                                     
                                 </ul>

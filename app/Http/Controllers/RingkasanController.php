@@ -14,7 +14,7 @@ class RingkasanController extends Controller
     	$software = Software::where('id', '1')->get();
         $ringkasan = Ringkasan::where('id_software', '1')->get();
         //dd($software);
-        return view('admin.ringkasan', compact(['ringkasan', 'software']));
+        return view('admin.adobe.ringkasan', compact(['ringkasan', 'software']));
     }
 
     public function indexMathematica()
@@ -43,7 +43,7 @@ class RingkasanController extends Controller
 
     public function create()
     {
-        return view('admin.createRingkasan');
+        return view('admin.adobe.createRingkasan');
     }
 
     public function store(Request $request)
@@ -111,7 +111,7 @@ class RingkasanController extends Controller
         $software = Software::find($id);
         $ringkasan = Ringkasan::find($id);
         //dd($software);
-        return view('admin.editRingkasan', compact(['ringkasan', 'software']));
+        return view('admin.adobe.editRingkasan', compact(['ringkasan', 'software']));
     }
 
     public function update($id, Request $request)

@@ -189,17 +189,17 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-energy"></i><span class="sidebar-mini-hide">Mathematica</span></a>
                                 <ul>
-                                <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                    <li>
+                                        <a href="ringkasanMathematica">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a href="spesifikasiMathematica">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewMathematica">Preview</a>
                                     </li>
                                     
                                 </ul>
@@ -207,14 +207,14 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                    <li>
+                                        <a href="ringkasanLabview">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a href="spesifikasiLabview">Spesifikasi</a>
                                     </li>
                                     <li>
                                         <a href="previewLabview">Preview</a>
@@ -224,14 +224,14 @@
                             <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
-                                <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                    <li>
+                                        <a href="ringkasanMinitab">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a class="active" href="be_blocks_api.html">Spesifikasi</a>
+                                        <a href="spesifikasiMinitab">Spesifikasi</a>
                                     </li>
                                     <li>
                                         <a href="previewMinitab">Preview</a>

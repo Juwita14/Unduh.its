@@ -16,7 +16,7 @@ class SpesifikasiController extends Controller
         $fitur = Fitur::where('id_software', '1')->get();
         $persyaratan_sistem = Persyaratan_sistem::where('id_software', '1')->get();
         // dd($persyaratan_sistem);
-        return view('admin.spesifikasi', compact(['fitur', 'persyaratan_sistem']));
+        return view('admin.adobe.spesifikasi', compact(['fitur', 'persyaratan_sistem']));
         // return $fitur;
     }
 
@@ -52,7 +52,7 @@ class SpesifikasiController extends Controller
 
     public function create()
     {
-        return view('admin.createFitur');
+        return view('admin.adobe.createFitur');
     }
 
     public function store(Request $request)
@@ -123,7 +123,7 @@ class SpesifikasiController extends Controller
         //dd($id);
         $fitur = Fitur::find($id);
         //dd($fitur);
-        return view('admin.editFitur', compact(['fitur']));
+        return view('admin.adobe.editFitur', compact(['fitur']));
     }
 
     public function update($id, Request $request)
@@ -224,7 +224,7 @@ class SpesifikasiController extends Controller
 
     public function createPS()
     {
-        return view('admin.createPersyaratanSistem');
+        return view('admin.adobe.createPersyaratanSistem');
     }
 
     public function storePS(Request $request)
@@ -295,7 +295,7 @@ class SpesifikasiController extends Controller
         //dd($id);
         $persyaratan_sistem = Persyaratan_sistem::find($id);
         //dd($fitur);
-        return view('admin.editPersyaratanSistem', compact(['persyaratan_sistem']));
+        return view('admin.adobe.editPersyaratanSistem', compact(['persyaratan_sistem']));
     }
 
     public function updatePS($id, Request $request)
