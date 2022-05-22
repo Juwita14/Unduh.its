@@ -231,7 +231,7 @@
                                         <a href="be_blocks_draggable.html">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="spesifikasiMinitab">Spesifikasi</a>
+                                        <a class="active" href="spesifikasiMinitab">Spesifikasi</a>
                                     </li>
                                     <li>
                                         <a href="previewMinitab">Preview</a>

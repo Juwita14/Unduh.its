@@ -322,7 +322,7 @@
                                 <h3 class="block-title">Ringkasan</h3>
                             </div>
                             <div class="block-content">
-                                <a href="ringkasan/create" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                                <a href="ringkasan/create" class="btn btn-md btn-success mb-3">TAMBAH RINGKASAN</a>
                                 <table class="table table-hover table-vcenter">
                                     <thead>
                                         <tr>

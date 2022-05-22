@@ -199,7 +199,7 @@
                                         <a href="spesifikasiMathematica">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="previewMathematica">Preview</a>
+                                        <a class="active"href="previewMathematica">Preview</a>
                                     </li>
                                     
                                 </ul>
@@ -320,7 +320,7 @@
                     <!-- Hover Table -->
                     <div class="block">
                             <div class="block-header block-header-default">
-                                <h3 class="block-title">Ringkasan</h3>
+                                <h3 class="block-title">Preview</h3>
                             </div>
                             <div class="block-content">
                                 <a href="previewMathematica/createMathematica" class="btn btn-md btn-success mb-3">TAMBAH GAMBAR</a>
@@ -339,7 +339,7 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$p->nama_gambar}}</td>
                                             <td>
-                                                <img src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
+                                                <img style="width: 160px" src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group">
