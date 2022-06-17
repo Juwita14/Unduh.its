@@ -20,7 +20,7 @@
 
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-        <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
+        <link rel="shortcut icon" href="/assets/media/favicons/favicon.png">
         <link rel="icon" type="image/png" sizes="192x192" href="assets/media/favicons/favicon-192x192.png">
         <link rel="apple-touch-icon" sizes="180x180" href="assets/media/favicons/apple-touch-icon-180x180.png">
         <!-- END Icons -->
@@ -29,7 +29,7 @@
 
         <!-- Fonts and Codebase framework -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700&display=swap">
-        <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
+        <link rel="stylesheet" id="css-main" href="/assets/css/codebase.min.css">
 
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="assets/css/themes/flat.min.css"> -->
@@ -125,7 +125,7 @@
                             <!-- Logo -->
                             <div class="content-header-item">
                                 <div class="float-left mr-5 mb-5">
-                                    <img style="height: 48px; width: 45px;" class="img-avatar" src="assets/media/photos/logo-its-biru-transparan.png" alt=""> 
+                                    <img style="height: 48px; width: 45px;" class="img-avatar" src="/assets/media/photos/logo-its-biru-transparan.png" alt=""> 
                                 </div>
                                 <div class="content-header-item">
                                     <a class=" font-w700" href="index">
@@ -156,16 +156,16 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a href="ringkasan">Ringkasan</a>
+                                        <a class="active" href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a class="active" href="file_download">File Download</a>
+                                        <a href="filedownload">File Download</a>
                                     </li>
                                     <li>
                                         <a href="spesifikasi">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="preview">Preview</a>
+                                        <a href="be_blocks_api.html">Preview</a>
                                     </li>
                                 </ul>
                             </li>
@@ -319,77 +319,38 @@
                     <!-- Page Content -->
                     <!-- Hover Table -->
                     <div class="block">
-                            <div class="block-header block-header-default">
-                                <h3 class="block-title">File Panduan</h3>
-                            </div>
-                            <div class="block-content">
-                                <table class="table table-hover table-vcenter">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" style="width: 50px;">#</th>
-                                            <th>Nama File Panduan</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 40%;">File Panduan</th>
-                                            <th class="text-center" style="width: 100px;">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-center" scope="row">1</th>
-                                            <td>Wayne GarciaWayne GarciaWayne GarciaWayne GarciaWayne Garcia</td>
-                                            <td>Wayne Garcia</td>
-                                            <td class="text-center">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <i style="color:#3A8CBD"class="fa fa-pencil"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
-                                                        <i style="color:#EF5350" class="fa fa-times"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="block-header block-header-default">
-                                <h3 class="block-title">File Installer</h3>
-                            </div>
-                            <div class="block-content">
-                                <table class="table table-hover table-vcenter">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center" style="width: 50px;">#</th>
-                                            <th>Tipe OS</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 30%;">Nama File Installer</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 20%;">Tanggal Liris</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 20%;">File Download</th>
-                                            <th class="text-center" style="width: 100px;">Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th class="text-center" scope="row">1</th>
-                                            <td>Windows</td>
-                                            <td>Wayne Garcia</td>
-                                            <td>Wayne Garcia</td>
-                                            <td>.exe</td>
-                                            <td class="text-center">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <i style="color:#3A8CBD"class="fa fa-pencil"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
-                                                        <i style="color:#EF5350" class="fa fa-times"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="block-header block-header-default">
+                            <h3 class="block-title">Ubah Preview</h3>
                         </div>
+                        <div class="block-content">
+                            <form action="/filedownload/update/{{$file_panduan->id}}" method="POST" enctype='multipart/form-data'>
+                                @method('PUT')
+                                @csrf
+                                <div class="form-group row">
+                                    <label class="col-12" >Nama Gambar</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="nama_file_panduan" value="{{$file_panduan->nama_file_panduan}}"placeholder="Nama File">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-12">File Gambar</label>
+                                    <div class="col-md-9">
+                                        <input type="file" class="form-control" name="namapanduan" placeholder="Pendiri..">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-md-9">
+                                    <td>{{$file_panduan->namapanduan}}</td>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12">
+                                        <button type="submit" name=submit value="Save" class="btn btn-alt-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                         <!-- END Hover Table -->
                 </div>
                 <!-- END Page Content -->
@@ -429,7 +390,7 @@
             assets/js/core/jquery.countTo.min.js
             assets/js/core/js.cookie.min.js
         -->
-        <script src="assets/js/codebase.core.min.js"></script>
+        <script src="/assets/js/codebase.core.min.js"></script>
 
         <!--
             Codebase JS
@@ -437,12 +398,12 @@
             Custom functionality including Blocks/Layout API as well as other vital and optional helpers
             webpack is putting everything together at assets/_es6/main/app.js
         -->
-        <script src="assets/js/codebase.app.min.js"></script>
+        <script src="/assets/js/codebase.app.min.js"></script>
 
         <!-- Page JS Plugins -->
-        <script src="assets/js/plugins/chartjs/Chart.bundle.min.js"></script>
+        <script src="/assets/js/plugins/chartjs/Chart.bundle.min.js"></script>
 
         <!-- Page JS Code -->
-        <script src="assets/js/pages/be_pages_dashboard.min.js"></script>
+        <script src="/assets/js/pages/be_pages_dashboard.min.js"></script>
     </body>
 </html>

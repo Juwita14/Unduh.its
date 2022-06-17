@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RingkasanController;
 use App\Http\Controllers\SpesifikasiController;
 use App\Http\Controllers\PreviewController;
+use App\Http\Controllers\FileDownloadController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +18,27 @@ use App\Http\Controllers\PreviewController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+// Route::get('/login', [LoginController::class, 'index']); 
+// Route::post('/login/authenticate', [LoginController::class, 'authenticate']); 
+
+// Route::group(['middleware'=> ['auth', 'level:admin']], function () {
+  
+//     Route::get('/index', [HomeController::class, 'index'])->name('index');
+// });
+// Route::group(['middleware'=> ['auth', 'level:user']], function () {
+  
+//     Route::get('/index', [HomeController::class, 'index'])->name('index');
+// });
+
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/index', function () {
+Route::get('index', function () {
     return view('index');
 });
 
@@ -179,3 +198,59 @@ Route::post('/previewMathematica/storeMathematica', [PreviewController::class, '
 Route::get('/previewMathematica/editMathematica/{id}', [PreviewController::class, 'editMathematica']);
 Route::put('/previewMathematica/updateMathematica/{id}', [PreviewController::class, 'updateMathematica']); 
 Route::delete('/previewMathematica/destroyMathematica/{id}', [PreviewController::class, 'destroyMathematica']);
+
+Route::get('/filedownload', [FileDownloadController::class, 'index']); 
+Route::get('/filedownload/create', [FileDownloadController::class, 'create']);
+Route::post('/filedownload/store', [FileDownloadController::class, 'store']);
+Route::get('/filedownload/edit/{id}', [FileDownloadController::class, 'edit']);
+Route::put('/filedownload/update/{id}', [FileDownloadController::class, 'update']); 
+Route::delete('/filedownload/destroy/{id}', [FileDownloadController::class, 'destroy']);
+
+Route::get('/filedownloadMathematica', [FileDownloadController::class, 'indexMathematica']); 
+Route::get('/filedownloadMathematica/createMathematica', [FileDownloadController::class, 'createMathematica']);
+Route::post('/filedownloadMathematica/storeMathematica', [FileDownloadController::class, 'storeMathematica']);
+Route::get('/filedownloadMathematica/editMathematica/{id}', [FileDownloadController::class, 'editMathematica']);
+Route::put('/filedownloadMathematica/updateMathematica/{id}', [FileDownloadController::class, 'updateMathematica']); 
+Route::delete('/filedownloadMathematica/destroyMathematica/{id}', [FileDownloadController::class, 'destroyMathematica']);
+
+Route::get('/filedownloadMathematica/createMathematicaFI', [FileDownloadController::class, 'createMathematicaFI']);
+Route::post('/filedownloadMathematica/storeMathematicaFI', [FileDownloadController::class, 'storeMathematicaFI']);
+Route::get('/filedownloadMathematica/editMathematicaFI/{id}', [FileDownloadController::class, 'editMathematicaFI']);
+Route::put('/filedownloadMathematica/updateMathematicaFI/{id}', [FileDownloadController::class, 'updateMathematicaFI']); 
+Route::delete('/filedownloadMathematica/destroyMathematicaFI/{id}', [FileDownloadController::class, 'destroyMathematicaFI']);
+
+Route::get('/filedownloadLabview', [FileDownloadController::class, 'indexLabview']); 
+Route::get('/filedownloadLabview/createLabview', [FileDownloadController::class, 'createLabview']);
+Route::post('/filedownloadLabview/storeLabview', [FileDownloadController::class, 'storeLabview']);
+Route::get('/filedownloadLabview/editLabview/{id}', [FileDownloadController::class, 'editLabview']);
+Route::put('/filedownloadLabview/updateLabview/{id}', [FileDownloadController::class, 'updateLabview']); 
+Route::delete('/filedownloadLabview/destroyLabview/{id}', [FileDownloadController::class, 'destroyLabview']);
+
+Route::get('/filedownloadLabview/createLabviewFI', [FileDownloadController::class, 'createLabviewFI']);
+Route::post('/filedownloadLabview/storeLabviewFI', [FileDownloadController::class, 'storeLabviewFI']);
+Route::get('/filedownloadLabview/editLabviewFI/{id}', [FileDownloadController::class, 'editLabviewFI']);
+Route::put('/filedownloadLabview/updateLabviewFI/{id}', [FileDownloadController::class, 'updateLabviewFI']); 
+Route::delete('/filedownloadLabview/destroyLabviewFI/{id}', [FileDownloadController::class, 'destroyLabviewFI']);
+
+Route::get('/filedownloadMinitab', [FileDownloadController::class, 'indexMinitab']); 
+Route::get('/filedownloadMinitab/createMinitab', [FileDownloadController::class, 'createMinitab']);
+Route::post('/filedownloadMinitab/storeMinitab', [FileDownloadController::class, 'storeMinitab']);
+Route::get('/filedownloadMinitab/editMinitab/{id}', [FileDownloadController::class, 'editMinitab']);
+Route::put('/filedownloadMinitab/updateMinitab/{id}', [FileDownloadController::class, 'updateMinitab']); 
+Route::delete('/filedownloadMinitab/destroyMinitab/{id}', [FileDownloadController::class, 'destroyMinitab']);
+
+Route::get('/filedownloadMinitab/createMinitabFI', [FileDownloadController::class, 'createMinitabFI']);
+Route::post('/filedownloadMinitab/storeMinitabFI', [FileDownloadController::class, 'storeMinitabFI']);
+Route::get('/filedownloadMinitab/editMinitabFI/{id}', [FileDownloadController::class, 'editMinitabFI']);
+Route::put('/filedownloadMinitab/updateMinitabFI/{id}', [FileDownloadController::class, 'updateMinitabFI']); 
+Route::delete('/filedownloadMinitab/destroyMinitabFI/{id}', [FileDownloadController::class, 'destroyMinitabFI']);
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

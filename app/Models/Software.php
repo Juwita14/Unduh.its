@@ -39,4 +39,14 @@ class Software extends Model
     {
         return $ringkasan->hasMany('App\Models\Ringkasan');
     }
+
+    public function file_panduan()
+    {
+        return $ringkasan->hasMany('App\Models\File_panduan');
+    }
+
+    public function File_installer()
+    {
+        return $ringkasan->hasMany('App\Models\File_installer');
+    }
 }
