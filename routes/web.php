@@ -42,21 +42,6 @@ Route::get('index', function () {
     return view('index');
 });
 
-Route::get('minitab', function()
-{
-    return view('minitab');
-});
-
-Route::get('mathematica', function()
-{
-    return view('mathematica');
-});
-
-Route::get('labview', function()
-{
-    return view('labview');
-});
-
 Route::get('awal', function()
 {
     return view('awal');
@@ -118,6 +103,10 @@ Route::get('/preview/{id}/edit', [PreviewController::class, 'edit']);
 Route::put('/preview/{id}', [PreviewController::class, 'update']); 
 Route::delete('/preview/{id}', [PreviewController::class, 'destroy']);
 
+
+// User
+Route::get('/labview', [RingkasanController::class, 'indexLabviewUser']);
+
 Route::get('/ringkasanLabview', [RingkasanController::class, 'indexLabview']);
 Route::get('/ringkasanLabview/createLabview', [RingkasanController::class, 'createLabview']);
 Route::post('/ringkasanLabview/storeLabview', [RingkasanController::class, 'storeLabview']);
@@ -145,6 +134,9 @@ Route::get('/previewLabview/editLabview/{id}', [PreviewController::class, 'editL
 Route::put('/previewLabview/updateLabview/{id}', [PreviewController::class, 'updateLabview']); 
 Route::delete('/previewLabview/destroyLabview/{id}', [PreviewController::class, 'destroyLabview']);
 
+// User
+Route::get('/minitab', [RingkasanController::class, 'indexMinitabUser']);
+
 Route::get('/ringkasanMinitab', [RingkasanController::class, 'indexMinitab']);
 Route::get('/ringkasanMinitab/createMinitab', [RingkasanController::class, 'createMinitab']);
 Route::post('/ringkasanMinitab/storeMinitab', [RingkasanController::class, 'storeMinitab']);
@@ -171,6 +163,9 @@ Route::post('/previewMinitab/storeMinitab', [PreviewController::class, 'storeMin
 Route::get('/previewMinitab/editMinitab/{id}', [PreviewController::class, 'editMinitab']);
 Route::put('/previewMinitab/updateMinitab/{id}', [PreviewController::class, 'updateMinitab']); 
 Route::delete('/previewMinitab/destroyMinitab/{id}', [PreviewController::class, 'destroyMinitab']);
+
+// User
+Route::get('/mathematica', [RingkasanController::class, 'indexMathematicaUser']);
 
 Route::get('/ringkasanMathematica', [RingkasanController::class, 'indexMathematica']);
 Route::get('/ringkasanMathematica/createMathematica', [RingkasanController::class, 'createMathematica']);

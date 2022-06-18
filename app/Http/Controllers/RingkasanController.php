@@ -17,6 +17,14 @@ class RingkasanController extends Controller
         return view('admin.adobe.ringkasan', compact(['ringkasan', 'software']));
     }
 
+    public function indexMathematicaUser()
+    {
+    	$software = Software::where('id', '3')->get();
+        $ringkasan = Ringkasan::where('id_software', '3')->get();
+        //dd($software);
+        return view('mathematica', compact(['ringkasan', 'software']));
+    }
+
     public function indexMathematica()
     {
     	$software = Software::where('id', '3')->get();
@@ -25,12 +33,28 @@ class RingkasanController extends Controller
         return view('admin.mathematica.ringkasanMathematica', compact(['ringkasan', 'software']));
     }
 
+    public function indexLabviewUser()
+    {
+        $software = Software::where('id', '4')->get();
+        $ringkasan = Ringkasan::where('id_software', '4')->get();
+        //dd($software);
+        return view('labview', compact(['ringkasan', 'software']));
+    }
+
     public function indexLabview()
     {
         $software = Software::where('id', '4')->get();
         $ringkasan = Ringkasan::where('id_software', '4')->get();
         //dd($software);
         return view('admin.labview.ringkasanLabview', compact(['ringkasan', 'software']));
+    }
+
+    public function indexMinitabUser()
+    {
+        $software = Software::where('id', '5')->get();
+        $ringkasan = Ringkasan::where('id_software', '5')->get();
+        //dd($software);
+        return view('minitab', compact(['ringkasan', 'software']));
     }
 
     public function indexMinitab()
