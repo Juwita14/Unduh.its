@@ -189,11 +189,11 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-energy"></i><span class="sidebar-mini-hide">Mathematica</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a href="ringkasanMathematica">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a href="filedownloadMathematica">File Download</a>
                                     </li>
                                     <li>
                                         <a href="spesifikasiMathematica">Spesifikasi</a>
@@ -207,11 +207,11 @@
                             <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a class="active" href="ringkasanLabview">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a href="filedownloadLabview">File Download</a>
                                     </li>
                                     <li>
                                         <a href="spesifikasiLabview">Spesifikasi</a>
@@ -224,11 +224,11 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a href="ringkasanMinitab">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a href="filedownloadMinitab">File Download</a>
                                     </li>
                                     <li>
                                         <a href="spesifikasiMinitab">Spesifikasi</a>

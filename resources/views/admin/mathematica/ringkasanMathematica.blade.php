@@ -156,16 +156,16 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a class=" {{ Request::is('ringkasan') ? 'active open' : ''}}" href="ringkasan">Ringkasan</a>
+                                        <a href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
                                         <a href="filedownload">File Download</a>
                                     </li>
                                     <li>
-                                        <a class="{{ Request::is('spesifikasi') ? 'active open' : ''}}" href="spesifikasi">Spesifikasi</a>
+                                        <a href="spesifikasi">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a class="{{ Request::is('preview') ? 'active open' : ''}}" href="preview">Preview</a>
+                                        <a href="preview">Preview</a>
                                     </li>
                                 </ul>
                             </li>
@@ -190,16 +190,16 @@
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-energy"></i><span class="sidebar-mini-hide">Mathematica</span></a>
                                 <ul>
                                     <li>
-                                        <a class="{{ (request()->is('ringkasanMathematica')) ? 'active open' : '' }}" href="ringkasanMathematica">Ringkasan</a>
+                                        <a class="active" href="ringkasanMathematica">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a href="filedownloadMathematica">File Download</a>
                                     </li>
                                     <li>
-                                        <a class="{{ (request()->is('spesifikasiMathematica')) ? 'active' : '' }}" href="spesifikasiMathematica">Spesifikasi</a>
+                                        <a href="spesifikasiMathematica">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a class="{{ (request()->is('previewMathematica')) ? 'active' : '' }}" href="previewMathematica">Preview</a>
+                                        <a href="previewMathematica">Preview</a>
                                     </li>
                                     
                                 </ul>
@@ -211,7 +211,7 @@
                                         <a href="ringkasanLabview">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a href="filedownloadLabview">File Download</a>
                                     </li>
                                     <li>
                                         <a href="spesifikasiLabview">Spesifikasi</a>
@@ -228,7 +228,7 @@
                                         <a href="ringkasanMinitab">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a href="filedownloadMinitab">File Download</a>
                                     </li>
                                     <li>
                                         <a href="spesifikasiMinitab">Spesifikasi</a>

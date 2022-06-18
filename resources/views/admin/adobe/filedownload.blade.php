@@ -189,7 +189,7 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-energy"></i><span class="sidebar-mini-hide">Mathematica</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a href="ringkasanMathematica">Ringkasan</a>
                                     </li>
                                     <li>
@@ -207,7 +207,7 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a href="ringkasanLabview">Ringkasan</a>
                                     </li>
                                     <li>
@@ -224,7 +224,7 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a href="ringkasanMinitab">Ringkasan</a>
                                     </li>
                                     <li>

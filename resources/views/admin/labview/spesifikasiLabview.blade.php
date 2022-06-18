@@ -193,7 +193,7 @@
                                         <a href="ringkasanMathematica">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a href="filedownloadMathematica">File Download</a>
                                     </li>
                                     <li>
                                         <a href="spesifikasiMathematica">Spesifikasi</a>
@@ -211,10 +211,10 @@
                                         <a href="ringkasanLabview">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a href="filedownloadLabview">File Download</a>
                                     </li>
                                     <li>
-                                        <a href="spesifikasiLabview">Spesifikasi</a>
+                                        <a class="active" href="spesifikasiLabview">Spesifikasi</a>
                                     </li>
                                     <li>
                                         <a href="previewLabview">Preview</a>
@@ -228,7 +228,7 @@
                                         <a href="ringkasanMinitab">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a href="filedownloadMinitab">File Download</a>
                                     </li>
                                     <li>
                                         <a href="spesifikasiMinitab">Spesifikasi</a>
