@@ -131,18 +131,27 @@ class PreviewController extends Controller
 
     public function update($id, Request $request)
     {
-        $ubah = Preview::findorfail($id);
-        $awal = $ubah->namaFiles;
-        
-        $destinationPath = 'assets/media/preview';
+        // dd($request->except(['_token','submit']));
+        $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+        $path = public_path("assets/media/preview/");
+        $pathfilelama = public_path("assets/media/preview/{$namaFile}");
+        // dd($pathfilelama);
+        $isExists = file_exists($pathfilelama);
+        unlink($pathfilelama);
+
+        $previewbaru = $request->namaFiles;
+        $namaPreviewbaru = $previewbaru->getClientOriginalName();
+        // dd($namaPreviewbaru);
+        $previewbaru->move($path, $namaPreviewbaru);
+
         $software = Software::where('id', 1)->value('id');
         Preview::where('id', $id)
         ->update([
             'nama_gambar' =>$request->nama_gambar,
-            'namaFiles' =>$awal
+            'namaFiles' =>$namaPreviewbaru
         ]);
-
-        $request->namaFiles->move($destinationPath, $awal); 
+        
         return redirect('/preview');
     }
 
@@ -156,18 +165,27 @@ class PreviewController extends Controller
 
     public function updateMathematica($id, Request $request)
     {
-        $ubah = Preview::findorfail($id);
-        $awal = $ubah->namaFiles;
-        
-        $destinationPath = 'assets/media/preview';
-        $software = Software::where('id', 4)->value('id');
+        // dd($request->except(['_token','submit']));
+        $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+        $path = public_path("assets/media/preview/");
+        $pathfilelama = public_path("assets/media/preview/{$namaFile}");
+        // dd($pathfilelama);
+        $isExists = file_exists($pathfilelama);
+        unlink($pathfilelama);
+
+        $previewbaru = $request->namaFiles;
+        $namaPreviewbaru = $previewbaru->getClientOriginalName();
+        // dd($namaPreviewbaru);
+        $previewbaru->move($path, $namaPreviewbaru);
+
+        $software = Software::where('id', 3)->value('id');
         Preview::where('id', $id)
         ->update([
             'nama_gambar' =>$request->nama_gambar,
-            'namaFiles' =>$awal
+            'namaFiles' =>$namaPreviewbaru
         ]);
-
-        $request->namaFiles->move($destinationPath, $awal); 
+        
         return redirect('/previewMathematica');
     }
 
@@ -181,18 +199,27 @@ class PreviewController extends Controller
 
     public function updateLabview($id, Request $request)
     {
-        $ubah = Preview::findorfail($id);
-        $awal = $ubah->namaFiles;
-        
-        $destinationPath = 'assets/media/preview';
+        // dd($request->except(['_token','submit']));
+        $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+        $path = public_path("assets/media/preview/");
+        $pathfilelama = public_path("assets/media/preview/{$namaFile}");
+        // dd($pathfilelama);
+        $isExists = file_exists($pathfilelama);
+        unlink($pathfilelama);
+
+        $previewbaru = $request->namaFiles;
+        $namaPreviewbaru = $previewbaru->getClientOriginalName();
+        // dd($namaPreviewbaru);
+        $previewbaru->move($path, $namaPreviewbaru);
+
         $software = Software::where('id', 4)->value('id');
         Preview::where('id', $id)
         ->update([
             'nama_gambar' =>$request->nama_gambar,
-            'namaFiles' =>$awal
+            'namaFiles' =>$namaPreviewbaru
         ]);
 
-        $request->namaFiles->move($destinationPath, $awal); 
         return redirect('/previewLabview');
     }
 
@@ -206,24 +233,40 @@ class PreviewController extends Controller
 
     public function updateMinitab($id, Request $request)
     {
-        $ubah = Preview::findorfail($id);
-        $awal = $ubah->namaFiles;
-        
-        $destinationPath = 'assets/media/preview';
-        $software = Software::where('id', 1)->value('id');
+        // dd($request->except(['_token','submit']));
+        $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+        $path = public_path("assets/media/preview/");
+        $pathfilelama = public_path("assets/media/preview/{$namaFile}");
+        // dd($pathfilelama);
+        $isExists = file_exists($pathfilelama);
+        unlink($pathfilelama);
+
+        $previewbaru = $request->namaFiles;
+        $namaPreviewbaru = $previewbaru->getClientOriginalName();
+        // dd($namaPreviewbaru);
+        $previewbaru->move($path, $namaPreviewbaru);
+
+        $software = Software::where('id', 5)->value('id');
         Preview::where('id', $id)
         ->update([
             'nama_gambar' =>$request->nama_gambar,
-            'namaFiles' =>$awal
-        ]);
-
-        $request->namaFiles->move($destinationPath, $awal); 
+            'namaFiles' =>$namaPreviewbaru
+        ]); 
         return redirect('/previewMinitab');
     }
 
     public function destroy($id)
     {
         $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+
+        $path = public_path("assets/media/preview/{$namaFile}");
+
+        $isExists = file_exists($path);
+
+        // dd($isExists);
+        unlink($path);
         $preview->delete();
         return redirect('/preview');
     }
@@ -231,6 +274,14 @@ class PreviewController extends Controller
     public function destroyMathematica($id)
     {
         $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+
+        $path = public_path("assets/media/preview/{$namaFile}");
+
+        $isExists = file_exists($path);
+
+        // dd($isExists);
+        unlink($path);
         $preview->delete();
         return redirect('/previewMathematica');
     }
@@ -238,6 +289,14 @@ class PreviewController extends Controller
     public function destroyLabview($id)
     {
         $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+
+        $path = public_path("assets/media/preview/{$namaFile}");
+
+        $isExists = file_exists($path);
+
+        // dd($isExists);
+        unlink($path);
         $preview->delete();
         return redirect('/previewLabview');
     }
@@ -245,6 +304,14 @@ class PreviewController extends Controller
     public function destroyMinitab($id)
     {
         $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+
+        $path = public_path("assets/media/preview/{$namaFile}");
+
+        $isExists = file_exists($path);
+
+        // dd($isExists);
+        unlink($path);
         $preview->delete();
         return redirect('/previewMinitab');
     }

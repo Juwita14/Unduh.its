@@ -340,7 +340,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-9">
-                                    <img src="{{ asset('assets/media/preview/'.$preview->namaFiles) }}" alt="" title="">
+                                    <img style="width: 300px" src="{{ asset('assets/media/preview/'.$preview->namaFiles) }}" alt="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group row">

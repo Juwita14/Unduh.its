@@ -224,7 +224,7 @@
                             <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
@@ -340,7 +340,7 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-9">
-                                    <img src="{{ asset('assets/media/preview/'.$preview->namaFiles) }}" alt="" title="">
+                                    <img style="width: 300px" src="{{ asset('assets/media/preview/'.$preview->namaFiles) }}" alt="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group row">

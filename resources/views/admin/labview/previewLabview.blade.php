@@ -217,7 +217,7 @@
                                         <a href="spesifikasiLabview">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="previewLabview">Preview</a>
+                                        <a class="active" href="previewLabview">Preview</a>
                                     </li>
                                 </ul>
                             </li>
