@@ -8,8 +8,9 @@ use App\Http\Controllers\FileDownloadController;
 use App\Http\Controllers\ControllerMathematica;
 use App\Http\Controllers\ControllerMinitab;
 use App\Http\Controllers\ControllerLabview;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,29 +22,42 @@ use App\Http\Controllers\Auth\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/', function () {
-//     return view('home');
-// });
 
-// Route::get('/login', [LoginController::class, 'index']); 
-// Route::post('/login/authenticate', [LoginController::class, 'authenticate']); 
 
-// Route::group(['middleware'=> ['auth', 'level:admin']], function () {
-  
-//     Route::get('/index', [HomeController::class, 'index'])->name('index');
-// });
-// Route::group(['middleware'=> ['auth', 'level:user']], function () {
-  
-//     Route::get('/index', [HomeController::class, 'index'])->name('index');
-// });
 
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('index', function () {
-    return view('index');
-});
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+// auth: admin || user
+Route::group(['middleware' => ['auth']], function () {
+    Route::group(['middleware' => ['cek_login:admin']], function () {
+        Route::resource('admin', AdminController::class);
+    });
+    Route::group(['middleware' => ['cek_login:user']], function () {
+        Route::resource('produk', UserController::class);
+        Route::get('/mathematica', [UserController::class, 'indexMathematica']);
+        Route::get('/minitab', [UserController::class, 'indexMinitab']);
+        Route::get('/labview', [UserController::class, 'indexLabview']);
+        Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
+        Route::get('/downloadInstaller/{id}', [UserController::class, 'getDownloadInstaller']);
+    });
+}); 
+
+
+
+
+// Route::get('login', 'AuthController@index')->name('login');
+// Route::post('proses_login', 'App\Http\Controllers\AuthController@proses_login')->name('proses_login');
+
+// Route::get('index', function () {
+//     return view('index');
+// });
 
 Route::get('awal', function()
 {
@@ -240,17 +254,6 @@ Route::get('/filedownloadMinitab/editMinitabFI/{id}', [FileDownloadController::c
 Route::put('/filedownloadMinitab/updateMinitabFI/{id}', [FileDownloadController::class, 'updateMinitabFI']); 
 Route::delete('/filedownloadMinitab/destroyMinitabFI/{id}', [FileDownloadController::class, 'destroyMinitabFI']);
 
-// User
-Route::get('/mathematica', [ControllerMathematica::class, 'index']);
-// User
-Route::get('/minitab', [ControllerMinitab::class, 'index']);
-// User
-Route::get('/labview', [ControllerLabview::class, 'index']);
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

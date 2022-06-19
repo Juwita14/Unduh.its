@@ -205,7 +205,7 @@
                     <!-- END Search -->
                     
                     <div style="background-color:#F0F2F5;" class="block shadow-none">
-                            <a href="index">Produk Lisensi </a>
+                            <a href="produk">Produk Lisensi </a>
                             <i class="fa fa-angle-right "></i>
                             <a > Minitab</a>
                     </div>
@@ -282,183 +282,43 @@
                                                         <h4 class="h5 mb-5">
                                                             <a class="font-size-md  font-w700">File Panduan</a>
                                                         </h4>
-                                                        <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                        @foreach($file_panduan as $pd)
+                                                        <a href="/downloadPanduan/{{$pd->id}}">
+                                                            <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                             <div style="display:inline-block;" class="text">
-                                                                <a download href="assets/media/file"> Pdf</a>
+                                                                <p>{{$pd->nama_file_panduan}}</p>
                                                             </div>
+                                                        </a>
+                                                        @endforeach
                                                     </div>
                                                     <div class="col-lg-12 border-b">
                                                         <h4 class="h5 mb-5">
                                                             <a class="font-size-md  font-w700">File Installer</a>
                                                         </h4>
                                                         <table class="table table-borderless table-hover table-vcenter">
-                                                            <thead class="thead-light">
+                                                        <thead class="thead-light">
                                                                 <tr>
-                                                                    <th>Name</th>
-                                                                    <th class="d-none d-sm-table-cell">Tanggal Liris</th>
+                                                                    <th>Nama</th>
+                                                                    <th class="d-none d-sm-table-cell">Ukuran</th>
                                                                     <th class="text-center" style="width: 80px;">Download</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td class="font-w600">
-                                                                        <a href="javascript:void(0)">Windows</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                    </td>
+                                                            @foreach($file_installer as $fi)
                                                                 </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Minitab 21</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    27 October 2021
-                                                                    </td>   
+                                                                <td>{{$fi->nama_file_installer}}</td>
+                                                                <td>{{$fi->size}}MB</td> 
                                                                     <td class="text-center">
                                                                         <div class="btn-group">
+                                                                            <a href="/downloadInstaller/{{$fi->id}}">
                                                                             <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                                 <i class="fa fa-download"></i>
                                                                             </button>
+                                                                            </a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Minitab 20</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    31 December 2021
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Minitab 19</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    5 June 2019
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="font-w600">
-                                                                        <a href="javascript:void(0)">Mac</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                    </td>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Minitab 21</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    27 October 2021
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Minitab 20</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    31 December 2021
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Minitab 19</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    5 June 2019
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="font-w600">
-                                                                        <a href="javascript:void(0)">Linux</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                    </td>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Minitab 21</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    27 October 2021
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Minitab 20</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    31 December 2021
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Minitab 19</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    5 June 2019
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>

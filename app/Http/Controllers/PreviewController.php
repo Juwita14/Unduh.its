@@ -9,9 +9,13 @@ use App\Models\Software;
 
 class PreviewController extends Controller
 {
+    public function indexx(){
+        return "Selamat Routing Anda Sudah Benar";
+    }
     public function index()
     {
         $preview = Preview::where('id_software', '1')->get();
+        // dd($preview);
         return view('admin.adobe.preview', compact(['preview']));
     }
 

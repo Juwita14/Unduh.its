@@ -129,14 +129,19 @@
 
                         <!-- Open Search Section -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        <div class="block-content block-content-full clearfix">
-                            <div class="float-left">
-                                <img style="height: 45px; width:45px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img style="height: 30px; width:30px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
+                                <i class="fa fa-user d-sm-none"></i>
+                                <span class="d-none d-sm-inline-block">Juwita Kartika Rani</span>
+                                <i class="fa fa-angle-down ml-5"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right min-width-200" aria-labelledby="page-header-user-dropdown">
+                                <h5 class="h6 text-center py-10 mb-5 border-b text-uppercase">User</h5>
+                                <a class="dropdown-item" href="logout">
+                                    <i class="si si-logout mr-5"></i> Sign Out
+                                </a>
                             </div>
-                            <div class="float-left mt-10">
-                                <div class="font-w600 mb-5 ml-10">Juwita Kartika Rani</div>
-                            </div>
-                        </div>
                         <!-- END Open Search Section -->
 
                         <!-- Toggle Sidebar -->
@@ -204,7 +209,7 @@
                     <!-- END Search -->
                     
                     <div style="background-color:#F0F2F5;" class="block shadow-none">
-                            <a href="index">Produk Lisensi </a>
+                            <a href="produk">Produk Lisensi </a>
                             <i class="fa fa-angle-right "></i>
                             <a > Mathematica</a>
                     </div>
@@ -282,10 +287,14 @@
                                                         <h4 class="h5 mb-5">
                                                             <a class="font-size-md  font-w700">File Panduan</a>
                                                         </h4>
-                                                        <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                        @foreach($file_panduan as $pd)
+                                                        <a href="/download/{{$pd->id}}">
+                                                            <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                             <div style="display:inline-block;" class="text">
-                                                            <p> Pdf</p>
+                                                                <p>{{$pd->nama_file_panduan}}</p>
                                                             </div>
+                                                        </a>
+                                                        @endforeach
                                                     </div>
                                                     <div class="col-lg-12 border-b">
                                                         <h4 class="h5 mb-5">
@@ -294,171 +303,27 @@
                                                         <table class="table table-borderless table-hover table-vcenter">
                                                             <thead class="thead-light">
                                                                 <tr>
-                                                                    <th>Name</th>
-                                                                    <th class="d-none d-sm-table-cell">Tanggal Liris</th>
+                                                                    <th>Nama</th>
+                                                                    <th class="d-none d-sm-table-cell">Ukuran</th>
                                                                     <th class="text-center" style="width: 80px;">Download</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr>
-                                                                    <td class="font-w600">
-                                                                        <a href="javascript:void(0)">Windows</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                    </td>
+                                                            @foreach($file_installer as $fi)
                                                                 </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Mathematica 13</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    December 2021
-                                                                    </td>   
+                                                                <td>{{$fi->nama_file_installer}}</td>
+                                                                <td>{{$fi->size}} GB</td> 
                                                                     <td class="text-center">
-                                                                        <div class="btn-group">
+                                                                    <div class="btn-group">
+                                                                            <a href="/downloadInstaller/{{$fi->id}}">
                                                                             <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                                 <i class="fa fa-download"></i>
                                                                             </button>
+                                                                            </a>
                                                                         </div>
                                                                     </td>
                                                                 </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Mathematica 12</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    April 2019
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Mathematica 11</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    August 2016
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="font-w600">
-                                                                        <a href="javascript:void(0)">Mac</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                    </td>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Mathematica 13</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    December 2021
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Mathematica 12</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    April 2019
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Mathematica 11</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    August 2016
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="font-w600">
-                                                                        <a href="javascript:void(0)">Linux</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                    </td>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Mathematica 13</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    December 2021
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Mathematica 12</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    April 2019
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                                </tr>
-                                                                    <td class="font-w600">
-                                                                        <a>Mathematica 11</a>
-                                                                    </td>
-                                                                    <td class="d-none d-sm-table-cell">
-                                                                    August 2016
-                                                                    </td>   
-                                                                    <td class="text-center">
-                                                                        <div class="btn-group">
-                                                                            <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                                <i class="fa fa-download"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>
