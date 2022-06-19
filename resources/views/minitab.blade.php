@@ -471,23 +471,22 @@
                                                 <div class="row items-push">
                                                     <div class="col-lg-12 border-b">
                                                         <h4 class="h5 mb-5">
-                                                            <a class="font-size-md  font-w700">Fitur</a>
+                                                            <a class="font-size-md  font-w700">Persyaratan Sistem</a>
                                                         </h4>
-                                                        <ul class="font-sm text-muted">
-                                                            <li>Modul Analisis Prediktif, add-on opsional.</li>
-                                                            <li>Teknik Cox Regression tersedia di menu Reliability/Survival.</li>
-                                                        </ul>
+                                                        @foreach($persyaratan_sistem as $p)
+                                                            <p> {!! html_entity_decode($p->persyaratan_sistem) !!}</p>
+                                                        @endforeach
+
                                                     </div>
                                                     <div class="col-lg-12 border-b">
                                                         <h4 class="h5 mb-5">
-                                                            <a class="font-size-md  font-w700">Persyaratan Sistem</a>
+                                                            <a class="font-size-md  font-w700">Fitur</a>
                                                         </h4>
-                                                        <ul class="font-sm text-muted">
-                                                            <li>Sistem Operasi: Windows 10.</li>
-                                                            <li>RAM: Sistem 64-bit: memori 4 GB atau lebih disarankan</li>
-                                                            <li>Ruang Hard Disk: 2 GB (minimum) ruang kosong yang tersedia</li>
-                                                        </ul>
+                                                            @foreach($fitur as $f)
+                                                            <p> {!! html_entity_decode($f->fitur) !!}</p>
+                                                            @endforeach
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                             <!-- END Spesifikasi -->

@@ -328,7 +328,7 @@
                                 <div class="form-group row">
                                     <label class="col-12">Peryaratan Sistem</label>
                                     <div class="col-12">
-                                        <textarea style="width:715px" class="form-control" name="persyaratan_sistem"rows="6" placeholder="Persyaratan Sistem.."></textarea>
+                                        <textarea id="js-ckeditor" name="persyaratan_sistem"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -390,8 +390,11 @@
 
         <!-- Page JS Plugins -->
         <script src="/assets/js/plugins/chartjs/Chart.bundle.min.js"></script>
+        <script src="/assets/js/plugins/ckeditor/ckeditor.js"></script>
+        
 
         <!-- Page JS Code -->
         <script src="/assets/js/pages/be_pages_dashboard.min.js"></script>
+        <script>jQuery(function(){ Codebase.helpers([ 'ckeditor']); });</script>
     </body>
 </html>

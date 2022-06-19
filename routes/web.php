@@ -5,6 +5,9 @@ use App\Http\Controllers\RingkasanController;
 use App\Http\Controllers\SpesifikasiController;
 use App\Http\Controllers\PreviewController;
 use App\Http\Controllers\FileDownloadController;
+use App\Http\Controllers\ControllerMathematica;
+use App\Http\Controllers\ControllerMinitab;
+use App\Http\Controllers\ControllerLabview;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -104,8 +107,7 @@ Route::put('/preview/{id}', [PreviewController::class, 'update']);
 Route::delete('/preview/{id}', [PreviewController::class, 'destroy']);
 
 
-// User
-Route::get('/labview', [RingkasanController::class, 'indexLabviewUser']);
+
 
 Route::get('/ringkasanLabview', [RingkasanController::class, 'indexLabview']);
 Route::get('/ringkasanLabview/createLabview', [RingkasanController::class, 'createLabview']);
@@ -134,8 +136,7 @@ Route::get('/previewLabview/editLabview/{id}', [PreviewController::class, 'editL
 Route::put('/previewLabview/updateLabview/{id}', [PreviewController::class, 'updateLabview']); 
 Route::delete('/previewLabview/destroyLabview/{id}', [PreviewController::class, 'destroyLabview']);
 
-// User
-Route::get('/minitab', [RingkasanController::class, 'indexMinitabUser']);
+
 
 Route::get('/ringkasanMinitab', [RingkasanController::class, 'indexMinitab']);
 Route::get('/ringkasanMinitab/createMinitab', [RingkasanController::class, 'createMinitab']);
@@ -164,8 +165,7 @@ Route::get('/previewMinitab/editMinitab/{id}', [PreviewController::class, 'editM
 Route::put('/previewMinitab/updateMinitab/{id}', [PreviewController::class, 'updateMinitab']); 
 Route::delete('/previewMinitab/destroyMinitab/{id}', [PreviewController::class, 'destroyMinitab']);
 
-// User
-Route::get('/mathematica', [RingkasanController::class, 'indexMathematicaUser']);
+
 
 Route::get('/ringkasanMathematica', [RingkasanController::class, 'indexMathematica']);
 Route::get('/ringkasanMathematica/createMathematica', [RingkasanController::class, 'createMathematica']);
@@ -240,7 +240,12 @@ Route::get('/filedownloadMinitab/editMinitabFI/{id}', [FileDownloadController::c
 Route::put('/filedownloadMinitab/updateMinitabFI/{id}', [FileDownloadController::class, 'updateMinitabFI']); 
 Route::delete('/filedownloadMinitab/destroyMinitabFI/{id}', [FileDownloadController::class, 'destroyMinitabFI']);
 
-
+// User
+Route::get('/mathematica', [ControllerMathematica::class, 'index']);
+// User
+Route::get('/minitab', [ControllerMinitab::class, 'index']);
+// User
+Route::get('/labview', [ControllerLabview::class, 'index']);
 
 Auth::routes();
 

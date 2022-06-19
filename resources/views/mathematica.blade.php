@@ -471,23 +471,24 @@
                                                 <div class="row items-push">
                                                     <div class="col-lg-12 border-b">
                                                         <h4 class="h5 mb-5">
-                                                            <a class="font-size-md  font-w700">Fitur</a>
+                                                            <a class="font-size-md  font-w700">Persyaratan Sistem</a>
                                                         </h4>
-                                                        <ul class="font-sm text-muted">
-                                                            <li> </li>
+                                                        
+                                                        @foreach($persyaratan_sistem as $p)
+                                                            <p> {!! html_entity_decode($p->persyaratan_sistem) !!}</p>
+                                                        @endforeach
+                                                        
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-12 border-b">
                                                         <h4 class="h5 mb-5">
-                                                            <a class="font-size-md  font-w700">Persyaratan Sistem</a>
+                                                            <a class="font-size-md  font-w700">Fitur</a>
                                                         </h4>
-                                                        <ul class="font-sm text-muted">
-                                                            <li>CPU: CPU yang kompatibel dengan x86-64</li>
-                                                            <li>RAM: 4 GB+ direkomendasikan</li>
-                                                            <li>HDD: 19 GB</li>
-                                                            <li>Akses Internet: Diperlukan untuk menggunakan sumber data online dari Wolfram Knowledgebase.</li>
-                                                        </ul>
+                                                        @foreach($fitur as $f)
+                                                            <p> {!! html_entity_decode($f->fitur) !!}</p>
+                                                         @endforeach
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                             <!-- END Spesifikasi -->

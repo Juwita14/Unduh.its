@@ -467,35 +467,22 @@
                                             <!-- Spesifikasi -->
                                             <div class="tab-pane fade" id="search-spesifikasi" role="tabpanel">
                                                 <div class="row items-push">
+                                                <div class="col-lg-12 border-b">
+                                                        <h4 class="h5 mb-5">
+                                                            <a class="font-size-md  font-w700">Persyaratan Sistem</a>
+                                                        </h4>
+                                                        @foreach($persyaratan_sistem as $p)
+                                                            <p> {!! html_entity_decode($p->persyaratan_sistem) !!}</p>
+                                                        @endforeach
+
+                                                    </div>
                                                     <div class="col-lg-12 border-b">
                                                         <h4 class="h5 mb-5">
                                                             <a class="font-size-md  font-w700">Fitur</a>
                                                         </h4>
-                                                        <ul class="font-sm text-muted">
-                                                            <li>Meningkatkan Fleksibilitas Kode Menggunakan Antarmuka LabVIEW</li>
-                                                            <li>Penyempurnaan Layanan Web LabVIEW</li>
-                                                            <li>Peningkatan Pembuat Aplikasi</li>
-                                                            <li>Peningkatan Lingkungan</li>
-                                                            <li>Penyempurnaan pada Wisaya Impor Pustaka Bersama</li>
-                                                            <li>Peningkatan Diagram Blok</li>
-                                                            <li>VI dan Fungsi Baru dan yang Diubah</li>
-                                                            <li>Properti, Metode, dan Peristiwa Baru dan yang Diubah</li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-12 border-b">
-                                                        <h4 class="h5 mb-5">
-                                                            <a class="font-size-md  font-w700">Persyaratan Sistem</a>
-                                                        </h4>
-                                                        <ul class="font-sm text-muted">
-                                                            <li>Processor Pentium 4M (or equivalent) or later (32-bit)
-                                                            , Pentium 4 G1 (or equivalent) or later (64-bit)</li>
-                                                            <li>RAM 1 GB</li>
-                                                            <li>Screen Resolution 	1024 x 768 pixels</li>
-                                                            <li>Operating System Windows 10, Windows Server 2016</li>
-                                                            <li>Disk Space 5 GB</li>
-                                                            <li> Color Palette LabVIEW dan LabVIEW Help berisi grafik warna 16-bit. LabVIEW membutuhkan pengaturan palet warna minimal 16-bit warna.</li>
-                                                            <li>Adobe Reader harus menginstal Adobe Reader 7.0 atau yang lebih baru untuk mencari versi PDF dari semua manual LabVIEW.</li>
-                                                        </ul>
+                                                            @foreach($fitur as $f)
+                                                            <p> {!! html_entity_decode($f->fitur) !!}</p>
+                                                            @endforeach
                                                     </div>
                                                 </div>
                                             </div>
