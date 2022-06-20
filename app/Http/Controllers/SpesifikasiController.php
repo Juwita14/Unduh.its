@@ -20,6 +20,16 @@ class SpesifikasiController extends Controller
         // return $fitur;
     }
 
+    public function indexMatlab()
+    {
+        // $fitur = Fitur::all();
+        $fitur = Fitur::where('id_software', '2')->get();
+        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '2')->get();
+        // dd($persyaratan_sistem);
+        return view('admin.matlab.spesifikasiMatlab', compact(['fitur', 'persyaratan_sistem']));
+        // return $fitur;
+    }
+
     public function indexMathematica()
     {
         // $fitur = Fitur::all();
@@ -65,6 +75,23 @@ class SpesifikasiController extends Controller
         ]);
         // Fitur::create($request->except(['_token','submit']));
         return redirect('/spesifikasi');
+    }
+
+    public function createMatlab()
+    {
+        return view('admin.matlab.createFiturMatlab');
+    }
+
+    public function storeMatlab(Request $request)
+    {
+        //dd($request->except(['_token','submit']));
+        $software = Software::where('id', 2)->value('id');
+        Fitur::create([
+            'id_software' => $software,
+            'fitur' =>$request->fitur
+        ]);
+        // Fitur::create($request->except(['_token','submit']));
+        return redirect('/spesifikasiMatlab');
     }
 
     public function createMathematica()
@@ -137,6 +164,25 @@ class SpesifikasiController extends Controller
         return redirect('/spesifikasi');
     }
 
+    public function editMatlab($id)
+    {
+        //dd($id);
+        $fitur = Fitur::find($id);
+        // dd($fitur);
+        return view('admin.matlab.editFiturMatlab', compact(['fitur']));
+    }
+
+    public function updateMatlab($id, Request $request)
+    {
+        $software = Software::where('id', 2)->value('id');
+        Fitur::where('id', $id)
+        ->update([
+            'id_software' => $software,
+            'fitur' =>$request->fitur
+        ]);
+        return redirect('/spesifikasiMatlab');
+    }
+
     public function editMathematica($id)
     {
         //dd($id);
@@ -199,6 +245,13 @@ class SpesifikasiController extends Controller
         $fitur = Fitur::find($id);
         $fitur->delete();
         return redirect('/spesifikasi');
+    }
+
+    public function destroyMatlab($id)
+    {
+        $fitur = Fitur::find($id);
+        $fitur->delete();
+        return redirect('/spesifikasiMatlab');
     }
 
     public function destroyMathematica($id)

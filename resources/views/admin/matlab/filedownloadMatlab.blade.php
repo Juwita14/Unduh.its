@@ -152,14 +152,14 @@
                             <li>
                                 <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                             </li>
-                            <li class="open">
+                            <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active" href="ringkasan">Ringkasan</a>
+                                        <a href="ringkasan">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="filedownload">File Download</a>
+                                        <a  href="filedownload">File Download</a>
                                     </li>
                                     <li>
                                         <a href="spesifikasi">Spesifikasi</a>
@@ -169,14 +169,14 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-moustache"></i><span class="sidebar-mini-hide">MATLAB</span></a>
                                 <ul>
                                 <li>
-                                        <a href="ringkasanMatlab">Ringkasan</a>
+                                        <a href="be_blocks.html">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_draggable.html">File Download</a>
+                                        <a class="active" href="filedownloadMatlab">File Download</a>
                                     </li>
                                     <li>
                                         <a href="be_blocks_api.html">Spesifikasi</a>
@@ -189,7 +189,7 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-energy"></i><span class="sidebar-mini-hide">Mathematica</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a href="ringkasanMathematica">Ringkasan</a>
                                     </li>
                                     <li>
@@ -207,7 +207,7 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-layers"></i><span class="sidebar-mini-hide">LabVIEW</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a href="ringkasanLabview">Ringkasan</a>
                                     </li>
                                     <li>
@@ -224,7 +224,7 @@
                             <li>
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-note"></i><span class="sidebar-mini-hide">Minitab</span></a>
                                 <ul>
-                                <li>
+                                    <li>
                                         <a href="ringkasanMinitab">Ringkasan</a>
                                     </li>
                                     <li>
@@ -236,6 +236,7 @@
                                     <li>
                                         <a href="previewMinitab">Preview</a>
                                     </li>
+                                    
                                 </ul>
                             </li>
                         </ul>
@@ -319,35 +320,33 @@
                     <!-- Hover Table -->
                     <div class="block">
                             <div class="block-header block-header-default">
-                                <h3 class="block-title">Ringkasan</h3>
+                                <h3 class="block-title">File Panduan</h3>
                             </div>
                             <div class="block-content">
-                                <a href="ringkasan/create" class="btn btn-md btn-success mb-3">TAMBAH RINGKASAN</a>
+                                <a href="filedownloadMatlab/createMatlab" class="btn btn-md btn-success mb-3">TAMBAH FILE PANDUAN</a>
                                 <table class="table table-hover table-vcenter">
                                     <thead>
                                         <tr>
-                                            <th style="width: 50px;">#</th>
-                                            <th>Nama</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 50%;">Ringkasan</th>
+                                            <th class="text-center" style="width: 50px;">#</th>
+                                            <th class="d-none d-sm-table-cell" style="width: 30%;">Nama File Panduan</th>
+                                            <th class="d-none d-sm-table-cell" style="width: 40%;">File Panduan</th>
                                             <th class="text-center" style="width: 100px;">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($ringkasan as $r)
+                                    @foreach($file_panduan as $pd)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            @foreach ($software as $s)
-                                            <td>{{$s->nama_software}}</td>
-                                            @endforeach
-                                            <td>{{$r->ringkasan}}</td>
+                                            <td>{{$pd->nama_file_panduan}}</td>
+                                            <td>{{$pd->namapanduan}}</td>
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                                        <a href="ringkasan/{{$r->id}}/edit" >
+                                                        <a href="filedownload/edit/{{$pd->id}}" >
                                                             <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                                         </a>
                                                     </button>
-                                                    <form action="ringkasan/{{$r->id}}" method="POST">
+                                                    <form action="filedownload/destroy/{{$pd->id}}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
@@ -358,6 +357,7 @@
                                             </td>
                                         </tr>
                                         @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>

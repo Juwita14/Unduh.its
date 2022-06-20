@@ -328,9 +328,8 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" style="width: 50px;">#</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 30%;">Nama File Panduan</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 40%;">File Panduan</th>
-                                            <th class="d-none d-sm-table-cell" style="width: 30%;">Size</th>
+                                            <th class="d-none d-sm-table-cell" style="width: 40%;">Nama File Panduan</th>
+                                            <th class="d-none d-sm-table-cell" style="width: 50%;">File Panduan</th>
                                             <th class="text-center" style="width: 100px;">Actions</th>
                                         </tr>
                                     </thead>
@@ -340,7 +339,6 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$pd->nama_file_panduan}}</td>
                                             <td>{{$pd->namapanduan}}</td>
-                                            <td>{{$pd->size}} KB</td>
                                             <td class="text-center">
                                                 <div class="btn-group">
                                                     <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">

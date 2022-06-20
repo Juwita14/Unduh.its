@@ -19,6 +19,12 @@ class FileDownloadController extends Controller
         return view('admin.adobe.filedownload', compact(['file_panduan', 'file_installer']));
     }
 
+    public function indexMatlab()
+    {
+        $file_panduan = File_panduan::where('id_software', '2')->get();
+        return view('admin.matlab.filedownloadMatlab', compact(['file_panduan']));
+    }
+
     public function indexMathematica()
     {
         $file_panduan = File_panduan::where('id_software', '3')->get();
@@ -61,6 +67,29 @@ class FileDownloadController extends Controller
 
         $namaFiles->move($destinationPath, $namaFile); 
         return redirect('/filedownload');
+    }
+
+    public function createMatlab()
+    {
+        return view('admin.matlab.createFilePanduanMatlab');
+    }
+
+    public function storeMatlab(Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $namaFiles = $request->namaFiles;
+        $namaFile = $namaFiles-> getClientOriginalName();
+        $destinationPath = 'assets/media/filepanduan';
+        $software = Software::where('id', 2)->value('id');
+        File_panduan::create([
+            'id_software' => $software,
+            'nama_file_panduan' =>$request->nama_file_panduan,
+            'namaFiles' =>$namaFile,
+            'namapanduan' =>$namaFile
+        ]);
+
+        $namaFiles->move($destinationPath, $namaFile); 
+        return redirect('/filedownloadMatlab');
     }
 
     public function createMathematica()

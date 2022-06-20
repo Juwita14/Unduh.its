@@ -18,6 +18,24 @@ class UserController extends Controller
     {
         return view('index1');
     }
+
+    public function indexPreview()
+    {
+        return view('preVieww');
+    }
+
+    public function indexMatlab()
+    {
+    	$software = Software::where('id', '2')->get();
+        $ringkasan = Ringkasan::where('id_software', '2')->get();
+        $fitur = Fitur::where('id_software', '2')->get();
+        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '2')->get();
+        $file_panduan = File_panduan::where('id_software', '2')->get();
+        // dd($file_panduan);
+        $file_installer = File_installer::where('id_software', '2')->get();
+
+        return view('matlab', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer']));
+    }
     
     public function indexMathematica()
     {
@@ -26,6 +44,7 @@ class UserController extends Controller
         $fitur = Fitur::where('id_software', '3')->get();
         $persyaratan_sistem = Persyaratan_sistem::where('id_software', '3')->get();
         $file_panduan = File_panduan::where('id_software', '3')->get();
+        // dd($file_panduan);
         $file_installer = File_installer::where('id_software', '3')->get();
 
         return view('mathematica', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer']));

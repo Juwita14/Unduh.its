@@ -19,6 +19,12 @@ class PreviewController extends Controller
         return view('admin.adobe.preview', compact(['preview']));
     }
 
+    public function indexMatlab()
+    {
+        $preview = Preview::where('id_software', '2')->get();
+        return view('admin.matlab.previewMatlab', compact(['preview']));
+    }
+
     public function indexMathematica()
     {
         $preview = Preview::where('id_software', '3')->get();
@@ -35,6 +41,28 @@ class PreviewController extends Controller
     {
         $preview = Preview::where('id_software', '5')->get();
         return view('admin.minitab.previewMinitab', compact(['preview']));
+    }
+
+    public function createMatlab()
+    {
+        return view('admin.matlab.createPreview');
+    }
+
+    public function storeMatlab(Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $namaFiles = $request->namaFiles;
+        $namaFile = $namaFiles-> getClientOriginalName();
+        $destinationPath = 'assets/media/preview';
+        $software = Software::where('id', 2)->value('id');
+        Preview::create([
+            'id_software' => $software,
+            'nama_gambar' =>$request->nama_gambar,
+            'namaFiles' =>$namaFile
+        ]);
+
+        $namaFiles->move($destinationPath, $namaFile); 
+        return redirect('/previewMatlab');
     }
 
     public function create()
@@ -159,6 +187,40 @@ class PreviewController extends Controller
         return redirect('/preview');
     }
 
+    public function editMatlab($id)
+    {
+        //dd($id);
+        $preview = Preview::find($id);
+        //dd($fitur);
+        return view('admin.matlab.editPreviewMatlab', compact(['preview']));
+    }
+
+    public function updateMatlab($id, Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+        $path = public_path("assets/media/preview/");
+        $pathfilelama = public_path("assets/media/preview/{$namaFile}");
+        // dd($pathfilelama);
+        $isExists = file_exists($pathfilelama);
+        unlink($pathfilelama);
+
+        $previewbaru = $request->namaFiles;
+        $namaPreviewbaru = $previewbaru->getClientOriginalName();
+        // dd($namaPreviewbaru);
+        $previewbaru->move($path, $namaPreviewbaru);
+
+        $software = Software::where('id', 2)->value('id');
+        Preview::where('id', $id)
+        ->update([
+            'nama_gambar' =>$request->nama_gambar,
+            'namaFiles' =>$namaPreviewbaru
+        ]);
+        
+        return redirect('/previewMatlab');
+    }
+
     public function editMathematica($id)
     {
         //dd($id);
@@ -273,6 +335,21 @@ class PreviewController extends Controller
         unlink($path);
         $preview->delete();
         return redirect('/preview');
+    }
+
+    public function destroyMatlab($id)
+    {
+        $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+
+        $path = public_path("assets/media/preview/{$namaFile}");
+
+        $isExists = file_exists($path);
+
+        // dd($isExists);
+        unlink($path);
+        $preview->delete();
+        return redirect('/previewMatlab');
     }
 
     public function destroyMathematica($id)
