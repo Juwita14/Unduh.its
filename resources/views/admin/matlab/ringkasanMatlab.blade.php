@@ -182,7 +182,7 @@
                                         <a href="spesifikasiMatlab">Spesifikasi</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Preview</a>
+                                        <a href="previewMatlab">Preview</a>
                                     </li>
                                 </ul>
                             </li>

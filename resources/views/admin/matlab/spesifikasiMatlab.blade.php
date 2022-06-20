@@ -176,7 +176,7 @@
                                         <a href="ringkasanMatlab">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="filedownloadMatlab">File Download</a>
+                                        <a href="filedownloaMatlab">File Download</a>
                                     </li>
                                     <li>
                                         <a class="active" href="spesifikasiMatlab">Spesifikasi</a>

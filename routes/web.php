@@ -244,5 +244,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/downloadInstaller/{id}', [UserController::class, 'getDownloadInstaller']);
         Route::get('/matlab', [UserController::class, 'indexMatlab']);
         Route::get('/preVieww', [UserController::class, 'indexPreview']);
+        Route::get('/adobe', [UserController::class, 'indexAdobe']);
     });
 }); 

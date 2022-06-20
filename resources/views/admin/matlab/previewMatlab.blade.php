@@ -172,14 +172,17 @@
                             <li class="open">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-moustache"></i><span class="sidebar-mini-hide">MATLAB</span></a>
                                 <ul>
-                                <li>
-                                        <a href="be_blocks.html">Ringkasan</a>
+                                    <li>
+                                        <a href="ringkasanMatlab">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a href="be_blocks_api.html">Spesifikasi</a>
+                                        <a href="filedownloaMatlab">File Download</a>
                                     </li>
                                     <li>
-                                        <a class="active" href="be_blocks_api.html">Preview</a>
+                                        <a href="spesifikasiMatlab">Spesifikasi</a>
+                                    </li>
+                                    <li>
+                                        <a class="active" href="previewMatlab">Preview</a>
                                     </li>
                                 </ul>
                             </li>
