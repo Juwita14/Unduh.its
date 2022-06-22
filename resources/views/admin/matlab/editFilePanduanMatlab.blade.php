@@ -9,7 +9,7 @@
             <h3 class="block-title">Ubah Preview</h3>
         </div>
         <div class="block-content">
-            <form action="/admin/adobe/filedownload/update/{{$file_panduan->id}}" method="POST" enctype='multipart/form-data'>
+            <form action="/admin/matlab/filedownloadMatlab/updateMatlab/{{$file_panduan->id}}" method="POST" enctype='multipart/form-data'>
                 @method('PUT')
                 @csrf
                 <div class="form-group row">

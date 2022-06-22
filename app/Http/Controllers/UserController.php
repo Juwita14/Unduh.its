@@ -24,6 +24,19 @@ class UserController extends Controller
         return view('preVieww');
     }
 
+    public function indexAdobe()
+    {
+    	$software = Software::where('id', '1')->get();
+        $ringkasan = Ringkasan::where('id_software', '1')->get();
+        $fitur = Fitur::where('id_software', '1')->get();
+        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '1')->get();
+        $file_panduan = File_panduan::where('id_software', '1')->get();
+        // dd($file_panduan);
+        $file_installer = File_installer::where('id_software', '1')->get();
+
+        return view('adobe', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer']));
+    }
+
     public function indexMatlab()
     {
     	$software = Software::where('id', '2')->get();

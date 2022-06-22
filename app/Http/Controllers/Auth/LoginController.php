@@ -55,7 +55,7 @@ class LoginController extends Controller
         // dd($apa);
 
         if(Auth::attempt($credentials)){
-
+            $request->session()->regenerate();
             $user = Auth::user();
                 if ($user->level == 'admin') {
                     return redirect()->intended('admin');

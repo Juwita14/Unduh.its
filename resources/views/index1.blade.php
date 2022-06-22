@@ -130,29 +130,18 @@
                         <!-- Open Search Section -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
                         <!-- <a href="login" >
-                        <div class="block-content block-content-full clearfix">
-                            <div class="float-left">
-                                <img style="height: 45px; width:45px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
-                            </div>
-                            <div class="float-left mt-10">
-                                <div class="font-w600 mb-5 ml-10">Juwita Kartika Rani</div>
-                            </div>
-                        </div>
-                        </a>
-                        <a href="logout" >
-                            logout
-                        </a> -->
+                         -->
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img style="height: 30px; width:30px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
                                 <i class="fa fa-user d-sm-none"></i>
-                                <span class="d-none d-sm-inline-block">Juwita Kartika Rani</span>
+                                <span class="d-none d-sm-inline-block">{{ auth()->user()->name }}</span>
                                 <i class="fa fa-angle-down ml-5"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right min-width-200" aria-labelledby="page-header-user-dropdown">
                                 <h5 class="h6 text-center py-10 mb-5 border-b text-uppercase">User</h5>
                                 <a class="dropdown-item" href="logout">
-                                    <i class="si si-logout mr-5"></i> Sign Out
+                                    <i class="si si-logout mr-5"></i> Logout
                                 </a>
                             </div>
                         </div>

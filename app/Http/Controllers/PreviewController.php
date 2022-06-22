@@ -9,9 +9,6 @@ use App\Models\Software;
 
 class PreviewController extends Controller
 {
-    public function indexx(){
-        return "Selamat Routing Anda Sudah Benar";
-    }
     public function index()
     {
         $preview = Preview::where('id_software', '1')->get();
@@ -62,7 +59,7 @@ class PreviewController extends Controller
         ]);
 
         $namaFiles->move($destinationPath, $namaFile); 
-        return redirect('/previewMatlab');
+        return redirect('/admin/matlab/previewMatlab');
     }
 
     public function create()
@@ -84,7 +81,7 @@ class PreviewController extends Controller
         ]);
 
         $namaFiles->move($destinationPath, $namaFile); 
-        return redirect('/preview');
+        return redirect('/admin/adobe/preview');
     }
 
     public function createMathematica()
@@ -184,7 +181,7 @@ class PreviewController extends Controller
             'namaFiles' =>$namaPreviewbaru
         ]);
         
-        return redirect('/preview');
+        return redirect('/admin/adobe/preview');
     }
 
     public function editMatlab($id)
@@ -218,7 +215,7 @@ class PreviewController extends Controller
             'namaFiles' =>$namaPreviewbaru
         ]);
         
-        return redirect('/previewMatlab');
+        return redirect('/admin/matlab/previewMatlab');
     }
 
     public function editMathematica($id)
@@ -334,7 +331,7 @@ class PreviewController extends Controller
         // dd($isExists);
         unlink($path);
         $preview->delete();
-        return redirect('/preview');
+        return redirect('/admin/adobe/preview');
     }
 
     public function destroyMatlab($id)
@@ -349,7 +346,7 @@ class PreviewController extends Controller
         // dd($isExists);
         unlink($path);
         $preview->delete();
-        return redirect('/previewMatlab');
+        return redirect('/admin/matlab/previewMatlab');
     }
 
     public function destroyMathematica($id)

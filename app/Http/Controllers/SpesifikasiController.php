@@ -74,7 +74,7 @@ class SpesifikasiController extends Controller
             'fitur' =>$request->fitur
         ]);
         // Fitur::create($request->except(['_token','submit']));
-        return redirect('/spesifikasi');
+        return redirect('/admin/adobe/spesifikasi');
     }
 
     public function createMatlab()
@@ -91,7 +91,7 @@ class SpesifikasiController extends Controller
             'fitur' =>$request->fitur
         ]);
         // Fitur::create($request->except(['_token','submit']));
-        return redirect('/spesifikasiMatlab');
+        return redirect('/admin/matlab/spesifikasiMatlab');
     }
 
     public function createMathematica()
@@ -161,7 +161,7 @@ class SpesifikasiController extends Controller
             'id_software' => $software,
             'fitur' =>$request->fitur
         ]);
-        return redirect('/spesifikasi');
+        return redirect('/admin/adobe/spesifikasi');
     }
 
     public function editMatlab($id)
@@ -180,7 +180,7 @@ class SpesifikasiController extends Controller
             'id_software' => $software,
             'fitur' =>$request->fitur
         ]);
-        return redirect('/spesifikasiMatlab');
+        return redirect('/admin/matlab/spesifikasiMatlab');
     }
 
     public function editMathematica($id)
@@ -244,14 +244,14 @@ class SpesifikasiController extends Controller
     {
         $fitur = Fitur::find($id);
         $fitur->delete();
-        return redirect('/spesifikasi');
+        return redirect('/admin/adobe/spesifikasi');
     }
 
     public function destroyMatlab($id)
     {
         $fitur = Fitur::find($id);
         $fitur->delete();
-        return redirect('/spesifikasiMatlab');
+        return redirect('/admin/matlab/spesifikasiMatlab');
     }
 
     public function destroyMathematica($id)
@@ -289,7 +289,7 @@ class SpesifikasiController extends Controller
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
         // Fitur::create($request->except(['_token','submit']));
-        return redirect('/spesifikasi');
+        return redirect('/admin/adobe/spesifikasi');
     }
 
     public function createMathematicaPS()
@@ -359,7 +359,7 @@ class SpesifikasiController extends Controller
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
-        return redirect('/spesifikasi');
+        return redirect('/admin/adobe/spesifikasi');
     }
 
     public function editMathematicaPS($id)
@@ -423,7 +423,7 @@ class SpesifikasiController extends Controller
     {
         $persyaratan_sistem = Persyaratan_sistem::find($id);
         $persyaratan_sistem->delete();
-        return redirect('/spesifikasi');
+        return redirect('/admin/adobe/spesifikasi');
     }
 
     public function destroyMathematicaPS($id)

@@ -66,7 +66,7 @@ class FileDownloadController extends Controller
         ]);
 
         $namaFiles->move($destinationPath, $namaFile); 
-        return redirect('/filedownload');
+        return redirect('/admin/adobe/filedownload');
     }
 
     public function createMatlab()
@@ -89,7 +89,7 @@ class FileDownloadController extends Controller
         ]);
 
         $namaFiles->move($destinationPath, $namaFile); 
-        return redirect('/filedownloadMatlab');
+        return redirect('/admin/matlab/filedownloadMatlab');
     }
 
     public function createMathematica()
@@ -260,7 +260,40 @@ class FileDownloadController extends Controller
             'nama_file_panduan' =>$request->nama_file_panduan,
             'namapanduan' =>$namapanduanbaru
         ]);
-        return redirect('/filedownload');
+        return redirect('/admin/adobe/filedownload');
+    }
+
+    public function editMatlab($id)
+    {
+        //dd($id);
+        $file_panduan = File_panduan::find($id);
+        //dd($fitur);
+        return view('admin.matlab.editFilePanduanMatlab', compact(['file_panduan']));
+    }
+
+    public function updateMatlab($id, Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $file_panduan = File_panduan::find($id);
+        $namaFile=$file_panduan->namapanduan;
+        $path = public_path("assets/media/filepanduan/");
+        $pathfilelama = public_path("assets/media/filepanduan/{$namaFile}");
+        // dd($path);
+        $isExists = file_exists($pathfilelama);
+        unlink($pathfilelama);
+
+        $panduanbaru = $request->namapanduan;
+        $namapanduanbaru = $panduanbaru->getClientOriginalName();
+        // dd($namapanduanbaru);
+        $panduanbaru->move($path, $namapanduanbaru);
+
+        $software = Software::where('id', 2)->value('id');
+        File_panduan::where('id', $id)
+        ->update([
+            'nama_file_panduan' =>$request->nama_file_panduan,
+            'namapanduan' =>$namapanduanbaru
+        ]);
+        return redirect('/admin/matlab/filedownloadMatlab');
     }
 
     public function editMathematica($id)
@@ -341,7 +374,22 @@ class FileDownloadController extends Controller
         // dd($isExists);
         unlink($path);
         $file_panduan->delete();
-        return redirect('/filedownload');
+        return redirect('/admin/adobe/filedownload');
+    }
+
+    public function destroyMatlab($id)
+    {
+        $file_panduan = File_panduan::find($id);
+        $namaFile=$file_panduan->namapanduan;
+
+        $path = public_path("assets/media/filepanduan/{$namaFile}");
+
+        $isExists = file_exists($path);
+
+        // dd($isExists);
+        unlink($path);
+        $file_panduan->delete();
+        return redirect('/admin/matlab/filedownloadMatlab');
     }
 
     public function destroyMathematica($id)

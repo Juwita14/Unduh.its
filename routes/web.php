@@ -29,6 +29,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/backend', function () {
+    return view('layouts.backend');
+});
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -40,87 +44,81 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('admin', AdminController::class);
 
         //adobe
-        Route::get('/ringkasan', [RingkasanController::class, 'index']); 
-        Route::get('/ringkasan/create', [RingkasanController::class, 'create']);
-        Route::post('/ringkasan/store', [RingkasanController::class, 'store']);
-        Route::get('/ringkasan/{id}/edit', [RingkasanController::class, 'edit']); 
-        Route::put('/ringkasan/{id}', [RingkasanController::class, 'updateA']); 
-        Route::delete('/ringkasan/{id}', [RingkasanController::class, 'destroy']); 
+        Route::get('/admin/adobe/ringkasan', [RingkasanController::class, 'index']); 
+        Route::get('/admin/adobe/ringkasan/create', [RingkasanController::class, 'create']);
+        Route::post('/admin/adobe/ringkasan/store', [RingkasanController::class, 'store']);
+        Route::get('/admin/adobe/ringkasan/edit/{id}', [RingkasanController::class, 'edit']); 
+        Route::put('/admin/adobe/ringkasan/update/{id}', [RingkasanController::class, 'update']); 
+        Route::delete('/admin/adobe/ringkasan/destroy/{id}', [RingkasanController::class, 'destroy']); 
+        
+        Route::get('/admin/adobe/filedownload', [FileDownloadController::class, 'index']); 
+        Route::get('/admin/adobe/filedownload/create', [FileDownloadController::class, 'create']);
+        Route::post('/admin/adobe/filedownload/store', [FileDownloadController::class, 'store']);
+        Route::get('/admin/adobe/filedownload/edit/{id}', [FileDownloadController::class, 'edit']);
+        Route::put('/admin/adobe/filedownload/update/{id}', [FileDownloadController::class, 'update']); 
+        Route::delete('/admin/adobe/filedownload/destroy/{id}', [FileDownloadController::class, 'destroy']);
 
-        Route::get('/spesifikasi', [SpesifikasiController::class, 'index']); 
-        Route::get('/spesifikasi/create', [SpesifikasiController::class, 'create']);
-        Route::post('/spesifikasi/store', [SpesifikasiController::class, 'store']);
-        Route::get('/spesifikasi/edit/{id}', [SpesifikasiController::class, 'edit']);
-        Route::put('/spesifikasi/update/{id}', [SpesifikasiController::class, 'update']); 
-        Route::delete('/spesifikasi/destroy/{id}', [SpesifikasiController::class, 'destroySpesifikasiAdobe']); 
+        Route::get('/admin/adobe/spesifikasi', [SpesifikasiController::class, 'index']); 
+        Route::get('/admin/adobe/spesifikasi/create', [SpesifikasiController::class, 'create']);
+        Route::post('/admin/adobe/spesifikasi/store', [SpesifikasiController::class, 'store']);
+        Route::get('/admin/adobe/spesifikasi/edit/{id}', [SpesifikasiController::class, 'edit']);
+        Route::put('/admin/adobe/spesifikasi/update/{id}', [SpesifikasiController::class, 'update']); 
+        Route::delete('/admin/adobe/spesifikasi/destroy/{id}', [SpesifikasiController::class, 'destroy']); 
 
-        Route::get('/spesifikasi/createPS', [SpesifikasiController::class, 'createPS']);
-        Route::post('/spesifikasi/storePS', [SpesifikasiController::class, 'storePS']);
-        Route::get('/spesifikasi/editPS/{id}', [SpesifikasiController::class, 'editPS']);
-        Route::put('/spesifikasi/updatePS/{id}', [SpesifikasiController::class, 'updatePS']);
-        Route::delete('/spesifikasi/destroyPS/{id}', [SpesifikasiController::class, 'destroyPS']); 
+        Route::get('/admin/adobe/spesifikasi/createPS', [SpesifikasiController::class, 'createPS']);
+        Route::post('/admin/adobe/spesifikasi/storePS', [SpesifikasiController::class, 'storePS']);
+        Route::get('/admin/adobe/spesifikasi/editPS/{id}', [SpesifikasiController::class, 'editPS']);
+        Route::put('/admin/adobe/spesifikasi/updatePS/{id}', [SpesifikasiController::class, 'updatePS']);
+        Route::delete('/admin/adobe/spesifikasi/destroyPS/{id}', [SpesifikasiController::class, 'destroyPS']); 
 
-        Route::get('/preview', [PreviewController::class, 'index']); 
-        Route::get('/preview/create', [PreviewController::class, 'create']);
-        Route::post('/preview/store', [PreviewController::class, 'store']);
-        Route::get('/preview/{id}/edit', [PreviewController::class, 'edit']);
-        Route::put('/preview/{id}', [PreviewController::class, 'update']); 
-        Route::delete('/preview/{id}', [APreviewController::class, 'destroy']);
+        Route::get('/admin/adobe/preview', [PreviewController::class, 'index']); 
+        Route::get('/admin/adobe/preview/create', [PreviewController::class, 'create']);
+        Route::post('/admin/adobe/preview/store', [PreviewController::class, 'store']);
+        Route::get('/admin/adobe/preview/edit/{id}', [PreviewController::class, 'edit']);
+        Route::put('/admin/adobe/preview/update/{id}', [PreviewController::class, 'update']); 
+        Route::delete('/admin/adobe/preview/destroy/{id}', [PreviewController::class, 'destroy']);
 
-        Route::get('/filedownload', [FileDownloadController::class, 'index']); 
-        Route::get('/filedownload/create', [FileDownloadController::class, 'create']);
-        Route::post('/filedownload/store', [FileDownloadController::class, 'store']);
-        Route::get('/filedownload/edit/{id}', [FileDownloadController::class, 'edit']);
-        Route::put('/filedownload/update/{id}', [FileDownloadController::class, 'update']); 
-        Route::delete('/filedownload/destroy/{id}', [FileDownloadController::class, 'destroy']);
  
 
         //matlab
-        Route::get('/ringkasanMatlab', [RingkasanController::class, 'indexMatlab']);
-        Route::get('/ringkasanMatlab/createMatlab', [RingkasanController::class, 'createMatlab']);
-        Route::post('/ringkasanMatlab/storeMatlab', [RingkasanController::class, 'storeMatlab']);
-        Route::get('/ringkasanMatlab/editMatlab/{id}', [RingkasanController::class, 'editMatlab']); 
-        Route::put('/ringkasanMatlab/updateMatlab/{id}', [RingkasanController::class, 'updateMatlab']); 
-        Route::delete('/ringkasanMatlab/destroyMatlab/{id}', [RingkasanController::class, 'destroyMatlab']); 
+        Route::get('/admin/matlab/ringkasanMatlab', [RingkasanController::class, 'indexMatlab']);
+        Route::get('/admin/matlab/ringkasanMatlab/createMatlab', [RingkasanController::class, 'createMatlab']);
+        Route::post('/admin/matlab/ringkasanMatlab/storeMatlab', [RingkasanController::class, 'storeMatlab']);
+        Route::get('/admin/matlab/ringkasanMatlab/editMatlab/{id}', [RingkasanController::class, 'editMatlab']); 
+        Route::put('/admin/matlab/ringkasanMatlab/updateMatlab/{id}', [RingkasanController::class, 'updateMatlab']); 
+        Route::delete('/admin/matlab/ringkasanMatlab/destroyMatlab/{id}', [RingkasanController::class, 'destroyMatlab']); 
 
-        Route::get('/filedownloaMatlab', [FileDownloadController::class, 'indexMatlab']); 
-        Route::get('/filedownloadMatlab/createMatlab', [FileDownloadController::class, 'createMatlab']);
-        Route::post('/filedownloadMatlab/storeMatlab', [FileDownloadController::class, 'storeMatlab']);
-        Route::get('/filedownloadMatlab/editMatlab/{id}', [FileDownloadController::class, 'editMatlab']);
-        Route::put('/filedownloadMatlab/updateMatlab/{id}', [FileDownloadController::class, 'updateMatlab']); 
-        Route::delete('/filedownloadMatlab/destroyMatlab/{id}', [FileDownloadController::class, 'destroyMatlab']);
+        Route::get('/admin/matlab/filedownloadMatlab', [FileDownloadController::class, 'indexMatlab']); 
+        Route::get('/admin/matlab/filedownloadMatlab/createMatlab', [FileDownloadController::class, 'createMatlab']);
+        Route::post('/admin/matlab/filedownloadMatlab/storeMatlab', [FileDownloadController::class, 'storeMatlab']);
+        Route::get('/admin/matlab/filedownloadMatlab/editMatlab/{id}', [FileDownloadController::class, 'editMatlab']);
+        Route::put('/admin/matlab/filedownloadMatlab/updateMatlab/{id}', [FileDownloadController::class, 'updateMatlab']); 
+        Route::delete('/admin/matlab/filedownloadMatlab/destroyMatlab/{id}', [FileDownloadController::class, 'destroyMatlab']);
 
-        Route::get('/spesifikasiMatlab', [SpesifikasiController::class, 'indexMatlab']);
-        Route::get('/spesifikasiMatlab/createMatlab', [SpesifikasiController::class, 'createMatlab']);
-        Route::post('/spesifikasiMatlab/storeMatlab', [SpesifikasiController::class, 'storeMatlab']);
-        Route::get('/spesifikasiMatlab/editMatlab/{id}', [SpesifikasiController::class, 'editMatlab']); 
-        Route::put('/spesifikasiMatlab/updateMatlab/{id}', [SpesifikasiController::class, 'updateMatlab']); 
-        Route::delete('/spesifikasiMatlab/destroyMatlab/{id}', [SpesifikasiController::class, 'destroyMatlab']);
+        Route::get('/admin/matlab/spesifikasiMatlab', [SpesifikasiController::class, 'indexMatlab']);
+        Route::get('/admin/matlab/spesifikasiMatlab/createMatlab', [SpesifikasiController::class, 'createMatlab']);
+        Route::post('/admin/matlab/spesifikasiMatlab/storeMatlab', [SpesifikasiController::class, 'storeMatlab']);
+        Route::get('/admin/matlab/spesifikasiMatlab/editMatlab/{id}', [SpesifikasiController::class, 'editMatlab']); 
+        Route::put('/admin/matlab/spesifikasiMatlab/updateMatlab/{id}', [SpesifikasiController::class, 'updateMatlab']); 
+        Route::delete('/admin/matlab/spesifikasiMatlab/destroyMatlab/{id}', [SpesifikasiController::class, 'destroyMatlab']);
 
-        Route::get('/previewMatlab', [PreviewController::class, 'indexMatlab']); 
-        Route::get('/previewMatlab/createMatlab', [PreviewController::class, 'createMatlab']);
-        Route::post('/previewMatlab/storeMatlab', [PreviewController::class, 'storeMatlab']);
-        Route::get('/previewMatlab/editMatlab/{id}', [PreviewController::class, 'editMatlab']);
-        Route::put('/previewMatlab/updateMatlab/{id}', [PreviewController::class, 'updateMatlab']); 
-        Route::delete('/previewMatlab/destroyMatlab/{id}', [PreviewController::class, 'destroyMatlab']);
+        Route::get('/admin/matlab/previewMatlab', [PreviewController::class, 'indexMatlab']); 
+        Route::get('/admin/matlab/previewMatlab/createMatlab', [PreviewController::class, 'createMatlab']);
+        Route::post('/admin/matlab/previewMatlab/storeMatlab', [PreviewController::class, 'storeMatlab']);
+        Route::get('/admin/matlab/previewMatlab/editMatlab/{id}', [PreviewController::class, 'editMatlab']);
+        Route::put('/admin/matlab/previewMatlab/updateMatlab/{id}', [PreviewController::class, 'updateMatlab']); 
+        Route::delete('/admin/matlab/previewMatlab/destroyMatlab/{id}', [PreviewController::class, 'destroyMatlab']);
 
 
         //mathematica
-        Route::get('/ringkasanMathematica', [RingkasanController::class, 'indexMathematica']);
+        Route::get('/admin/mathematica/ringkasanMathematica', [RingkasanController::class, 'indexMathematica']);
         Route::get('/ringkasanMathematica/createMathematica', [RingkasanController::class, 'createMathematica']);
         Route::post('/ringkasanMathematica/storeMathematica', [RingkasanController::class, 'storeMathematica']);
         Route::get('/ringkasanMathematica/editMathematica/{id}', [RingkasanController::class, 'editMathematica']); 
         Route::put('/ringkasanMathematica/updateMathematica/{id}', [RingkasanController::class, 'updateMathematica']); 
         Route::delete('/ringkasanMathematica/destroyMathematica/{id}', [RingkasanController::class, 'destroyMathematica']); 
 
-        Route::get('/spesifikasiMathematica', [SpesifikasiController::class, 'indexMathematica']);
-        Route::get('/spesifikasiMathematica/createMathematica', [SpesifikasiController::class, 'createMathematica']);
-        Route::post('/spesifikasiMathematica/storeMathematica', [SpesifikasiController::class, 'storeMathematica']);
-        Route::get('/spesifikasiMathematica/editMathematica/{id}', [SpesifikasiController::class, 'editMathematica']); 
-        Route::put('/spesifikasiMathematica/updateMathematica/{id}', [SpesifikasiController::class, 'updateMathematica']); 
-        Route::delete('/spesifikasiMathematica/destroyMathematica/{id}', [SpesifikasiController::class, 'destroyMathematica']);
-
-        Route::get('/filedownloadMathematica', [FileDownloadController::class, 'indexMathematica']); 
+        Route::get('/admin/mathematica/filedownloadMathematica', [FileDownloadController::class, 'indexMathematica']); 
         Route::get('/filedownloadMathematica/createMathematica', [FileDownloadController::class, 'createMathematica']);
         Route::post('/filedownloadMathematica/storeMathematica', [FileDownloadController::class, 'storeMathematica']);
         Route::get('/filedownloadMathematica/editMathematica/{id}', [FileDownloadController::class, 'editMathematica']);
@@ -133,13 +131,20 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/filedownloadMathematica/updateMathematicaFI/{id}', [FileDownloadController::class, 'updateMathematicaFI']); 
         Route::delete('/filedownloadMathematica/destroyMathematicaFI/{id}', [FileDownloadController::class, 'destroyMathematicaFI']);
 
+        Route::get('/admin/mathematica/spesifikasiMathematica', [SpesifikasiController::class, 'indexMathematica']);
+        Route::get('/spesifikasiMathematica/createMathematica', [SpesifikasiController::class, 'createMathematica']);
+        Route::post('/spesifikasiMathematica/storeMathematica', [SpesifikasiController::class, 'storeMathematica']);
+        Route::get('/spesifikasiMathematica/editMathematica/{id}', [SpesifikasiController::class, 'editMathematica']); 
+        Route::put('/spesifikasiMathematica/updateMathematica/{id}', [SpesifikasiController::class, 'updateMathematica']); 
+        Route::delete('/spesifikasiMathematica/destroyMathematica/{id}', [SpesifikasiController::class, 'destroyMathematica']);
+
         Route::get('/spesifikasiMathematica/createMathematicaPS', [SpesifikasiController::class, 'createMathematicaPS']);
         Route::post('/spesifikasiMathematica/storeMathematicaPS', [SpesifikasiController::class, 'storeMathematicaPS']);
         Route::get('/spesifikasiMathematica/editMathematicaPS/{id}', [SpesifikasiController::class, 'editMathematicaPS']); 
         Route::put('/spesifikasiMathematica/updateMathematicaPS/{id}', [SpesifikasiController::class, 'updateMathematicaPS']); 
         Route::delete('/spesifikasiMathematica/destroyMathematicaPS/{id}', [SpesifikasiController::class, 'destroyMathematicaPS']);
 
-        Route::get('/previewMathematica', [PreviewController::class, 'indexMathematica']); 
+        Route::get('/admin/mathematica/previewMathematica', [PreviewController::class, 'indexMathematica']); 
         Route::get('/previewMathematica/createMathematica', [PreviewController::class, 'createMathematica']);
         Route::post('/previewMathematica/storeMathematica', [PreviewController::class, 'storeMathematica']);
         Route::get('/previewMathematica/editMathematica/{id}', [PreviewController::class, 'editMathematica']);
@@ -148,14 +153,14 @@ Route::group(['middleware' => ['auth']], function () {
 
 
         //labview
-        Route::get('/ringkasanLabview', [RingkasanController::class, 'indexLabview']);
+        Route::get('/admin/labview/ringkasanLabview', [RingkasanController::class, 'indexLabview']);
         Route::get('/ringkasanLabview/createLabview', [RingkasanController::class, 'createLabview']);
         Route::post('/ringkasanLabview/storeLabview', [RingkasanController::class, 'storeLabview']);
         Route::get('/ringkasanLabview/{id}/editLabview', [RingkasanController::class, 'editLabview']); 
         Route::put('/ringkasanLabview/{id}', [RingkasanController::class, 'updateLabview']); 
         Route::delete('/ringkasanLabview/{id}', [RingkasanController::class, 'destroyLabview']); 
 
-        Route::get('/filedownloadLabview', [FileDownloadController::class, 'indexLabview']); 
+        Route::get('/admin/labview/filedownloadLabview', [FileDownloadController::class, 'indexLabview']); 
         Route::get('/filedownloadLabview/createLabview', [FileDownloadController::class, 'createLabview']);
         Route::post('/filedownloadLabview/storeLabview', [FileDownloadController::class, 'storeLabview']);
         Route::get('/filedownloadLabview/editLabview/{id}', [FileDownloadController::class, 'editLabview']);
@@ -168,7 +173,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/filedownloadLabview/updateLabviewFI/{id}', [FileDownloadController::class, 'updateLabviewFI']); 
         Route::delete('/filedownloadLabview/destroyLabviewFI/{id}', [FileDownloadController::class, 'destroyLabviewFI']);
 
-        Route::get('/spesifikasiLabview', [SpesifikasiController::class, 'indexLabview']);
+        Route::get('/admin/labview/spesifikasiLabview', [SpesifikasiController::class, 'indexLabview']);
         Route::get('/spesifikasiLabview/createLabview', [SpesifikasiController::class, 'createLabview']);
         Route::post('/spesifikasiLabview/storeLabview', [SpesifikasiController::class, 'storeLabview']);
         Route::get('/spesifikasiLabview/editLabview/{id}', [SpesifikasiController::class, 'editLabview']); 
@@ -181,7 +186,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/spesifikasiLabview/updateLabviewPS/{id}', [SpesifikasiController::class, 'updateLabviewPS']); 
         Route::delete('/spesifikasiLabview/destroyLabviewPS/{id}', [SpesifikasiController::class, 'destroyLabviewPS']);
 
-        Route::get('/previewLabview', [PreviewController::class, 'indexLabview']); 
+        Route::get('/admin/labview/previewLabview', [PreviewController::class, 'indexLabview']); 
         Route::get('/previewLabview/createLabview', [PreviewController::class, 'createLabview']);
         Route::post('/previewLabview/storeLabview', [PreviewController::class, 'storeLabview']);
         Route::get('/previewLabview/editLabview/{id}', [PreviewController::class, 'editLabview']);
@@ -190,14 +195,14 @@ Route::group(['middleware' => ['auth']], function () {
 
 
         //minitab
-        Route::get('/ringkasanMinitab', [RingkasanController::class, 'indexMinitab']);
+        Route::get('/admin/minitab/ringkasanMinitab', [RingkasanController::class, 'indexMinitab']);
         Route::get('/ringkasanMinitab/createMinitab', [RingkasanController::class, 'createMinitab']);
         Route::post('/ringkasanMinitab/storeMinitab', [RingkasanController::class, 'storeMinitab']);
         Route::get('/ringkasanMinitab/editMinitab/{id}', [RingkasanController::class, 'editMinitab']); 
         Route::put('/ringkasanMinitab/updateMinitab/{id}', [RingkasanController::class, 'updateMinitab']); 
         Route::delete('/ringkasanMinitab/destroyMinitab/{id}', [RingkasanController::class, 'destroyMinitab']); 
 
-        Route::get('/filedownloadMinitab', [FileDownloadController::class, 'indexMinitab']); 
+        Route::get('/admin/minitab/filedownloadMinitab', [FileDownloadController::class, 'indexMinitab']); 
         Route::get('/filedownloadMinitab/createMinitab', [FileDownloadController::class, 'createMinitab']);
         Route::post('/filedownloadMinitab/storeMinitab', [FileDownloadController::class, 'storeMinitab']);
         Route::get('/filedownloadMinitab/editMinitab/{id}', [FileDownloadController::class, 'editMinitab']);
@@ -211,7 +216,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('/filedownloadMinitab/destroyMinitabFI/{id}', [FileDownloadController::class, 'destroyMinitabFI']);
 
 
-        Route::get('/spesifikasiMinitab', [SpesifikasiController::class, 'indexMinitab']);
+        Route::get('/admin/minitab/spesifikasiMinitab', [SpesifikasiController::class, 'indexMinitab']);
         Route::get('/spesifikasiMinitab/createMinitab', [SpesifikasiController::class, 'createMinitab']);
         Route::post('/spesifikasiMinitab/storeMinitab', [SpesifikasiController::class, 'storeMinitab']);
         Route::get('/spesifikasiMinitab/editMinitab/{id}', [SpesifikasiController::class, 'editMinitab']); 
@@ -224,7 +229,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/spesifikasiMinitab/updateMinitabPS/{id}', [SpesifikasiController::class, 'updateMinitabPS']); 
         Route::delete('/spesifikasiMinitab/destroyMinitabPS/{id}', [SpesifikasiController::class, 'destroyMinitabPS']);
 
-        Route::get('/previewMinitab', [PreviewController::class, 'indexMinitab']); 
+        Route::get('/admin/minitab/previewMinitab', [PreviewController::class, 'indexMinitab']); 
         Route::get('/previewMinitab/createMinitab', [PreviewController::class, 'createMinitab']);
         Route::post('/previewMinitab/storeMinitab', [PreviewController::class, 'storeMinitab']);
         Route::get('/previewMinitab/editMinitab/{id}', [PreviewController::class, 'editMinitab']);
