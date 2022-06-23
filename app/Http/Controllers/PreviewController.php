@@ -125,7 +125,7 @@ class PreviewController extends Controller
         ]);
 
         $namaFiles->move($destinationPath, $namaFile); 
-        return redirect('/previewLabview');
+        return redirect('/admin/labview/previewLabview');
     }
 
     public function createMinitab()
@@ -147,7 +147,7 @@ class PreviewController extends Controller
         ]);
 
         $namaFiles->move($destinationPath, $namaFile); 
-        return redirect('/previewMinitab');
+        return redirect('/admin/minitab/previewMinitab');
     }
 
     public function edit($id)
@@ -283,7 +283,7 @@ class PreviewController extends Controller
             'namaFiles' =>$namaPreviewbaru
         ]);
 
-        return redirect('/previewLabview');
+        return redirect('/admin/labview/previewLabview');
     }
 
     public function editMinitab($id)
@@ -316,7 +316,7 @@ class PreviewController extends Controller
             'nama_gambar' =>$request->nama_gambar,
             'namaFiles' =>$namaPreviewbaru
         ]); 
-        return redirect('/previewMinitab');
+        return redirect('/admin/minitab/previewMinitab');
     }
 
     public function destroy($id)
@@ -376,7 +376,7 @@ class PreviewController extends Controller
         // dd($isExists);
         unlink($path);
         $preview->delete();
-        return redirect('/previewLabview');
+        return redirect('/admin/labview/previewLabview');
     }
 
     public function destroyMinitab($id)
@@ -391,6 +391,6 @@ class PreviewController extends Controller
         // dd($isExists);
         unlink($path);
         $preview->delete();
-        return redirect('/previewMinitab');
+        return redirect('/admin/minitab/previewMinitab');
     }
 }

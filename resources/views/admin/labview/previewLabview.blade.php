@@ -9,7 +9,7 @@
                     <h3 class="block-title">Preview</h3>
                 </div>
                 <div class="block-content">
-                    <a href="previewLabview/createLabview" class="btn btn-md btn-success mb-3">TAMBAH GAMBAR</a>
+                    <a href="/admin/labview/previewLabview/createLabview" class="btn btn-md btn-success mb-3">TAMBAH GAMBAR</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -30,11 +30,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="previewLabview/editLabview/{{$p->id}}" >
+                                            <a href="/admin/labview/previewLabview/editLabview/{{$p->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="previewLabview/destroyLabview/{{$p->id}}" method="POST">
+                                        <form action="/admin/labview/previewLabview/destroyLabview/{{$p->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">

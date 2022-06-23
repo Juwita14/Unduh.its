@@ -9,7 +9,7 @@
                     <h3 class="block-title">Fitur</h3>
                 </div>
                 <div class="block-content">
-                    <a href="spesifikasiLabview/createLabview" class="btn btn-md btn-success mb-3">TAMBAH FITUR</a>
+                    <a href="/admin/labview/spesifikasiLabview/createLabview" class="btn btn-md btn-success mb-3">TAMBAH FITUR</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -26,11 +26,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="spesifikasiLabview/editLabview/{{$f->id}}" >
+                                            <a href="/admin/labview/spesifikasiLabview/editLabview/{{$f->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="spesifikasiLabview/destroyLabview/{{$f->id}}" method="POST">
+                                        <form action="/admin/labview/spesifikasiLabview/destroyLabview/{{$f->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
@@ -48,7 +48,7 @@
                     <h3 class="block-title">Persyaratan Sistem</h3>
                 </div>
                 <div class="block-content">
-                    <a href="spesifikasiLabview/createLabviewPS" class="btn btn-md btn-success mb-3">TAMBAH PERSYARATAN SISTEM</a>
+                    <a href="/admin/labview/spesifikasiLabview/createLabviewPS" class="btn btn-md btn-success mb-3">TAMBAH PERSYARATAN SISTEM</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -65,11 +65,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="spesifikasiLabview/editLabviewPS/{{$p->id}}" >
+                                            <a href="/admin/labview/spesifikasiLabview/editLabviewPS/{{$p->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="spesifikasiLabview/destroyLabviewPS/{{$p->id}}" method="POST">
+                                        <form action="/admin/labview/spesifikasiLabview/destroyLabviewPS/{{$p->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">

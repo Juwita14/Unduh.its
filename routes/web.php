@@ -154,87 +154,87 @@ Route::group(['middleware' => ['auth']], function () {
 
         //labview
         Route::get('/admin/labview/ringkasanLabview', [RingkasanController::class, 'indexLabview']);
-        Route::get('/ringkasanLabview/createLabview', [RingkasanController::class, 'createLabview']);
-        Route::post('/ringkasanLabview/storeLabview', [RingkasanController::class, 'storeLabview']);
-        Route::get('/ringkasanLabview/{id}/editLabview', [RingkasanController::class, 'editLabview']); 
-        Route::put('/ringkasanLabview/{id}', [RingkasanController::class, 'updateLabview']); 
-        Route::delete('/ringkasanLabview/{id}', [RingkasanController::class, 'destroyLabview']); 
+        Route::get('/admin/labview/ringkasanLabview/createLabview', [RingkasanController::class, 'createLabview']);
+        Route::post('/admin/labview/ringkasanLabview/storeLabview', [RingkasanController::class, 'storeLabview']);
+        Route::get('/admin/labview/ringkasanLabview/{id}/editLabview', [RingkasanController::class, 'editLabview']); 
+        Route::put('/admin/labview/ringkasanLabview/{id}', [RingkasanController::class, 'updateLabview']); 
+        Route::delete('/admin/labview/ringkasanLabview/{id}', [RingkasanController::class, 'destroyLabview']); 
 
         Route::get('/admin/labview/filedownloadLabview', [FileDownloadController::class, 'indexLabview']); 
-        Route::get('/filedownloadLabview/createLabview', [FileDownloadController::class, 'createLabview']);
-        Route::post('/filedownloadLabview/storeLabview', [FileDownloadController::class, 'storeLabview']);
-        Route::get('/filedownloadLabview/editLabview/{id}', [FileDownloadController::class, 'editLabview']);
-        Route::put('/filedownloadLabview/updateLabview/{id}', [FileDownloadController::class, 'updateLabview']); 
-        Route::delete('/filedownloadLabview/destroyLabview/{id}', [FileDownloadController::class, 'destroyLabview']);
+        Route::get('/admin/labview/filedownloadLabview/createLabview', [FileDownloadController::class, 'createLabview']);
+        Route::post('/admin/labview/filedownloadLabview/storeLabview', [FileDownloadController::class, 'storeLabview']);
+        Route::get('/admin/labview/filedownloadLabview/editLabview/{id}', [FileDownloadController::class, 'editLabview']);
+        Route::put('/admin/labview/filedownloadLabview/updateLabview/{id}', [FileDownloadController::class, 'updateLabview']); 
+        Route::delete('/admin/labview/filedownloadLabview/destroyLabview/{id}', [FileDownloadController::class, 'destroyLabview']);
 
-        Route::get('/filedownloadLabview/createLabviewFI', [FileDownloadController::class, 'createLabviewFI']);
-        Route::post('/filedownloadLabview/storeLabviewFI', [FileDownloadController::class, 'storeLabviewFI']);
-        Route::get('/filedownloadLabview/editLabviewFI/{id}', [FileDownloadController::class, 'editLabviewFI']);
-        Route::put('/filedownloadLabview/updateLabviewFI/{id}', [FileDownloadController::class, 'updateLabviewFI']); 
-        Route::delete('/filedownloadLabview/destroyLabviewFI/{id}', [FileDownloadController::class, 'destroyLabviewFI']);
+        Route::get('/admin/labview/filedownloadLabview/createLabviewFI', [FileDownloadController::class, 'createLabviewFI']);
+        Route::post('/admin/labview/filedownloadLabview/storeLabviewFI', [FileDownloadController::class, 'storeLabviewFI']);
+        Route::get('/admin/labview/filedownloadLabview/editLabviewFI/{id}', [FileDownloadController::class, 'editLabviewFI']);
+        Route::put('/admin/labview/filedownloadLabview/updateLabviewFI/{id}', [FileDownloadController::class, 'updateLabviewFI']); 
+        Route::delete('/admin/labview/filedownloadLabview/destroyLabviewFI/{id}', [FileDownloadController::class, 'destroyLabviewFI']);
 
         Route::get('/admin/labview/spesifikasiLabview', [SpesifikasiController::class, 'indexLabview']);
-        Route::get('/spesifikasiLabview/createLabview', [SpesifikasiController::class, 'createLabview']);
-        Route::post('/spesifikasiLabview/storeLabview', [SpesifikasiController::class, 'storeLabview']);
-        Route::get('/spesifikasiLabview/editLabview/{id}', [SpesifikasiController::class, 'editLabview']); 
-        Route::put('/spesifikasiLabview/updateLabview/{id}', [SpesifikasiController::class, 'updateLabview']); 
-        Route::delete('/spesifikasiLabview/destroyLabview/{id}', [SpesifikasiController::class, 'destroyLabview']);
+        Route::get('/admin/labview/spesifikasiLabview/createLabview', [SpesifikasiController::class, 'createLabview']);
+        Route::post('/admin/labview/spesifikasiLabview/storeLabview', [SpesifikasiController::class, 'storeLabview']);
+        Route::get('/admin/labview/spesifikasiLabview/editLabview/{id}', [SpesifikasiController::class, 'editLabview']); 
+        Route::put('/admin/labview/spesifikasiLabview/updateLabview/{id}', [SpesifikasiController::class, 'updateLabview']); 
+        Route::delete('/admin/labview/spesifikasiLabview/destroyLabview/{id}', [SpesifikasiController::class, 'destroyLabview']);
 
-        Route::get('/spesifikasiLabview/createLabviewPS', [SpesifikasiController::class, 'createLabviewPS']);
-        Route::post('/spesifikasiLabview/storeLabviewPS', [SpesifikasiController::class, 'storeLabviewPS']);
-        Route::get('/spesifikasiLabview/editLabviewPS/{id}', [SpesifikasiController::class, 'editLabviewPS']); 
-        Route::put('/spesifikasiLabview/updateLabviewPS/{id}', [SpesifikasiController::class, 'updateLabviewPS']); 
-        Route::delete('/spesifikasiLabview/destroyLabviewPS/{id}', [SpesifikasiController::class, 'destroyLabviewPS']);
+        Route::get('/admin/labview/spesifikasiLabview/createLabviewPS', [SpesifikasiController::class, 'createLabviewPS']);
+        Route::post('/admin/labview/spesifikasiLabview/storeLabviewPS', [SpesifikasiController::class, 'storeLabviewPS']);
+        Route::get('/admin/labview/spesifikasiLabview/editLabviewPS/{id}', [SpesifikasiController::class, 'editLabviewPS']); 
+        Route::put('/admin/labview/spesifikasiLabview/updateLabviewPS/{id}', [SpesifikasiController::class, 'updateLabviewPS']); 
+        Route::delete('/admin/labview/spesifikasiLabview/destroyLabviewPS/{id}', [SpesifikasiController::class, 'destroyLabviewPS']);
 
         Route::get('/admin/labview/previewLabview', [PreviewController::class, 'indexLabview']); 
-        Route::get('/previewLabview/createLabview', [PreviewController::class, 'createLabview']);
-        Route::post('/previewLabview/storeLabview', [PreviewController::class, 'storeLabview']);
-        Route::get('/previewLabview/editLabview/{id}', [PreviewController::class, 'editLabview']);
-        Route::put('/previewLabview/updateLabview/{id}', [PreviewController::class, 'updateLabview']); 
-        Route::delete('/previewLabview/destroyLabview/{id}', [PreviewController::class, 'destroyLabview']);
+        Route::get('/admin/labview/previewLabview/createLabview', [PreviewController::class, 'createLabview']);
+        Route::post('/admin/labview/previewLabview/storeLabview', [PreviewController::class, 'storeLabview']);
+        Route::get('/admin/labview/previewLabview/editLabview/{id}', [PreviewController::class, 'editLabview']);
+        Route::put('/admin/labview/previewLabview/updateLabview/{id}', [PreviewController::class, 'updateLabview']); 
+        Route::delete('/admin/labview/previewLabview/destroyLabview/{id}', [PreviewController::class, 'destroyLabview']);
 
 
         //minitab
         Route::get('/admin/minitab/ringkasanMinitab', [RingkasanController::class, 'indexMinitab']);
-        Route::get('/ringkasanMinitab/createMinitab', [RingkasanController::class, 'createMinitab']);
-        Route::post('/ringkasanMinitab/storeMinitab', [RingkasanController::class, 'storeMinitab']);
-        Route::get('/ringkasanMinitab/editMinitab/{id}', [RingkasanController::class, 'editMinitab']); 
-        Route::put('/ringkasanMinitab/updateMinitab/{id}', [RingkasanController::class, 'updateMinitab']); 
-        Route::delete('/ringkasanMinitab/destroyMinitab/{id}', [RingkasanController::class, 'destroyMinitab']); 
+        Route::get('/admin/minitab/ringkasanMinitab/createMinitab', [RingkasanController::class, 'createMinitab']);
+        Route::post('/admin/minitab/ringkasanMinitab/storeMinitab', [RingkasanController::class, 'storeMinitab']);
+        Route::get('/admin/minitab/ringkasanMinitab/editMinitab/{id}', [RingkasanController::class, 'editMinitab']); 
+        Route::put('/admin/minitab/ringkasanMinitab/updateMinitab/{id}', [RingkasanController::class, 'updateMinitab']); 
+        Route::delete('/admin/minitab/ringkasanMinitab/destroyMinitab/{id}', [RingkasanController::class, 'destroyMinitab']); 
 
         Route::get('/admin/minitab/filedownloadMinitab', [FileDownloadController::class, 'indexMinitab']); 
-        Route::get('/filedownloadMinitab/createMinitab', [FileDownloadController::class, 'createMinitab']);
-        Route::post('/filedownloadMinitab/storeMinitab', [FileDownloadController::class, 'storeMinitab']);
-        Route::get('/filedownloadMinitab/editMinitab/{id}', [FileDownloadController::class, 'editMinitab']);
-        Route::put('/filedownloadMinitab/updateMinitab/{id}', [FileDownloadController::class, 'updateMinitab']); 
-        Route::delete('/filedownloadMinitab/destroyMinitab/{id}', [FileDownloadController::class, 'destroyMinitab']);
+        Route::get('/admin/minitab/filedownloadMinitab/createMinitab', [FileDownloadController::class, 'createMinitab']);
+        Route::post('/admin/minitab/filedownloadMinitab/storeMinitab', [FileDownloadController::class, 'storeMinitab']);
+        Route::get('/admin/minitab/filedownloadMinitab/editMinitab/{id}', [FileDownloadController::class, 'editMinitab']);
+        Route::put('/admin/minitab/filedownloadMinitab/updateMinitab/{id}', [FileDownloadController::class, 'updateMinitab']); 
+        Route::delete('/admin/minitab/filedownloadMinitab/destroyMinitab/{id}', [FileDownloadController::class, 'destroyMinitab']);
 
-        Route::get('/filedownloadMinitab/createMinitabFI', [FileDownloadController::class, 'createMinitabFI']);
-        Route::post('/filedownloadMinitab/storeMinitabFI', [FileDownloadController::class, 'storeMinitabFI']);
-        Route::get('/filedownloadMinitab/editMinitabFI/{id}', [FileDownloadController::class, 'editMinitabFI']);
-        Route::put('/filedownloadMinitab/updateMinitabFI/{id}', [FileDownloadController::class, 'updateMinitabFI']); 
-        Route::delete('/filedownloadMinitab/destroyMinitabFI/{id}', [FileDownloadController::class, 'destroyMinitabFI']);
+        Route::get('/admin/minitab/filedownloadMinitab/createMinitabFI', [FileDownloadController::class, 'createMinitabFI']);
+        Route::post('/admin/minitab/filedownloadMinitab/storeMinitabFI', [FileDownloadController::class, 'storeMinitabFI']);
+        Route::get('/admin/minitab/filedownloadMinitab/editMinitabFI/{id}', [FileDownloadController::class, 'editMinitabFI']);
+        Route::put('/admin/minitab/filedownloadMinitab/updateMinitabFI/{id}', [FileDownloadController::class, 'updateMinitabFI']); 
+        Route::delete('/admin/minitab/filedownloadMinitab/destroyMinitabFI/{id}', [FileDownloadController::class, 'destroyMinitabFI']);
 
 
         Route::get('/admin/minitab/spesifikasiMinitab', [SpesifikasiController::class, 'indexMinitab']);
-        Route::get('/spesifikasiMinitab/createMinitab', [SpesifikasiController::class, 'createMinitab']);
-        Route::post('/spesifikasiMinitab/storeMinitab', [SpesifikasiController::class, 'storeMinitab']);
-        Route::get('/spesifikasiMinitab/editMinitab/{id}', [SpesifikasiController::class, 'editMinitab']); 
-        Route::put('/spesifikasiMinitab/updateMinitab/{id}', [SpesifikasiController::class, 'updateMinitab']); 
-        Route::delete('/spesifikasiMinitab/destroyMinitab/{id}', [SpesifikasiController::class, 'destroyMinitab']);
+        Route::get('/admin/minitab/spesifikasiMinitab/createMinitab', [SpesifikasiController::class, 'createMinitab']);
+        Route::post('/admin/minitab/spesifikasiMinitab/storeMinitab', [SpesifikasiController::class, 'storeMinitab']);
+        Route::get('/admin/minitab/spesifikasiMinitab/editMinitab/{id}', [SpesifikasiController::class, 'editMinitab']); 
+        Route::put('/admin/minitab/spesifikasiMinitab/updateMinitab/{id}', [SpesifikasiController::class, 'updateMinitab']); 
+        Route::delete('/admin/minitab/spesifikasiMinitab/destroyMinitab/{id}', [SpesifikasiController::class, 'destroyMinitab']);
 
-        Route::get('/spesifikasiMinitab/createMinitabPS', [SpesifikasiController::class, 'createMinitabPS']);
-        Route::post('/spesifikasiMinitab/storeMinitabPS', [SpesifikasiController::class, 'storeMinitabPS']);
-        Route::get('/spesifikasiMinitab/editMinitabPS/{id}', [SpesifikasiController::class, 'editMinitabPS']); 
-        Route::put('/spesifikasiMinitab/updateMinitabPS/{id}', [SpesifikasiController::class, 'updateMinitabPS']); 
-        Route::delete('/spesifikasiMinitab/destroyMinitabPS/{id}', [SpesifikasiController::class, 'destroyMinitabPS']);
+        Route::get('/admin/minitab/spesifikasiMinitab/createMinitabPS', [SpesifikasiController::class, 'createMinitabPS']);
+        Route::post('/admin/minitab/spesifikasiMinitab/storeMinitabPS', [SpesifikasiController::class, 'storeMinitabPS']);
+        Route::get('/admin/minitab/spesifikasiMinitab/editMinitabPS/{id}', [SpesifikasiController::class, 'editMinitabPS']); 
+        Route::put('/admin/minitab/spesifikasiMinitab/updateMinitabPS/{id}', [SpesifikasiController::class, 'updateMinitabPS']); 
+        Route::delete('/admin/minitab/spesifikasiMinitab/destroyMinitabPS/{id}', [SpesifikasiController::class, 'destroyMinitabPS']);
 
         Route::get('/admin/minitab/previewMinitab', [PreviewController::class, 'indexMinitab']); 
-        Route::get('/previewMinitab/createMinitab', [PreviewController::class, 'createMinitab']);
-        Route::post('/previewMinitab/storeMinitab', [PreviewController::class, 'storeMinitab']);
-        Route::get('/previewMinitab/editMinitab/{id}', [PreviewController::class, 'editMinitab']);
-        Route::put('/previewMinitab/updateMinitab/{id}', [PreviewController::class, 'updateMinitab']); 
-        Route::delete('/previewMinitab/destroyMinitab/{id}', [PreviewController::class, 'destroyMinitab']);
+        Route::get('/admin/minitab/previewMinitab/createMinitab', [PreviewController::class, 'createMinitab']);
+        Route::post('/admin/minitab/previewMinitab/storeMinitab', [PreviewController::class, 'storeMinitab']);
+        Route::get('/admin/minitab/previewMinitab/editMinitab/{id}', [PreviewController::class, 'editMinitab']);
+        Route::put('/admin/minitab/previewMinitab/updateMinitab/{id}', [PreviewController::class, 'updateMinitab']); 
+        Route::delete('/admin/minitab/previewMinitab/destroyMinitab/{id}', [PreviewController::class, 'destroyMinitab']);
 
         
 

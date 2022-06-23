@@ -125,7 +125,7 @@ class SpesifikasiController extends Controller
             'fitur' =>$request->fitur
         ]);
         // Fitur::create($request->except(['_token','submit']));
-        return redirect('/spesifikasiLabview');
+        return redirect('/admin/labview/spesifikasiLabview');
     }
 
     public function createMinitab()
@@ -142,7 +142,7 @@ class SpesifikasiController extends Controller
             'fitur' =>$request->fitur
         ]);
         // Fitur::create($request->except(['_token','submit']));
-        return redirect('/spesifikasiMinitab');
+        return redirect('/admin/minitab/spesifikasiMinitab');
     }
 
     public function edit($id)
@@ -218,7 +218,7 @@ class SpesifikasiController extends Controller
             'id_software' => $software,
             'fitur' =>$request->fitur
         ]);
-        return redirect('/spesifikasiLabview');
+        return redirect('/admin/labview/spesifikasiLabview');
     }
 
     public function editMinitab($id)
@@ -237,7 +237,7 @@ class SpesifikasiController extends Controller
             'id_software' => $software,
             'fitur' =>$request->fitur
         ]);
-        return redirect('/spesifikasiMinitab');
+        return redirect('/admin/minitab/spesifikasiMinitab');
     }
 
     public function destroy($id)
@@ -265,14 +265,14 @@ class SpesifikasiController extends Controller
     {
         $fitur = Fitur::find($id);
         $fitur->delete();
-        return redirect('/spesifikasiLabview');
+        return redirect('/admin/labview/spesifikasiLabview');
     }
 
     public function destroyMinitab($id)
     {
         $fitur = Fitur::find($id);
         $fitur->delete();
-        return redirect('/spesifikasiMinitab');
+        return redirect('/admin/minitab/spesifikasiMinitab');
     }
 
     public function createPS()
@@ -323,7 +323,7 @@ class SpesifikasiController extends Controller
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
         // Fitur::create($request->except(['_token','submit']));
-        return redirect('/spesifikasiLabview');
+        return redirect('/admin/labview/spesifikasiLabview');
     }
 
     public function createMinitabPS()
@@ -340,7 +340,7 @@ class SpesifikasiController extends Controller
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
         // Fitur::create($request->except(['_token','submit']));
-        return redirect('/spesifikasiMinitab');
+        return redirect('/admin/minitab/spesifikasiMinitab');
     }
 
     public function editPS($id)
@@ -397,7 +397,7 @@ class SpesifikasiController extends Controller
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
-        return redirect('/spesifikasiLabview');
+        return redirect('/admin/labview/spesifikasiLabview');
     }
 
     public function editMinitabPS($id)
@@ -416,7 +416,7 @@ class SpesifikasiController extends Controller
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
-        return redirect('/spesifikasiMinitab');
+        return redirect('/admin/minitab/spesifikasiMinitab');
     }
 
     public function destroyPS($id)
@@ -437,13 +437,13 @@ class SpesifikasiController extends Controller
     {
         $persyaratan_sistem = Persyaratan_sistem::find($id);
         $persyaratan_sistem->delete();
-        return redirect('/spesifikasiLabview');
+        return redirect('/admin/labview/spesifikasiLabview');
     }
 
     public function destroyMinitabPS($id)
     {
         $persyaratan_sistem = Persyaratan_sistem::find($id);
         $persyaratan_sistem->delete();
-        return redirect('/spesifikasiMinitab');
+        return redirect('/admin/minitab/spesifikasiMinitab');
     }
 }

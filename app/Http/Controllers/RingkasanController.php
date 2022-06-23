@@ -134,7 +134,7 @@ class RingkasanController extends Controller
             'id_software' => $software,
             'ringkasan' =>$request->ringkasan
         ]);
-        return redirect('/ringkasanLabview');
+        return redirect('/admin/labview/ringkasanLabview');
     }
 
     public function createMinitab()
@@ -150,7 +150,7 @@ class RingkasanController extends Controller
             'id_software' => $software,
             'ringkasan' =>$request->ringkasan
         ]);
-        return redirect('/ringkasanMinitab');
+        return redirect('/admin/minitab/ringkasanMinitab');
     }
 
     public function edit($id)
@@ -217,7 +217,7 @@ class RingkasanController extends Controller
     {
         $ringkasan = Ringkasan::find($id);
         $ringkasan->update($request->except(['_token','submit']));
-        return redirect('/ringkasanLabview');
+        return redirect('/admin/labview/ringkasanLabview');
     }
 
     public function editMinitab($id)
@@ -234,7 +234,7 @@ class RingkasanController extends Controller
         // $software = Software::find($id);
         $ringkasan = Ringkasan::find($id);
         $ringkasan->update($request->except(['_token','submit']));
-        return redirect('/ringkasanMinitab');
+        return redirect('/admin/minitab/ringkasanMinitab');
     }
 
     public function destroy($id)
@@ -262,13 +262,13 @@ class RingkasanController extends Controller
     {
         $ringkasan = Ringkasan::find($id);
         $ringkasan->delete();
-        return redirect('/ringkasanLabview');
+        return redirect('/admin/labview/ringkasanLabview');
     }
 
     public function destroyMinitab($id)
     {
         $ringkasan = Ringkasan::find($id);
         $ringkasan->delete();
-        return redirect('/ringkasanMinitab');
+        return redirect('/admin/minitab/ringkasanMinitab');
     }
 }

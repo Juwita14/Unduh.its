@@ -9,7 +9,7 @@
                     <h3 class="block-title">File Panduan</h3>
                 </div>
                 <div class="block-content">
-                    <a href="filedownloadMinitab/createMinitab" class="btn btn-md btn-success mb-3">TAMBAH FILE PANDUAN</a>
+                    <a href="/admin/minitab/filedownloadMinitab/createMinitab" class="btn btn-md btn-success mb-3">TAMBAH FILE PANDUAN</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -28,11 +28,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="filedownloadMinitab/editMinitab/{{$pd->id}}" >
+                                            <a href="/admin/minitab/filedownloadMinitab/editMinitab/{{$pd->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="filedownloadMinitab/destroyMinitab/{{$pd->id}}" method="POST">
+                                        <form action="/admin/minitab/filedownloadMinitab/destroyMinitab/{{$pd->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
@@ -51,7 +51,7 @@
                     <h3 class="block-title">File Installer</h3>
                 </div>
                 <div class="block-content">
-                <a href="filedownloadMinitab/createMinitabFI" class="btn btn-md btn-success mb-3">TAMBAH FILE INSTALLER</a>
+                <a href="/admin/minitab/filedownloadMinitab/createMinitabFI" class="btn btn-md btn-success mb-3">TAMBAH FILE INSTALLER</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -72,11 +72,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="filedownloadMinitab/editMinitabFI/{{$fi->id}}" >
+                                            <a href="/admin/minitab/filedownloadMinitab/editMinitabFI/{{$fi->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="filedownloadMinitab/destroyMinitabFI/{{$fi->id}}" method="POST">
+                                        <form action="/admin/minitab/filedownloadMinitab/destroyMinitabFI/{{$fi->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">

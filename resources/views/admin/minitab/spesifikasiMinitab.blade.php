@@ -9,7 +9,7 @@
                     <h3 class="block-title">Fitur</h3>
                 </div>
                 <div class="block-content">
-                    <a href="spesifikasiMinitab/createMinitab" class="btn btn-md btn-success mb-3">TAMBAH FITUR</a>
+                    <a href="/admin/minitab/spesifikasiMinitab/createMinitab" class="btn btn-md btn-success mb-3">TAMBAH FITUR</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -26,11 +26,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="spesifikasiMinitab/editMinitab/{{$f->id}}" >
+                                            <a href="/admin/minitab/spesifikasiMinitab/editMinitab/{{$f->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="spesifikasiMinitab/destroyMinitab/{{$f->id}}" method="POST">
+                                        <form action="/admin/minitab/spesifikasiMinitab/destroyMinitab/{{$f->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
@@ -48,7 +48,7 @@
                     <h3 class="block-title">Persyaratan Sistem</h3>
                 </div>
                 <div class="block-content">
-                    <a href="spesifikasiMinitab/createMinitabPS" class="btn btn-md btn-success mb-3">TAMBAH PERSYARATAN SISTEM</a>
+                    <a href="/admin/minitab/spesifikasiMinitab/createMinitabPS" class="btn btn-md btn-success mb-3">TAMBAH PERSYARATAN SISTEM</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -65,11 +65,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="spesifikasiMinitab/editMinitabPS/{{$p->id}}" >
+                                            <a href="/admin/minitab/spesifikasiMinitab/editMinitabPS/{{$p->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="spesifikasiMinitab/destroyMinitabPS/{{$p->id}}" method="POST">
+                                        <form action="/admin/minitab/spesifikasiMinitab/destroyMinitabPS/{{$p->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">

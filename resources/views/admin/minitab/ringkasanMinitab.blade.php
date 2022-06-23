@@ -9,7 +9,7 @@
                     <h3 class="block-title">Ringkasan</h3>
                 </div>
                 <div class="block-content">
-                    <a href="ringkasanMinitab/createMinitab" class="btn btn-md btn-success mb-3">TAMBAH RINGKASAN</a>
+                    <a href="/admin/minitab/ringkasanMinitab/createMinitab" class="btn btn-md btn-success mb-3">TAMBAH RINGKASAN</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -30,11 +30,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="ringkasanMinitab/editMinitab/{{$r->id}}" >
+                                            <a href="/admin/minitab/ringkasanMinitab/editMinitab/{{$r->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="ringkasanMinitab/destroyMinitab/{{$r->id}}" method="POST">
+                                        <form action="/admin/minitab/ringkasanMinitab/destroyMinitab/{{$r->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
