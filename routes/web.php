@@ -112,44 +112,44 @@ Route::group(['middleware' => ['auth']], function () {
 
         //mathematica
         Route::get('/admin/mathematica/ringkasanMathematica', [RingkasanController::class, 'indexMathematica']);
-        Route::get('/ringkasanMathematica/createMathematica', [RingkasanController::class, 'createMathematica']);
-        Route::post('/ringkasanMathematica/storeMathematica', [RingkasanController::class, 'storeMathematica']);
-        Route::get('/ringkasanMathematica/editMathematica/{id}', [RingkasanController::class, 'editMathematica']); 
-        Route::put('/ringkasanMathematica/updateMathematica/{id}', [RingkasanController::class, 'updateMathematica']); 
-        Route::delete('/ringkasanMathematica/destroyMathematica/{id}', [RingkasanController::class, 'destroyMathematica']); 
+        Route::get('/admin/mathematica/ringkasanMathematica/createMathematica', [RingkasanController::class, 'createMathematica']);
+        Route::post('/admin/mathematica/ringkasanMathematica/storeMathematica', [RingkasanController::class, 'storeMathematica']);
+        Route::get('/admin/mathematica/ringkasanMathematica/editMathematica/{id}', [RingkasanController::class, 'editMathematica']); 
+        Route::put('/admin/mathematica/ringkasanMathematica/updateMathematica/{id}', [RingkasanController::class, 'updateMathematica']); 
+        Route::delete('/admin/mathematica/ringkasanMathematica/destroyMathematica/{id}', [RingkasanController::class, 'destroyMathematica']); 
 
         Route::get('/admin/mathematica/filedownloadMathematica', [FileDownloadController::class, 'indexMathematica']); 
-        Route::get('/filedownloadMathematica/createMathematica', [FileDownloadController::class, 'createMathematica']);
-        Route::post('/filedownloadMathematica/storeMathematica', [FileDownloadController::class, 'storeMathematica']);
-        Route::get('/filedownloadMathematica/editMathematica/{id}', [FileDownloadController::class, 'editMathematica']);
-        Route::put('/filedownloadMathematica/updateMathematica/{id}', [FileDownloadController::class, 'updateMathematica']); 
-        Route::delete('/filedownloadMathematica/destroyMathematica/{id}', [FileDownloadController::class, 'destroyMathematica']);
+        Route::get('/admin/mathematica/filedownloadMathematica/createMathematica', [FileDownloadController::class, 'createMathematica']);
+        Route::post('/admin/mathematica/filedownloadMathematica/storeMathematica', [FileDownloadController::class, 'storeMathematica']);
+        Route::get('/admin/mathematica/filedownloadMathematica/editMathematica/{id}', [FileDownloadController::class, 'editMathematica']);
+        Route::put('/admin/mathematica/filedownloadMathematica/updateMathematica/{id}', [FileDownloadController::class, 'updateMathematica']); 
+        Route::delete('/admin/mathematica/filedownloadMathematica/destroyMathematica/{id}', [FileDownloadController::class, 'destroyMathematica']);
 
-        Route::get('/filedownloadMathematica/createMathematicaFI', [FileDownloadController::class, 'createMathematicaFI']);
-        Route::post('/filedownloadMathematica/storeMathematicaFI', [FileDownloadController::class, 'storeMathematicaFI']);
-        Route::get('/filedownloadMathematica/editMathematicaFI/{id}', [FileDownloadController::class, 'editMathematicaFI']);
-        Route::put('/filedownloadMathematica/updateMathematicaFI/{id}', [FileDownloadController::class, 'updateMathematicaFI']); 
-        Route::delete('/filedownloadMathematica/destroyMathematicaFI/{id}', [FileDownloadController::class, 'destroyMathematicaFI']);
+        Route::get('/admin/mathematica/filedownloadMathematica/createMathematicaFI', [FileDownloadController::class, 'createMathematicaFI']);
+        Route::post('/admin/mathematica/filedownloadMathematica/storeMathematicaFI', [FileDownloadController::class, 'storeMathematicaFI']);
+        Route::get('/admin/mathematica/filedownloadMathematica/editMathematicaFI/{id}', [FileDownloadController::class, 'editMathematicaFI']);
+        Route::put('/admin/mathematica/filedownloadMathematica/updateMathematicaFI/{id}', [FileDownloadController::class, 'updateMathematicaFI']); 
+        Route::delete('/admin/mathematica/filedownloadMathematica/destroyMathematicaFI/{id}', [FileDownloadController::class, 'destroyMathematicaFI']);
 
         Route::get('/admin/mathematica/spesifikasiMathematica', [SpesifikasiController::class, 'indexMathematica']);
-        Route::get('/spesifikasiMathematica/createMathematica', [SpesifikasiController::class, 'createMathematica']);
-        Route::post('/spesifikasiMathematica/storeMathematica', [SpesifikasiController::class, 'storeMathematica']);
-        Route::get('/spesifikasiMathematica/editMathematica/{id}', [SpesifikasiController::class, 'editMathematica']); 
-        Route::put('/spesifikasiMathematica/updateMathematica/{id}', [SpesifikasiController::class, 'updateMathematica']); 
-        Route::delete('/spesifikasiMathematica/destroyMathematica/{id}', [SpesifikasiController::class, 'destroyMathematica']);
+        Route::get('/admin/mathematica/spesifikasiMathematica/createMathematica', [SpesifikasiController::class, 'createMathematica']);
+        Route::post('/admin/mathematica/spesifikasiMathematica/storeMathematica', [SpesifikasiController::class, 'storeMathematica']);
+        Route::get('/admin/mathematica/spesifikasiMathematica/editMathematica/{id}', [SpesifikasiController::class, 'editMathematica']); 
+        Route::put('/admin/mathematica/spesifikasiMathematica/updateMathematica/{id}', [SpesifikasiController::class, 'updateMathematica']); 
+        Route::delete('/admin/mathematica/spesifikasiMathematica/destroyMathematica/{id}', [SpesifikasiController::class, 'destroyMathematica']);
 
-        Route::get('/spesifikasiMathematica/createMathematicaPS', [SpesifikasiController::class, 'createMathematicaPS']);
-        Route::post('/spesifikasiMathematica/storeMathematicaPS', [SpesifikasiController::class, 'storeMathematicaPS']);
-        Route::get('/spesifikasiMathematica/editMathematicaPS/{id}', [SpesifikasiController::class, 'editMathematicaPS']); 
-        Route::put('/spesifikasiMathematica/updateMathematicaPS/{id}', [SpesifikasiController::class, 'updateMathematicaPS']); 
-        Route::delete('/spesifikasiMathematica/destroyMathematicaPS/{id}', [SpesifikasiController::class, 'destroyMathematicaPS']);
+        Route::get('/admin/mathematica/spesifikasiMathematica/createMathematicaPS', [SpesifikasiController::class, 'createMathematicaPS']);
+        Route::post('/admin/mathematica/spesifikasiMathematica/storeMathematicaPS', [SpesifikasiController::class, 'storeMathematicaPS']);
+        Route::get('/admin/mathematica/spesifikasiMathematica/editMathematicaPS/{id}', [SpesifikasiController::class, 'editMathematicaPS']); 
+        Route::put('/admin/mathematica/spesifikasiMathematica/updateMathematicaPS/{id}', [SpesifikasiController::class, 'updateMathematicaPS']); 
+        Route::delete('/admin/mathematica/spesifikasiMathematica/destroyMathematicaPS/{id}', [SpesifikasiController::class, 'destroyMathematicaPS']);
 
         Route::get('/admin/mathematica/previewMathematica', [PreviewController::class, 'indexMathematica']); 
-        Route::get('/previewMathematica/createMathematica', [PreviewController::class, 'createMathematica']);
-        Route::post('/previewMathematica/storeMathematica', [PreviewController::class, 'storeMathematica']);
-        Route::get('/previewMathematica/editMathematica/{id}', [PreviewController::class, 'editMathematica']);
-        Route::put('/previewMathematica/updateMathematica/{id}', [PreviewController::class, 'updateMathematica']); 
-        Route::delete('/previewMathematica/destroyMathematica/{id}', [PreviewController::class, 'destroyMathematica']);
+        Route::get('/admin/mathematica/previewMathematica/createMathematica', [PreviewController::class, 'createMathematica']);
+        Route::post('/admin/mathematica/previewMathematica/storeMathematica', [PreviewController::class, 'storeMathematica']);
+        Route::get('/admin/mathematica/previewMathematica/editMathematica/{id}', [PreviewController::class, 'editMathematica']);
+        Route::put('/admin/mathematica/previewMathematica/updateMathematica/{id}', [PreviewController::class, 'updateMathematica']); 
+        Route::delete('/admin/mathematica/previewMathematica/destroyMathematica/{id}', [PreviewController::class, 'destroyMathematica']);
 
 
         //labview

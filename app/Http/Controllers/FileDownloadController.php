@@ -112,7 +112,7 @@ class FileDownloadController extends Controller
         ]);
 
         $namaFiles->move($destinationPath, $namaFile); 
-        return redirect('/filedownloadMathematica');
+        return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
     public function createLabview()
@@ -176,12 +176,12 @@ class FileDownloadController extends Controller
         File_installer::create([
             'id_software' => $software,
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namaFile
-            // 'namapanduan' =>$namaFile
+            'file_download' =>$namaFile,
+            'size' =>$request->size
         ]);
 
         $namaFiles->move($destinationPath, $namaFile); 
-        return redirect('/filedownloadMathematica');
+        return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
     public function createLabviewFI()
@@ -326,7 +326,7 @@ class FileDownloadController extends Controller
             'nama_file_panduan' =>$request->nama_file_panduan,
             'namapanduan' =>$namapanduanbaru
         ]);
-        return redirect('/filedownloadMathematica');
+        return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
     public function editMathematicaFI($id)
@@ -357,9 +357,10 @@ class FileDownloadController extends Controller
         File_installer::where('id', $id)
         ->update([
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namapanduanbaru
+            'file_download' =>$namapanduanbaru,
+            'size' => $request->size
         ]);
-        return redirect('/filedownloadMathematica');
+        return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
     public function destroy($id)
@@ -404,7 +405,7 @@ class FileDownloadController extends Controller
         // dd($isExists);
         unlink($path);
         $file_panduan->delete();
-        return redirect('/filedownloadMathematica');
+        return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
     public function destroyLabview($id)
@@ -449,7 +450,7 @@ class FileDownloadController extends Controller
         // dd($isExists);
         unlink($path);
         $file_installer->delete();
-        return redirect('/filedownloadMathematica');
+        return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
     public function destroyLabviewFI($id)

@@ -9,7 +9,7 @@
                     <h3 class="block-title">File Panduan</h3>
                 </div>
                 <div class="block-content">
-                    <a href="filedownloadMathematica/createMathematica" class="btn btn-md btn-success mb-3">TAMBAH FILE PANDUAN</a>
+                    <a href="/admin/mathematica/filedownloadMathematica/createMathematica" class="btn btn-md btn-success mb-3">TAMBAH FILE PANDUAN</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -51,7 +51,7 @@
                     <h3 class="block-title">File Installer</h3>
                 </div>
                 <div class="block-content">
-                <a href="filedownloadMathematica/createMathematicaFI" class="btn btn-md btn-success mb-3">TAMBAH FILE INSTALLER</a>
+                <a href="/admin/mathematica/filedownloadMathematica/createMathematicaFI" class="btn btn-md btn-success mb-3">TAMBAH FILE INSTALLER</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>

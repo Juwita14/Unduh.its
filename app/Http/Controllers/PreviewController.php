@@ -103,7 +103,7 @@ class PreviewController extends Controller
         ]);
 
         $namaFiles->move($destinationPath, $namaFile); 
-        return redirect('/previewMathematica');
+        return redirect('/admin/mathematica/previewMathematica');
     }
 
     public function createLabview()
@@ -249,7 +249,7 @@ class PreviewController extends Controller
             'namaFiles' =>$namaPreviewbaru
         ]);
         
-        return redirect('/previewMathematica');
+        return redirect('/admin/mathematica/previewMathematica');
     }
 
     public function editLabview($id)
@@ -361,7 +361,7 @@ class PreviewController extends Controller
         // dd($isExists);
         unlink($path);
         $preview->delete();
-        return redirect('/previewMathematica');
+        return redirect('/admin/mathematica/previewMathematica');
     }
 
     public function destroyLabview($id)

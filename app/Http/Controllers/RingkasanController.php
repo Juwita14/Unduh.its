@@ -118,7 +118,7 @@ class RingkasanController extends Controller
             'id_software' => $software,
             'ringkasan' =>$request->ringkasan
         ]);
-        return redirect('/ringkasanMathematica');
+        return redirect('/admin/mathematica/ringkasanMathematica');
     }
 
     public function createLabview()
@@ -201,7 +201,7 @@ class RingkasanController extends Controller
     {
         $ringkasan = Ringkasan::find($id);
         $ringkasan->update($request->except(['_token','submit']));
-        return redirect('/ringkasanMathematica');
+        return redirect('/admin/mathematica/ringkasanMathematica');
     }
 
     public function editLabview($id)
@@ -255,7 +255,7 @@ class RingkasanController extends Controller
     {
         $ringkasan = Ringkasan::find($id);
         $ringkasan->delete();
-        return redirect('/ringkasanMathematica');
+        return redirect('/admin/mathematica/ringkasanMathematica');
     }
 
     public function destroyLabview($id)

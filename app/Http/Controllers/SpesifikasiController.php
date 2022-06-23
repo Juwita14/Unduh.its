@@ -108,7 +108,7 @@ class SpesifikasiController extends Controller
             'fitur' =>$request->fitur
         ]);
         // Fitur::create($request->except(['_token','submit']));
-        return redirect('/spesifikasiMathematica');
+        return redirect('/admin/mathematica/spesifikasiMathematica');
     }
 
     public function createLabview()
@@ -199,7 +199,7 @@ class SpesifikasiController extends Controller
             'id_software' => $software,
             'fitur' =>$request->fitur
         ]);
-        return redirect('/spesifikasiMathematica');
+        return redirect('/admin/mathematica/spesifikasiMathematica');
     }
 
     public function editLabview($id)
@@ -258,7 +258,7 @@ class SpesifikasiController extends Controller
     {
         $fitur = Fitur::find($id);
         $fitur->delete();
-        return redirect('/spesifikasiMathematica');
+        return redirect('/admin/mathematica/spesifikasiMathematica');
     }
 
     public function destroyLabview($id)
@@ -306,7 +306,7 @@ class SpesifikasiController extends Controller
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
         // Fitur::create($request->except(['_token','submit']));
-        return redirect('/spesifikasiMathematica');
+        return redirect('/admin/mathematica/spesifikasiMathematica');
     }
 
     public function createLabviewPS()
@@ -378,7 +378,7 @@ class SpesifikasiController extends Controller
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
-        return redirect('/spesifikasiMathematica');
+        return redirect('/admin/mathematica/spesifikasiMathematica');
     }
 
     public function editLabviewPS($id)
@@ -430,7 +430,7 @@ class SpesifikasiController extends Controller
     {
         $persyaratan_sistem = Persyaratan_sistem::find($id);
         $persyaratan_sistem->delete();
-        return redirect('/spesifikasiMathematica');
+        return redirect('/admin/mathematica/spesifikasiMathematica');
     }
 
     public function destroyLabviewPS($id)

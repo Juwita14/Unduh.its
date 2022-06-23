@@ -9,7 +9,7 @@
                     <h3 class="block-title">Fitur</h3>
                 </div>
                 <div class="block-content">
-                    <a href="spesifikasiMathematica/createMathematica" class="btn btn-md btn-success mb-3">TAMBAH FITUR</a>
+                    <a href="/admin/mathematica/spesifikasiMathematica/createMathematica" class="btn btn-md btn-success mb-3">TAMBAH FITUR</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -26,11 +26,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="spesifikasiMathematica/editMathematica/{{$f->id}}" >
+                                            <a href="/admin/mathematica/spesifikasiMathematica/editMathematica/{{$f->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="spesifikasiMathematica/destroyMathematica/{{$f->id}}" method="POST">
+                                        <form action="/admin/mathematica/spesifikasiMathematica/destroyMathematica/{{$f->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
@@ -48,7 +48,7 @@
                     <h3 class="block-title">Persyaratan Sistem</h3>
                 </div>
                 <div class="block-content">
-                    <a href="spesifikasiMathematica/createMathematicaPS" class="btn btn-md btn-success mb-3">TAMBAH PERSYARATAN SISTEM</a>
+                    <a href="/admin/mathematica/spesifikasiMathematica/createMathematicaPS" class="btn btn-md btn-success mb-3">TAMBAH PERSYARATAN SISTEM</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
@@ -65,11 +65,11 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="spesifikasiMathematica/editMathematicaPS/{{$p->id}}" >
+                                            <a href="/admin/mathematica/spesifikasiMathematica/editMathematicaPS/{{$p->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="spesifikasiMathematica/destroyMathematicaPS/{{$p->id}}" method="POST">
+                                        <form action="/admin/mathematica/spesifikasiMathematica/destroyMathematicaPS/{{$p->id}}" method="POST">
                                             @method('delete')
                                             @csrf
                                             <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
