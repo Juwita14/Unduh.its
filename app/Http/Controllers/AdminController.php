@@ -16,7 +16,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('awal2');
+        return view('admin.awal2');
     }
 
 }

@@ -150,7 +150,7 @@
                     <div class="content-side content-side-full">
                         <ul class="nav-main">
                             <li>
-                                <a href="be_pages_dashboard.html"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+                                <a class="{{ request()->is('admin') ? ' active' : '' }}" href="/admin"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                             </li>
                             <li class="{{ request()->is('admin/adobe/*') ? ' open' : '' }}">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
@@ -176,7 +176,7 @@
                                         <a class="{{ request()->is('admin/matlab/ringkasanMatlab') ? ' active' : '' }}" href="/admin/matlab/ringkasanMatlab">Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a class="{{ request()->is('admin/matlab/filedownloadMatlab') ? ' active' : '' }}" href="/admin/matlab/filedownlodMatlab">File Download</a>
+                                        <a class="{{ request()->is('admin/matlab/filedownloadMatlab') ? ' active' : '' }}" href="/admin/matlab/filedownloadMatlab">File Download</a>
                                     </li>
                                     <li>
                                         <a class="{{ request()->is('admin/matlab/spesifikasiMatlab') ? ' active' : '' }}" href="/admin/matlab/spesifikasiMatlab">Spesifikasi</a>
