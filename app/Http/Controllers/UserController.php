@@ -11,6 +11,7 @@ use App\Models\Fitur;
 use App\Models\Persyaratan_sistem;
 use App\Models\File_Panduan;
 use App\Models\File_installer;
+use App\Models\Preview;
 
 class UserController extends Controller
 {
@@ -33,8 +34,9 @@ class UserController extends Controller
         $file_panduan = File_panduan::where('id_software', '1')->get();
         // dd($file_panduan);
         $file_installer = File_installer::where('id_software', '1')->get();
+        $preview = Preview::where('id_software', '1')->get();
 
-        return view('adobe', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer']));
+        return view('adobe', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
     }
 
     public function indexMatlab()
@@ -46,8 +48,9 @@ class UserController extends Controller
         $file_panduan = File_panduan::where('id_software', '2')->get();
         // dd($file_panduan);
         $file_installer = File_installer::where('id_software', '2')->get();
+        $preview = Preview::where('id_software', '2')->get();
 
-        return view('matlab', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer']));
+        return view('matlab', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
     }
     
     public function indexMathematica()
@@ -59,8 +62,9 @@ class UserController extends Controller
         $file_panduan = File_panduan::where('id_software', '3')->get();
         // dd($file_panduan);
         $file_installer = File_installer::where('id_software', '3')->get();
+        $preview = Preview::where('id_software', '3')->get();
 
-        return view('mathematica', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer']));
+        return view('mathematica', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
     }
     public function indexLabview()
     {
@@ -70,8 +74,9 @@ class UserController extends Controller
         $persyaratan_sistem = Persyaratan_sistem::where('id_software', '4')->get();
         $file_panduan = File_panduan::where('id_software', '4')->get();
         $file_installer = File_installer::where('id_software', '4')->get();
+        $preview = Preview::where('id_software', '4')->get();
         
-        return view('labview', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer']));
+        return view('labview', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
     }
 
     public function indexMinitab()
@@ -82,8 +87,9 @@ class UserController extends Controller
         $persyaratan_sistem = Persyaratan_sistem::where('id_software', '5')->get();
         $file_panduan = File_panduan::where('id_software', '5')->get();
         $file_installer = File_installer::where('id_software', '5')->get();
+        $preview = Preview::where('id_software', '5')->get();
         
-        return view('minitab', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer']));
+        return view('minitab', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
     }
 
     public function getDownloadPanduan($id)
