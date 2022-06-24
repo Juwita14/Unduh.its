@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-        <title>Unduh.its.ac.id</title>
+        <title>Codebase - Bootstrap 4 Admin Template &amp; UI Framework</title>
 
         <meta name="description" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
         <meta name="author" content="pixelcave">
@@ -17,6 +17,7 @@
         <meta property="og:type" content="website">
         <meta property="og:url" content="">
         <meta property="og:image" content="">
+
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
         <link rel="shortcut icon" href="assets/media/favicons/favicon.png">
@@ -35,7 +36,6 @@
         <!-- END Stylesheets -->
     </head>
     <body>
-
         <!-- Page Container -->
         <!--
             Available classes for #page-container:
@@ -97,7 +97,7 @@
                         </div>
                         <div class="content-header-item">
                             <a class=" font-w700" href="index">
-                                <span style= "font-size: 200%; line-height: 125%;" class=" text-dual-primary">UNDUH</span>
+                                <span href="javascript:void(0)" style= "font-size: 200%; line-height: 125%;" class=" text-dual-primary">UNDUH</span>
                             </a>
                             <a class="font-w300" href="index">
                                 <p style="line-height: 0%;" class="font-size-sm mt-5 text-dual-primary-dark">Software Lisensi ITS</p>
@@ -129,8 +129,6 @@
 
                         <!-- Open Search Section -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        <!-- <a href="login" >
-                         -->
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img style="height: 30px; width:30px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
@@ -149,7 +147,6 @@
 
                         <!-- Toggle Sidebar -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        
                         <!-- END Toggle Sidebar -->
                     </div>
                     <!-- END Right Section -->
@@ -196,74 +193,10 @@
 
             <!-- Main Container -->
             <main id="main-container">
-
-                <!-- Page Content -->
-                <div class="content content-full">
-                    <!-- Search -->
-                    <form class="push" action="bd_search.html" method="post">
-                        <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" placeholder="Cari produk..">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-secondary">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- END Search -->
-                    <!-- Hero -->
-                    <!-- END Hero -->
-
-                    <!-- Dummy content -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div style="height: 360px;" class="block">
-                                <div  class="block-content py-20">
-                                    <div class="font-size-h4 font-w600 py-20 text-center border-b">
-                                        <h1 style= "font-size: 125%;" class="font-w500 mb-0">Produk Lisensi</h1>
-                                    </div>
-                                    <div class="row gutters-tiny mt-20 ">
-                                        <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                            <a href="/adobe" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
-                                                <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/adobe-logo-492427.png" alt="">
-                                                <p class="font-w600 mb-10">Adobe</p>
-                                            </a>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                            <a href="matlab" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
-                                                <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/imgbin_matlab-mathworks-simulink-statistical-parametric-mapping-png.png" alt="">
-                                                <p class="font-w600 mb-10">MATLAB</p>
-                                            </a>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                            <a href="mathematica" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
-                                                <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/pngwing.com.png" alt="">
-                                                <p class="font-w600 mb-10">Mathematica</p>
-                                            </a>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                            <a href="labview"  style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
-                                                <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/labvuewww-removebg-preview.png" alt="">
-                                                <p class="font-w600 mb-10">LabView</p>
-                                            </a>
-                                        </div>
-                                        <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                            <a href="minitab" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)" >
-                                                <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/kisspng-minitab-wikipedia-logo-project-management-5b209eb26c9d48.6518232015288644344449.png" alt="">
-                                                <p class="font-w600 mb-10">Minitab</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END Dummy content -->
-                </div>
-                <!-- END Page Content -->
-
+                @yield('content')
             </main>
             <!-- END Main Container -->
+
             <!-- Footer -->
             <footer id="page-footer" class="opacity-10">
                 <div class="content py-20 font-size-sm clearfix">
