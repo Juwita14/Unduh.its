@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" class="no-focus">
-    <head>
+<head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
@@ -26,6 +26,10 @@
         <!-- END Icons -->
 
         <!-- Stylesheets -->
+
+        <!-- Page JS Plugins CSS -->
+        <link rel="stylesheet" href="assets/js/plugins/slick/slick.css">
+        <link rel="stylesheet" href="assets/js/plugins/slick/slick-theme.css">
 
         <!-- Fonts and Codebase framework -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700&display=swap">
@@ -238,5 +242,11 @@
             webpack is putting everything together at assets/_es6/main/app.js
         -->
         <script src="assets/js/codebase.app.min.js"></script>
+
+        <!-- Page JS Plugins -->
+        <script src="assets/js/plugins/slick/slick.min.js"></script>
+
+        <!-- Page JS Helpers (Slick Slider plugin) -->
+        <script>jQuery(function(){ Codebase.helpers('slick'); });</script>
     </body>
 </html>

@@ -127,27 +127,18 @@
 
                                 <!-- Preview -->
                                 <div class="tab-pane fade" id="search-preview" role="tabpanel">
-                                    <div style="background-color:#F0F2F5;" class="content">
-                                        <a class="block-rounded" >
-                                            <img style= ""  class="img-responsive center-block d-block mx-auto"src="assets/media/photos/11.png" alt="">
-                                        </a>
-                                        <br>
-                                    </div>
-                                    <div style="background-color:#F0F2F5;" class="well text-center">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <a href="#"><img style= "height: 95px; width: 150px;"  class="img-responsive center-block d-block mx-auto"src="assets/media/photos/11.png" alt="" class="img-fluid"></a>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <a href="#"><img style= "height: 95px; width: 150px;"  class="img-responsive center-block d-block mx-auto"src="assets/media/photos/11.png" class="img-fluid"></a>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <a href="#"><img style= "height: 95px; width: 150px;"  class="img-responsive center-block d-block mx-auto"src="assets/media/photos/11.png" alt="" class="img-fluid"></a>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <a href="#"><img style= "height: 95px; width: 150px;"  class="img-responsive center-block d-block mx-auto"src="assets/media/photos/11.png" class="img-fluid"></a>
-                                            </div>
+                                    <div class="block">
+                                        <div class="js-slider slick-nav-black slick-dotted-inner slick-dotted-white" data-dots="true" data-arrows="true">
+                                            @foreach($preview as $p)
+                                                <div>
+                                                    <div class="block-header block-header-default">
+                                                        <h3 class="block-title">{{$p->nama_gambar}}</h3>
+                                                    </div>
+                                                    <img class="img-fluid" style="" src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
+                                                </div>
+                                            @endforeach
                                         </div>
+                                        <!-- END Slider with dots -->
                                     </div>
                                 </div>
                                 <!-- END Projects -->
