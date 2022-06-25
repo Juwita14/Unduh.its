@@ -27,28 +27,28 @@
             <div class="col-sm-3">
                 <div class="block">
                     <div class="block-content py-5">
-                            <a class="block-rounded" >
-                                <img style= "width: 200px; height: 200px;"  class="img-responsive center-block d-block mx-auto mt-15 mb-15"src="assets/media/photos/pngwing.com.png" alt="">
-                            </a>
-                            <div class="ml-20">
-                                <div class="border-b">
-                                    <p class="font-size-lg font-w700  mb-0">
-                                        Wolfram Mathematica
-                                    </p>
-                                    <p class="font-size-sm  font-w600 text-op  mb-0">
-                                        Wolfram
-                                    </p>
-                                </div>
-                                <br>
-                                <div class="ml-15 mb-20">
-                                    <a href="https://www.wolfram.com/mathematica/" target="_blank"> 
-                                        <button style="" type="button" class="btn btn-success shadow min-width-150 ">
-                                            <i class="fa fa-globe mr-5"></i>
-                                            Visit Website
-                                        </button>
-                                    </a>
-                                </div>
+                        <a class="block-rounded" >
+                            <img style= "width: 200px; height: 200px;"  class="img-responsive center-block d-block mx-auto mt-15 mb-15"src="assets/media/photos/pngwing.com.png" alt="">
+                        </a>
+                        <div class="ml-20">
+                            <div class="border-b">
+                                <p class="font-size-lg font-w700  mb-0">
+                                    Wolfram Mathematica
+                                </p>
+                                <p class="font-size-sm  font-w600 text-op  mb-0">
+                                    Wolfram
+                                </p>
                             </div>
+                            <br>
+                            <div class="ml-15 mb-20">
+                                <a href="https://www.wolfram.com/mathematica/" target="_blank"> 
+                                    <button style="" type="button" class="btn btn-success shadow min-width-150 ">
+                                        <i class="fa fa-globe mr-5"></i>
+                                        Visit Website
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -168,17 +168,14 @@
                                 <!-- END Spesifikasi -->
                                 
                                 <!-- Preview -->
-                                <div class="tab-pane fade" id="search-preview" role="tabpanel">
-                                    <div class="row gutters-tiny">
+                                <div class="tab-pane fade active" id="search-preview" role="tabpanel">
+                                    <div class="js-slider slick-nav-black slick-dotted-inner slick-dotted-white show active" data-dots="true" data-arrows="true">
                                         @foreach($preview as $p)
-                                            <div class="contentmr-5 mb-5 col-md-6 col-lg-6 push" style="background-color:#F6F7F9;">
-                                                <div class="block-header block-header-default">
-                                                    <a class="block-title">{{$p->nama_gambar}}</a>
-                                                </div>
-                                                    <img class="img-fluid" src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
+                                            <div>
+                                                <p class="font-size-base font-400  mb-0" style="text-align:center"><strong>{{$p->nama_gambar}}</strong></p>
+                                                <img class="img-fluid center-block mx-auto border" style="" src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
                                             </div>
-                                            @endforeach
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <!-- END Projects -->
