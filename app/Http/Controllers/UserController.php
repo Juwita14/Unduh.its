@@ -22,7 +22,9 @@ class UserController extends Controller
 
     public function indexPreview()
     {
-        return view('preVieww');
+        $preview = Preview::where('id_software', '1')->get();
+
+        return view('preVieww', compact([ 'preview']));
     }
 
     public function indexAdobe()

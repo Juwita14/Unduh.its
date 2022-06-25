@@ -166,21 +166,18 @@
 
                                 <!-- Preview -->
                                 <div class="tab-pane fade" id="search-preview" role="tabpanel">
-                                    <div class="block">
-                                        <div class="js-slider slick-nav-black slick-dotted-inner slick-dotted-white" data-dots="true" data-arrows="true">
-                                            @foreach($preview as $p)
-                                                <div>
-                                                    <div class="block-header block-header-default">
-                                                        <h3 class="block-title">{{$p->nama_gambar}}</h3>
-                                                    </div>
-                                                    <img class="img-fluid" style="" src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
+                                    <div class="row gutters-tiny">
+                                        @foreach($preview as $p)
+                                            <div class="contentmr-5 mb-5 col-md-6 col-lg-6 push" style="background-color:#F6F7F9;">
+                                                <div class="block-header block-header-default">
+                                                    <a class="block-title">{{$p->nama_gambar}}</a>
                                                 </div>
+                                                    <img class="img-fluid" src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
+                                            </div>
                                             @endforeach
                                         </div>
-                                        <!-- END Slider with dots -->
                                     </div>
                                 </div>
-                                <!-- END Projects -->
                             </div>
                         </div>
                     </div>
