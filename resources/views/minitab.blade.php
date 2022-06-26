@@ -114,7 +114,11 @@
                                                     <td>{{$fi->size}}MB</td> 
                                                         <td class="text-center">
                                                             <div class="btn-group">
-                                                                <a href="/downloadInstaller/{{$fi->id}}">
+
+                                                            <!-- dd({{url()->current()}}); -->
+                                                            <!-- dd({{ Request::path()}} ); -->
+                                                            <!-- <a href="{{ url('/downloadInstaller/'.$fi->id .'/'. url()->current()) }} "> -->
+                                                                <a href="/downloadInstaller/{{$fi->id}}/{{ Request::path()}}">
                                                                 <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                     <i class="fa fa-download"></i>
                                                                 </button>

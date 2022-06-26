@@ -14,6 +14,7 @@ use App\Models\File_installer;
 use App\Models\Preview;
 
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 use File;
@@ -135,34 +136,41 @@ class UserController extends Controller
         return $mime;
     }
 
-    public function getDownloadInstaller($id, $name = null, array $headers = [], $disposition = 'inline')
+    public function getDownloadInstaller($id, $route, $name = null, array $headers = [], $disposition = 'inline')
     {
-        $file_installer = File_installer::find($id);
-        $filename = $file_installer->file_download;
-        $path= public_path("assets/media/fileinstaller/{$filename}");
+        $sessionhas=session()->has('login_session');
+        // dd($sessionhas);
+        if($sessionhas == true){
+            $file_installer = File_installer::find($id);
+            $filename = $file_installer->file_download;
+            $path= public_path("assets/media/fileinstaller/{$filename}");
 
-        $response = new StreamedResponse;
-        $disposition = $response->headers->makeDisposition(
-            $disposition, $filename
-        );
+            $response = new StreamedResponse;
+            $disposition = $response->headers->makeDisposition(
+                $disposition, $filename
+            );
 
-        $fileSize = File::size($path);
-        $response->headers->replace($headers + [
-            'Content-Type' => $this->getMimeType($path),
-            'Content-Length' => $fileSize,
-            'Content-Disposition' => $disposition,
-        ]);
-        
-        $response->setCallback(function () use ($path) {
-            $stream = fopen($path, 'r');
-            while (! feof($stream)) {
-                echo fread($stream, 2048);
-            }
-            dd($stream);
-            fclose($stream);
-        });
+            $fileSize = File::size($path);
+            $response->headers->replace($headers + [
+                'Content-Type' => $this->getMimeType($path),
+                'Content-Length' => $fileSize,
+                'Content-Disposition' => $disposition,
+            ]);
+            
+            $response->setCallback(function () use ($path) {
+                $stream = fopen($path, 'r');
+                while (! feof($stream)) {
+                    echo fread($stream, 2048);
+                }
+                dd($stream);
+                fclose($stream);
+            });
 
-        return $response;
+            return $response;
+        }
+        else{
+            return redirect($route);
+        }
     }
 
 }
