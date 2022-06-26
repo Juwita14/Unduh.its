@@ -13,6 +13,11 @@ use App\Models\File_Panduan;
 use App\Models\File_installer;
 use App\Models\Preview;
 
+use Illuminate\Support\Facades\Response;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+
+use File;
+
 class UserController extends Controller
 {
     public function index()
@@ -103,13 +108,61 @@ class UserController extends Controller
         return response()->download($file);
     }
 
-    public function getDownloadInstaller($id)
+    static function getMimeType($fileName)
+    {
+        $mime = null;
+        // Try fileinfo first
+        if (function_exists('finfo_open')) {
+            $finfo = finfo_open(FILEINFO_MIME);
+            if ($finfo !== false) {
+                $mime = finfo_file($finfo, $fileName);
+                finfo_close($finfo);
+            }
+        }
+        // Fallback to mime_content_type() if finfo didn't work
+        if (is_null($mime) && function_exists('mime_content_type')) {
+            $mime = mime_content_type($fileName);
+        }
+        // Final fallback, detection based on extension
+        if (is_null($mime)) {
+            $extension = self::getTypeIcon(getTypeIcon);
+            if (array_key_exists($extension, self::$mimeMap)) {
+                $mime = self::$mimeMap[$extension];
+            } else {
+                $mime = "application/octet-stream";
+            }
+        }
+        return $mime;
+    }
+
+    public function getDownloadInstaller($id, $name = null, array $headers = [], $disposition = 'inline')
     {
         $file_installer = File_installer::find($id);
-        $namaFile = $file_installer->file_download;
-        $file= public_path("assets/media/fileinstaller/{$namaFile}");
-       
-        return response()->download($file);
+        $filename = $file_installer->file_download;
+        $path= public_path("assets/media/fileinstaller/{$filename}");
+
+        $response = new StreamedResponse;
+        $disposition = $response->headers->makeDisposition(
+            $disposition, $filename
+        );
+
+        $fileSize = File::size($path);
+        $response->headers->replace($headers + [
+            'Content-Type' => $this->getMimeType($path),
+            'Content-Length' => $fileSize,
+            'Content-Disposition' => $disposition,
+        ]);
+        
+        $response->setCallback(function () use ($path) {
+            $stream = fopen($path, 'r');
+            while (! feof($stream)) {
+                echo fread($stream, 2048);
+            }
+            dd($stream);
+            fclose($stream);
+        });
+
+        return $response;
     }
 
 }
