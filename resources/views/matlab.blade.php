@@ -15,7 +15,7 @@
         </div>
         <!-- Results -->
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-12 col-md-12 col-lg-3">
                 <div class="block">
                     <div class="block-content py-5">
                             <a class="block-rounded" >
@@ -84,13 +84,24 @@
                                                 <a class="font-size-md  font-w700">File Panduan</a>
                                             </h4>
                                             @foreach($file_panduan as $pd)
-                                            <a href="/download/{{$pd->id}}">
-                                                <i class="fa fa-file-pdf-o" style="color:red"></i>
-                                                <div style="display:inline-block;" class="text">
-                                                    <p>{{$pd->nama_file_panduan}}</p>
-                                                </div>
-                                            </a>
-                                            <br>
+
+                                                @if(session()->has('login_session') == true)   
+                                                <a href="/downloadPanduan/{{$pd->id}}">
+                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                    <div style="display:inline-block;" class="text">
+                                                        <p>{{$pd->nama_file_panduan}}</p>
+                                                    </div>
+                                                </a>
+                                                <br>
+                                                @else
+                                                <a href="/login">
+                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                    <div style="display:inline-block;" class="text">
+                                                        <p>{{$pd->nama_file_panduan}}</p>
+                                                    </div>
+                                                </a>
+                                                <br>
+                                                @endif
                                             @endforeach
                                         </div>
                                         

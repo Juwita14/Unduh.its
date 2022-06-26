@@ -140,7 +140,7 @@ class UserController extends Controller
     {
         $sessionhas=session()->has('login_session');
         // dd($sessionhas);
-        if($sessionhas == true){
+        // if($sessionhas == true){
             $file_installer = File_installer::find($id);
             $filename = $file_installer->file_download;
             $path= public_path("assets/media/fileinstaller/{$filename}");
@@ -167,10 +167,13 @@ class UserController extends Controller
             });
 
             return $response;
-        }
-        else{
-            return redirect($route);
-        }
+        // }
+        // else{
+        //     return redirect('login');
+        // }
+        // Session::flash('login_session', $filename);
+
+        // return Redirect::to($route);
     }
 
 }

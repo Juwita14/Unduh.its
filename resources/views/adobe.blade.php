@@ -15,7 +15,7 @@
         </div>
         <!-- Results -->
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-12 col-md-12 col-lg-3">
                 <div class="block">
                     <div class="block-content py-5">
                             <a class="block-rounded" >
@@ -71,7 +71,6 @@
                                             @foreach($ringkasan as $r)
                                                 <p> {!! html_entity_decode($r->ringkasan) !!}</p>
                                             @endforeach
-                                            <p>Informasi tentang Adobe, silakan kunjungi <a href="https://www.adobe.com/id_en/creativecloud.html?sdid=WKRCJ9VF&mv=search&ef_id=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE:G:s&s_kwcid=AL!3085!3!447025602704!e!!g!!adobe!636853869!31669464044&gclid=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE" target="_blank">Offical Adobe.</a></p>
 
                                         </div>
                                     </div>

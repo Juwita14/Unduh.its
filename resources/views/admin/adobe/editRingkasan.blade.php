@@ -15,7 +15,7 @@
                     <div class="form-group row">
                         <label class="col-12">Ringkasan</label>
                         <div class="col-12">
-                            <textarea style="width:715px" class="form-control" name="ringkasan"  rows="6" placeholder="Ringkasan..">{{$ringkasan->ringkasan}}</textarea>
+                            <textarea id="js-ckeditor" name="ringkasan">{{$ringkasan->ringkasan}}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">

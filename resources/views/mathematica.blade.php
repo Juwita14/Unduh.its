@@ -15,7 +15,7 @@
         </div>
         <!-- Results -->
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-12 col-md-12 col-lg-3">
                 <div class="block">
                     <div class="block-content py-5">
                         <a class="block-rounded" >
@@ -88,12 +88,25 @@
                                                 <a class="font-size-md  font-w700">File Panduan</a>
                                             </h4>
                                             @foreach($file_panduan as $pd)
-                                            <a href="/download/{{$pd->id}}">
-                                                <i class="fa fa-file-pdf-o" style="color:red"></i>
-                                                <div style="display:inline-block;" class="text">
-                                                    <p>{{$pd->nama_file_panduan}}</p>
-                                                </div>
-                                            </a>
+
+                                                @if(session()->has('login_session') == true)   
+                                                <a href="/downloadPanduan/{{$pd->id}}">
+                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                    <div style="display:inline-block;" class="text">
+                                                        <p>{{$pd->nama_file_panduan}}</p>
+                                                    </div>
+                                                </a>
+                                                <br>
+                                                @else
+                                                <a href="/login">
+                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                    <div style="display:inline-block;" class="text">
+                                                        <p>{{$pd->nama_file_panduan}}</p>
+                                                    </div>
+                                                </a>
+                                                <br>
+                                                @endif
+                                                
                                             @endforeach
                                         </div>
                                         <div class="col-lg-12 border-b">
@@ -115,11 +128,19 @@
                                                     <td>{{$fi->size}} GB</td> 
                                                         <td class="text-center">
                                                         <div class="btn-group">
-                                                                <a href="/downloadInstaller/{{$fi->id}}">
-                                                                <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
-                                                                    <i class="fa fa-download"></i>
-                                                                </button>
-                                                                </a>
+
+                                                            @if(session()->has('login_session') == true)
+                                                                <a href="/downloadInstaller/{{$fi->id}}/{{ Request::path()}}">
+                                                                    <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
+                                                                        <i class="fa fa-download"></i>
+                                                                    </button>
+                                                                @else
+                                                                <a href="/login">
+                                                                    <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
+                                                                        <i class="fa fa-download"></i>
+                                                                    </button>
+                                                                @endif
+
                                                             </div>
                                                         </td>
                                                     </tr>
