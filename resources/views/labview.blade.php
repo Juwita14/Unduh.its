@@ -5,20 +5,11 @@
     <!-- Page Content -->
     <div class="content">
         <!-- Search -->
-        <form class="push" action="bd_search.html" method="post">
-            <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="Cari produk lisensi..">
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-secondary">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
+        
         <!-- END Search -->
         
         <div style="background-color:#F0F2F5;" class="block shadow-none">
-                <a href="produk">Produk Lisensi </a>
+                <a href="/">Produk Lisensi </a>
                 <i class="fa fa-angle-right "></i>
                 <a > LabView</a>
         </div>

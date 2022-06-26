@@ -142,15 +142,32 @@
                         <a href="logout" >
                             logout
                         </a> -->
+                        @if(session()->get('login_session') == null)
                         <a href="{{ url('login') }}" >
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-rounded btn-dual-secondary" aria-haspopup="true" aria-expanded="false">
+                                    <img style="height: 30px; width:30px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
+                                    <i class="fa fa-user d-sm-none"></i>
+                                    <span class="d-none d-sm-inline-block">Login</span>
+                                </button>
+                            </div>
+                        </a>
+                        @else 
                         <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-rounded btn-dual-secondary" aria-haspopup="true" aria-expanded="false">
+                            <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img style="height: 30px; width:30px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
                                 <i class="fa fa-user d-sm-none"></i>
-                                <span class="d-none d-sm-inline-block">Login</span>
+                                <span class="d-none d-sm-inline-block">{{ auth()->user()->name }}</span>
+                                <i class="fa fa-angle-down ml-5"></i>
                             </button>
+                            <div class="dropdown-menu dropdown-menu-right min-width-200" aria-labelledby="page-header-user-dropdown">
+                                <a class="dropdown-item" href="logout">
+                                    <i class="si si-logout mr-5"></i> Logout
+                                </a>
+                            </div>
                         </div>
-                        </a>
+                        @endif
+                       
                         <!-- END Open Search Section -->
 
                         <!-- Toggle Sidebar -->
@@ -206,16 +223,7 @@
                 <!-- Page Content -->
                 <div class="content content-full">
                     <!-- Search -->
-                    <form class="push" action="bd_search.html" method="post">
-                        <div class="input-group input-group-lg">
-                            <input type="text" class="form-control" placeholder="Cari produk..">
-                            <div class="input-group-append">
-                                <button type="submit" class="btn btn-secondary">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                   
                     <!-- END Search -->
                     <!-- Hero -->
                     <!-- END Hero -->

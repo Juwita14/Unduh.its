@@ -61,8 +61,8 @@ class LoginController extends Controller
                     session(['login_session' => 'admin']);
                     return redirect()->intended('admin');
                 } elseif ($user->level == 'user') {
-                    session(['login_session' => 'admin']);
-                    return redirect()->intended('produk');
+                    session(['login_session' => 'user']);
+                    return redirect()->intended('/');
                 }
                 return redirect()->intended('/');
         }
