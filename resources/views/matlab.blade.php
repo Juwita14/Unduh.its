@@ -101,33 +101,22 @@
                                 <!-- Spesifikasi -->
                                 <div class="tab-pane fade" id="search-spesifikasi" role="tabpanel">
                                     <div class="row items-push">
+                                    <div class="col-lg-12 border-b">
+                                            <h4 class="h5 mb-5">
+                                                <a class="font-size-md  font-w700">Persyaratan Sistem</a>
+                                            </h4>
+                                            @foreach($persyaratan_sistem as $p)
+                                                <p> {!! html_entity_decode($p->persyaratan_sistem) !!}</p>
+                                            @endforeach
+
+                                        </div>
                                         <div class="col-lg-12 border-b">
                                             <h4 class="h5 mb-5">
                                                 <a class="font-size-md  font-w700">Fitur</a>
                                             </h4>
-                                            <ul class="font-sm text-muted">
-                                                <li>Bahasa tingkat tinggi untuk komputasi ilmiah dan teknik.</li>
-                                                <li>Lingkungan desktop yang disesuaikan untuk eksplorasi berulang, desain, dan pemecahan masalah.</li>
-                                                <li>Grafik untuk memvisualisasikan data dan alat untuk membuat plot khusus.</li>
-                                                <li>Aplikasi untuk pemasangan kurva, klasifikasi data, analisis sinyal, dan banyak tugas khusus domain lainnya.</li>
-                                                <li>Kotak peralatan tambahan untuk berbagai aplikasi teknik dan ilmiah.</li>
-                                                <li>Alat untuk membangun aplikasi dengan antarmuka pengguna khusus.</li>
-                                                <li>Antarmuka ke C/C++, Java, .NET, Python, SQL, Hadoop, dan Microsoft Excel.</li>
-                                                <li>Opsi penerapan bebas royalti untuk berbagi program MATLAB dengan pengguna akhir.</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-lg-12 border-b">
-                                            <h4 class="h5 mb-5">
-                                                <a class="font-size-md  font-w700">Persyaratan Sistem</a>
-                                            </h4>
-                                            <ul class="font-sm text-muted">
-                                                <li>Semua prosesor Intel atau AMD x86-64.</li>
-                                                <li>Dukungan set instruksi AVX2 direkomendasikan.</li>
-                                                <li>Dengan Polyspace, 4 core direkomendasikan.</li>
-                                                <li>2 GB untuk MATLAB saja, 4–6 GB untuk instalasi biasa.</li>
-                                                <li>RAM: 2 GB (Dengan Simulink, diperlukan 4 GB; Dengan Polyspace, disarankan 4 GB per inti).</li>
-                                                <li>Hardware accelerated graphics card yang mendukung OpenGL 3.3 dengan memori GPU 1GB direkomendasikan.</li>
-                                            </ul>
+                                                @foreach($fitur as $f)
+                                                <p> {!! html_entity_decode($f->fitur) !!}</p>
+                                                @endforeach
                                         </div>
                                     </div>
                                 </div>

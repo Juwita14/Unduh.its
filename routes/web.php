@@ -110,6 +110,12 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/admin/matlab/spesifikasiMatlab/updateMatlab/{id}', [SpesifikasiController::class, 'updateMatlab']); 
         Route::delete('/admin/matlab/spesifikasiMatlab/destroyMatlab/{id}', [SpesifikasiController::class, 'destroyMatlab']);
 
+        Route::get('/admin/matlab/spesifikasiMatlab/createMatlabPS', [SpesifikasiController::class, 'createMatlabPS']);
+        Route::post('/admin/matlab/spesifikasiMatlab/storeMatlabPS', [SpesifikasiController::class, 'storeMatlabPS']);
+        Route::get('/admin/matlab/spesifikasiMatlab/editMatlabPS/{id}', [SpesifikasiController::class, 'editMatlabPS']); 
+        Route::put('/admin/matlab/spesifikasiMatlab/updateMatlabPS/{id}', [SpesifikasiController::class, 'updateMatlabPS']); 
+        Route::delete('/admin/matlab/spesifikasiMatlab/destroyMatlabPS/{id}', [SpesifikasiController::class, 'destroyMatlabPS']);
+
         Route::get('/admin/matlab/previewMatlab', [PreviewController::class, 'indexMatlab']); 
         Route::get('/admin/matlab/previewMatlab/createMatlab', [PreviewController::class, 'createMatlab']);
         Route::post('/admin/matlab/previewMatlab/storeMatlab', [PreviewController::class, 'storeMatlab']);

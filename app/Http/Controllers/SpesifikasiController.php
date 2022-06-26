@@ -292,6 +292,23 @@ class SpesifikasiController extends Controller
         return redirect('/admin/adobe/spesifikasi');
     }
 
+    public function createMatlabPS()
+    {
+        return view('admin.matlab.createPersyaratanSistemMatlab');
+    }
+
+    public function storeMatlabPS(Request $request)
+    {
+        //dd($request->except(['_token','submit']));
+        $software = Software::where('id', 2)->value('id');
+        Persyaratan_sistem::create([
+            'id_software' => $software,
+            'persyaratan_sistem' =>$request->persyaratan_sistem
+        ]);
+        // Fitur::create($request->except(['_token','submit']));
+        return redirect('/admin/matlab/spesifikasiMatlab');
+    }
+
     public function createMathematicaPS()
     {
         return view('admin.mathematica.createPersyaratanSistemMathematica');
@@ -362,6 +379,25 @@ class SpesifikasiController extends Controller
         return redirect('/admin/adobe/spesifikasi');
     }
 
+    public function editMatlabPS($id)
+    {
+        //dd($id);
+        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        //dd($fitur);
+        return view('admin.matlab.editPersyaratanSistemMatlab', compact(['persyaratan_sistem']));
+    }
+
+    public function updateMatlabPS($id, Request $request)
+    {
+        $software = Software::where('id', 2)->value('id');
+        Persyaratan_sistem::where('id', $id)
+        ->update([
+            'id_software' => $software,
+            'persyaratan_sistem' =>$request->persyaratan_sistem
+        ]);
+        return redirect('/admin/matlab/spesifikasiMatlab');
+    }
+
     public function editMathematicaPS($id)
     {
         //dd($id);
@@ -424,6 +460,13 @@ class SpesifikasiController extends Controller
         $persyaratan_sistem = Persyaratan_sistem::find($id);
         $persyaratan_sistem->delete();
         return redirect('/admin/adobe/spesifikasi');
+    }
+
+    public function destroyMatlabPS($id)
+    {
+        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem->delete();
+        return redirect('/admin/matlab/spesifikasiMatlab');
     }
 
     public function destroyMathematicaPS($id)
