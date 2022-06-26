@@ -96,10 +96,10 @@
                             <img style="height: 48px; width: 45px;" class="img-avatar" src="assets/media/photos/logo-its-biru-transparan.png" alt=""> 
                         </div>
                         <div class="content-header-item">
-                            <a class=" font-w700" href="index">
+                            <a class=" font-w700" href="/">
                                 <span style= "font-size: 200%; line-height: 125%;" class=" text-dual-primary">UNDUH</span>
                             </a>
-                            <a class="font-w300" href="index">
+                            <a class="font-w300" href="/">
                                 <p style="line-height: 0%;" class="font-size-sm mt-5 text-dual-primary-dark">Software Lisensi ITS</p>
                             </a>
                         </div>
@@ -277,7 +277,7 @@
                     Dibuat dengan <i class="fa fa-heart text-pulse"></i>  oleh Tim KP untuk <a class="font-w600" href="https://www.its.ac.id/" target="_blank">ITS</a>
                     </div>
                     <div class="float-left">
-                        <a class="font-w600" href="index" target="_blank">Unduh.its.ac.id</a> &copy; <span class="js-year-copy">2022</span>
+                        <a class="font-w600" href="/" target="_blank">Unduh.its.ac.id</a> &copy; <span class="js-year-copy">2022</span>
                     </div>
                 </div>
             </footer>

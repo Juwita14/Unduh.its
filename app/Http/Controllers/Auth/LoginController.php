@@ -40,7 +40,7 @@ class LoginController extends Controller
      * @return void
      */
     public function index(){
-        return view('login');
+        return view('auth.login');
     }
 
     public function authenticate(Request $request)
@@ -64,9 +64,7 @@ class LoginController extends Controller
                 }
                 return redirect()->intended('/');
         }
-        return redirect('login')
-                ->withInput()
-                ->withErrors(['login_gagal' => 'These credentials do not match our records.']);
+        return redirect()->back()->withInput()->withErrors(['login_gagal' => 'These credentials do not match our records.']);
     }
 
     public function logout(Request $request) {

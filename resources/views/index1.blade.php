@@ -96,7 +96,7 @@
                             <img style="height: 48px; width: 45px;" class="img-avatar" src="assets/media/photos/logo-its-biru-transparan.png" alt=""> 
                         </div>
                         <div class="content-header-item">
-                            <a class=" font-w700" href="index">
+                            <a class=" font-w700" href="produk">
                                 <span style= "font-size: 200%; line-height: 125%;" class=" text-dual-primary">UNDUH</span>
                             </a>
                             <a class="font-w300" href="index">
@@ -230,25 +230,25 @@
                                             </a>
                                         </div>
                                         <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                            <a href="matlab" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                            <a href="/matlab" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
                                                 <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/imgbin_matlab-mathworks-simulink-statistical-parametric-mapping-png.png" alt="">
                                                 <p class="font-w600 mb-10">MATLAB</p>
                                             </a>
                                         </div>
                                         <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                            <a href="mathematica" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                            <a href="/mathematica" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
                                                 <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/pngwing.com.png" alt="">
                                                 <p class="font-w600 mb-10">Mathematica</p>
                                             </a>
                                         </div>
                                         <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                            <a href="labview"  style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                            <a href="/labview"  style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
                                                 <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/labvuewww-removebg-preview.png" alt="">
                                                 <p class="font-w600 mb-10">LabView</p>
                                             </a>
                                         </div>
                                         <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                            <a href="minitab" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)" >
+                                            <a href="/minitab" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)" >
                                                 <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/kisspng-minitab-wikipedia-logo-project-management-5b209eb26c9d48.6518232015288644344449.png" alt="">
                                                 <p class="font-w600 mb-10">Minitab</p>
                                             </a>
@@ -271,7 +271,7 @@
                     Dibuat dengan <i class="fa fa-heart text-pulse"></i>  oleh Tim KP untuk <a class="font-w600" href="https://www.its.ac.id/" target="_blank">ITS</a>
                     </div>
                     <div class="float-left">
-                        <a class="font-w600" href="index" target="_blank">Unduh.its.ac.id</a> &copy; <span class="js-year-copy">2022</span>
+                        <a class="font-w600" href="produk" target="_blank">Unduh.its.ac.id</a> &copy; <span class="js-year-copy">2022</span>
                     </div>
                 </div>
             </footer>
