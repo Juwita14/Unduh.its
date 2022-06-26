@@ -38,6 +38,13 @@ Route::get('/loginbaru', [LoginController::class, 'indexLogin'])->name('loginbar
 Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('/mathematica', [UserController::class, 'indexMathematica']);
+Route::get('/minitab', [UserController::class, 'indexMinitab']);
+Route::get('/labview', [UserController::class, 'indexLabview']);
+Route::get('/matlab', [UserController::class, 'indexMatlab']);
+Route::get('/preVieww', [UserController::class, 'indexPreview']);
+Route::get('/adobe', [UserController::class, 'indexAdobe']);
+
 
 // auth: admin || user
 Route::group(['middleware' => ['auth']], function () {
@@ -243,13 +250,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['cek_login:user']], function () {
         Route::resource('produk', UserController::class);
-        Route::get('/mathematica', [UserController::class, 'indexMathematica']);
-        Route::get('/minitab', [UserController::class, 'indexMinitab']);
-        Route::get('/labview', [UserController::class, 'indexLabview']);
         Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
         Route::get('/downloadInstaller/{id}', [UserController::class, 'getDownloadInstaller']);
-        Route::get('/matlab', [UserController::class, 'indexMatlab']);
-        Route::get('/preVieww', [UserController::class, 'indexPreview']);
-        Route::get('/adobe', [UserController::class, 'indexAdobe']);
+       
     });
 }); 
