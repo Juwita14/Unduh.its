@@ -15,7 +15,7 @@
                             <tr>
                                 <th style="width: 50px;">#</th>
                                 <th>Nama</th>
-                                <th class="d-none d-sm-table-cell" style="width: 50%;">Ringkasan</th>
+                                <th class="d-none d-sm-table-cell" style="width: 50%;">Ringkasan Adobe</th>
                                 <th class="text-center" style="width: 100px;">Actions</th>
                             </tr>
                         </thead>
@@ -37,7 +37,7 @@
                                         <form action="/admin/adobe/ringkasan/destroy/{{$r->id}}" method="POST">
                                             @method('delete')
                                             @csrf
-                                            <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
+                                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm btn-secondary"  title="Delete">
                                                 <i style="color:#EF5350" class="fa fa-times"></i>
                                             </button>
                                         </form>
@@ -54,4 +54,3 @@
     <!-- END Page Content -->
 
 @endsection
- 

@@ -35,7 +35,7 @@
                                         <form action="/admin/minitab/filedownloadMinitab/destroyMinitab/{{$pd->id}}" method="POST">
                                             @method('delete')
                                             @csrf
-                                            <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
+                                            <button onclick="return confirm('Are you sure?')"  type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
                                                 <i style="color:#EF5350" class="fa fa-times"></i>
                                             </button>
                                         </form>
@@ -79,7 +79,7 @@
                                         <form action="/admin/minitab/filedownloadMinitab/destroyMinitabFI/{{$fi->id}}" method="POST">
                                             @method('delete')
                                             @csrf
-                                            <button type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
+                                            <button onclick="return confirm('Are you sure?')"  type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
                                                 <i style="color:#EF5350" class="fa fa-times"></i>
                                             </button>
                                         </form>
