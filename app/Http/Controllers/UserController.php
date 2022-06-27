@@ -21,10 +21,10 @@ use File;
 
 class UserController extends Controller
 {
-    public function index()
-    {
-        return view('index1');
-    }
+    // public function index()
+    // {
+    //     return view('index1');
+    // }
 
     public function indexPreview()
     {
