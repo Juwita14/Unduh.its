@@ -34,8 +34,8 @@ Route::get('/backend', function () {
 });
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::get('/loginbaru', [LoginController::class, 'indexLogin'])->name('loginbaru');
-Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
+// Route::get('/loginbaru', [LoginController::class, 'indexLogin'])->name('loginbaru');
+// Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/mathematica', [UserController::class, 'indexMathematica']);
