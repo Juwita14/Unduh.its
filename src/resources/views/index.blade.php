@@ -148,7 +148,7 @@
                                 <button type="button" class="btn btn-rounded btn-dual-secondary" aria-haspopup="true" aria-expanded="false">
                                     <img style="height: 30px; width:30px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
                                     <i class="fa fa-user d-sm-none"></i>
-                                    <span class="d-none d-sm-inline-block">Login Hai</span>
+                                    <span class="d-none d-sm-inline-block">Login</span>
                                 </button>
                             </div>
                         </a>
