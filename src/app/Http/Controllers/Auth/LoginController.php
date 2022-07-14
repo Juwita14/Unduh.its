@@ -67,8 +67,8 @@ class LoginController extends Controller
                 
                 $userInfo = $oidc->requestUserInfo();
                 $idToken = $oidc->getIdToken();
-                
-                $users = Auth::login($user);
+
+                Auth::login($user);
                 return redirect()->route('/');
             }
             catch (OpenIDConnectClientException $e) {
@@ -81,6 +81,9 @@ class LoginController extends Controller
                 }
                 return redirect('error');
             }
+        }
+        else{
+            return view('index');
         }
     }
 
@@ -97,13 +100,16 @@ class LoginController extends Controller
                 $clientSecret = 'tkprs5jy580sc8cs8ogcko0g';
 
                 $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
+                if(strtolower(config('app.env')) != 'production' && strtolower(config('app.env')) != 'prod') {
+                    $oidc->setVerifiyHost(false);
+                    $oidc->setVerifiyPeer(false);
+                }
 
-                $oidc->setVerifiyHost(false);
-                $oidc->setVerifiyPeer(false);
-
-                $oidc->signOut($accesToken, $redirect);
+                $idToken = session('auth.id_token');
+                $oidc->signOut($accessToken, $redirect);
+                return redirect()->route('/');
             }
-            eader("Location: " . $redirect);
+            header("Location: " . $redirect);
             // return redirect()->route('index');
         }
         catch (OpenIDConnectClientException $e) {
