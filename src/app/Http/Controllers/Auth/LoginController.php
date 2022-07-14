@@ -63,7 +63,7 @@ class LoginController extends Controller
                 }
                 $oidc->authenticate();
                 Session::put('id_token', $oidc->getIdToken());
-                dd($oidc->getEmail());
+                // dd($oidc->getEmail());
                 
                 $userInfo = $oidc->requestUserInfo();
                 // $idToken = $oidc->getIdToken();
