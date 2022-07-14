@@ -33,7 +33,7 @@ Route::get('/backend', function () {
     return view('layouts.backend');
 });
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login');
 // Route::get('/loginbaru', [LoginController::class, 'indexLogin'])->name('loginbaru');
 // Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -48,6 +48,14 @@ Route::get('/adobe', [UserController::class, 'indexAdobe']);
 
 // auth: admin || user
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::group(['middleware' => ['cek_login:user']], function () {
+        Route::resource('produk', UserController::class);
+        Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
+        Route::get('/downloadInstaller/{id}/{route}', [UserController::class, 'getDownloadInstaller']);
+       
+    });
+
     Route::group(['middleware' => ['cek_login:admin']], function () {
         Route::resource('admin', AdminController::class);
 
@@ -250,14 +258,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/admin/minitab/previewMinitab/updateMinitab/{id}', [PreviewController::class, 'updateMinitab']); 
         Route::delete('/admin/minitab/previewMinitab/destroyMinitab/{id}', [PreviewController::class, 'destroyMinitab']);
 
-        
-
     });
 
-    Route::group(['middleware' => ['cek_login:user']], function () {
-        Route::resource('produk', UserController::class);
-        Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
-        Route::get('/downloadInstaller/{id}/{route}', [UserController::class, 'getDownloadInstaller']);
-       
-    });
+    
 }); 
