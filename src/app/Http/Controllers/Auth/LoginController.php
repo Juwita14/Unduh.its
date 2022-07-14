@@ -66,24 +66,20 @@ class LoginController extends Controller
                 // dd($oidc->getEmail());
                 
                 $userInfo = $oidc->requestUserInfo();
-                // $idToken = $oidc->getIdToken();
-
-                $user = User::where('email',  $userInfo->email)->first();
+                $idToken = $oidc->getIdToken();
+                
                 $users = Auth::login($user);
-
-                if ($users->level == 'admin') {
-                    session(['login_session' => 'admin']);
-                    return redirect()->intended('admin');
-                } elseif ($users->level == 'user') {
-                    session(['login_session' => 'user']);
-                    return redirect()->intended('/');
-                }
-                return redirect()->intended('/');
-                // return view('index');
+                return redirect()->route('/');
             }
-            
             catch (OpenIDConnectClientException $e) {
-                echo $e->getMessage();
+                Auth::logout();
+                Session::flush();
+                Session::save();
+                if ($e->getMessage() === self::
+                OIDC_ERROR_STATE_UNDETERMINED) {
+                return redirect('expired');
+                }
+                return redirect('error');
             }
         }
     }
