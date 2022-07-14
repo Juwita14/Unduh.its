@@ -33,7 +33,7 @@ Route::get('/backend', function () {
     return view('layouts.backend');
 });
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+// Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/auth', [LoginController::class, 'index'])->name('auth');
 // Route::get('/loginbaru', [LoginController::class, 'indexLogin'])->name('loginbaru');
 // Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
