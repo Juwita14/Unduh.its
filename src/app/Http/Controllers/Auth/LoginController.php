@@ -68,7 +68,16 @@ class LoginController extends Controller
                 $userInfo = $oidc->requestUserInfo();
                 $idToken = $oidc->getIdToken();
 
-                Auth::login($user);
+                $user = DB::connection('auth')
+                    ->table('sdm')
+                    ->where('id_user', '=', Sso::user()->getId())
+                    ->first();
+                if(!$user || $user->deleted_at){
+                    return response()->view('Sso::illegitimate-role', ['provider' => config('openid.provider') ]);
+                }
+                Auth::loginUsingId(Sso::user()->getId());
+
+                // Auth::login($user);
                 return redirect()->route('/');
             }
             catch (OpenIDConnectClientException $e) {
