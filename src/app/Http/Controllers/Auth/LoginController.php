@@ -107,26 +107,21 @@ class LoginController extends Controller
     public function logout(){
         try{
             $redirect = env('OPENID_REDIRECT_URI');
-            if (Session::has('id_token')) {
-                $accessToken = Session::get('id_token');
-                Session::forget('id_token');
-                Session::save();
+            $accessToken = Session::get('id_token');
 
-                $provider = env('OIDC_PROVIDER_URL');
-                $clientId = env('OIDC_CLIENT_ID');
-                $clientSecret = env('OIDC_CLIENT_SECRET');
+            $provider = env('OIDC_PROVIDER_URL');
+            $clientId = env('OIDC_CLIENT_ID');
+            $clientSecret = env('OIDC_CLIENT_SECRET');
 
-                $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
+            $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
 
-                if(in_array(strtolower(env('APP_ENV')), ['production', 'prod'])) {
-                    $oidc->setVerifyHost(false);
-                    $oidc->setVerifyPeer(false);
-                }
-
-                $idToken = session('auth.id_token');
-                $oidc->signOut($accessToken, $redirect);
-                return redirect()->route('/');
+            if(in_array(strtolower(env('APP_ENV')), ['production', 'prod'])) {
+                $oidc->setVerifyHost(false);
+                $oidc->setVerifyPeer(false);
             }
+
+            $idToken = session('auth.id_token');
+            $oidc->signOut($accessToken, $redirect);
             header("Location: " . $redirect);
             // return redirect()->route('index');
         }
