@@ -64,22 +64,22 @@ class LoginController extends Controller
                 }
                 $oidc->authenticate();
                 Session::put('id_token', $oidc->getIdToken());
-                
+
                 $userInfo = $oidc->requestUserInfo();
                 $idToken = $oidc->getIdToken();
-                
+
                 $user = User::whereIn('email', [$userInfo->email, $userInfo->alternate_email])->first();
 
                 if(!$user){
                     return redirect('/auth');
                 }
-                
+
                 Auth::login($user);
 
-                if ($users->level == 'admin') {
+                if ($user->level == 'admin') {
                     session(['login_session' => 'admin']);
                     return redirect()->intended('admin');
-                } elseif ($users->level == 'user') {
+                } elseif ($user->level == 'user') {
                     session(['login_session' => 'user']);
                     return redirect()->intended('/');
                 }
@@ -90,7 +90,7 @@ class LoginController extends Controller
                 Auth::logout();
                 Session::flush();
                 Session::save();
-                
+
                 return redirect('error');
             }
         }
@@ -128,7 +128,7 @@ class LoginController extends Controller
             echo $e->getMessage();
         }
     }
-    
+
     // public function authenticate(Request $request)
     // {
     //     $credentials = $request->validate([
