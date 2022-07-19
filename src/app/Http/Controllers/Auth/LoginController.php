@@ -81,9 +81,7 @@ class LoginController extends Controller
                 Auth::logout();
                 Session::flush();
                 Session::save();
-                if ($e->getMessage() === self::OIDC_ERROR_STATE_UNDETERMINED) {
-                    return redirect('expired');
-                }
+                
                 return redirect('error');
             }
         }
