@@ -106,7 +106,7 @@ class LoginController extends Controller
 
     public function logout(){
         try{
-            $redirect = env('OPENID_REDIRECT_URI');
+            $redirect = env('OPENID_POST_LOGOUT_REDIRECT_URI');
             $accessToken = Session::get('id_token');
 
             $provider = env('OIDC_PROVIDER_URL');
@@ -129,38 +129,4 @@ class LoginController extends Controller
             echo $e->getMessage();
         }
     }
-
-    // public function authenticate(Request $request)
-    // {
-    //     $credentials = $request->validate([
-    //         'email' => 'required',
-    //         'password' => 'required'
-    //     ]);
-    //     // $apa = Hash::make($request->password);
-    //     // // dd($apa);
-    //     // $apa=Auth::attempt($credentials);
-    //     // dd($apa);
-
-    //     if(Auth::attempt($credentials)){
-    //         $request->session()->regenerate();
-    //         $user = User::where('email',  $request->email)->first();
-    //         $users = Auth::user($user);
-    //         dd($users);
-                // if ($users->level == 'admin') {
-                //     session(['login_session' => 'admin']);
-                //     return redirect()->intended('admin');
-                // } elseif ($users->level == 'user') {
-                //     session(['login_session' => 'user']);
-                //     return redirect()->intended('/');
-                // }
-    //             return redirect()->intended('/');
-    //     }
-    //     return redirect('login')->withInput()->withErrors(['login_gagal' => 'These credentials do not match our records.']);
-    // }
-
-    // public function logout(Request $request) {
-    //     $request->session()->flush();
-    //     Auth::logout();
-    //     return redirect('/');
-    //   }
 }
