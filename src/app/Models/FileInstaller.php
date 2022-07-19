@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Persyaratan_sistem extends Model
+class FileInstaller extends Model
 {
     use HasFactory;
-
+    use HasFactory;
+    protected $table = "file_installer";
     protected $guarded = [];
     public $timestamps = false;
-    protected $table = "persyaratan_sistem";
 
     public function software()
     {

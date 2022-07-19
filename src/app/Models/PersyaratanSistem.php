@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class File_panduan extends Model
+class PersyaratanSistem extends Model
 {
     use HasFactory;
-    protected $table = "file_panduan";
+
     protected $guarded = [];
     public $timestamps = false;
+    protected $table = "persyaratan_sistem";
 
     public function software()
     {

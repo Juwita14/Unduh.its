@@ -5,11 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class File_installer extends Model
+class FilePanduan extends Model
 {
     use HasFactory;
-    use HasFactory;
-    protected $table = "file_installer";
+    protected $table = "file_panduan";
     protected $guarded = [];
     public $timestamps = false;
 
