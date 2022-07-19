@@ -75,6 +75,15 @@ class LoginController extends Controller
                 }
                 
                 Auth::login($user);
+
+                if ($users->level == 'admin') {
+                    session(['login_session' => 'admin']);
+                    return redirect()->intended('admin');
+                } elseif ($users->level == 'user') {
+                    session(['login_session' => 'user']);
+                    return redirect()->intended('/');
+                }
+
                 return redirect()->route('/');
             }
             catch (OpenIDConnectClientException $e) {
@@ -136,13 +145,13 @@ class LoginController extends Controller
     //         $user = User::where('email',  $request->email)->first();
     //         $users = Auth::user($user);
     //         dd($users);
-    //             if ($users->level == 'admin') {
-    //                 session(['login_session' => 'admin']);
-    //                 return redirect()->intended('admin');
-    //             } elseif ($users->level == 'user') {
-    //                 session(['login_session' => 'user']);
-    //                 return redirect()->intended('/');
-    //             }
+                // if ($users->level == 'admin') {
+                //     session(['login_session' => 'admin']);
+                //     return redirect()->intended('admin');
+                // } elseif ($users->level == 'user') {
+                //     session(['login_session' => 'user']);
+                //     return redirect()->intended('/');
+                // }
     //             return redirect()->intended('/');
     //     }
     //     return redirect('login')->withInput()->withErrors(['login_gagal' => 'These credentials do not match our records.']);
