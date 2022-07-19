@@ -93,7 +93,7 @@
                     <div class="content-header-section">
                         <!-- Logo -->
                         <div class="float-left mr-5 mb-5">
-                            <img style="height: 48px; width: 45px;" class="img-avatar" src="assets/media/photos/logo-its-biru-transparan.png" alt=""> 
+                            <img style="height: 48px; width: 45px;" class="img-avatar" src="assets/media/photos/logo-its-biru-transparan.png" alt="">
                         </div>
                         <div class="content-header-item">
                             <a class=" font-w700" href="/">
@@ -142,7 +142,7 @@
                         <a href="logout" >
                             logout
                         </a> -->
-                        @if(session()->get('id_token') == null)
+                        @if(session()->get('login_session') == null)
                         <a href="{{ url('auth') }}" >
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-rounded btn-dual-secondary" aria-haspopup="true" aria-expanded="false">
@@ -152,7 +152,7 @@
                                 </button>
                             </div>
                         </a>
-                        @else 
+                        @else
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img style="height: 30px; width:30px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
@@ -167,12 +167,12 @@
                             </div>
                         </div>
                         @endif
-                       
+
                         <!-- END Open Search Section -->
 
                         <!-- Toggle Sidebar -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        
+
                         <!-- END Toggle Sidebar -->
                     </div>
                     <!-- END Right Section -->
@@ -223,7 +223,7 @@
                 <!-- Page Content -->
                 <div class="content content-full">
                     <!-- Search -->
-                   
+
                     <!-- END Search -->
                     <!-- Hero -->
                     <!-- END Hero -->

@@ -5,9 +5,9 @@
     <!-- Page Content -->
     <div class="content">
         <!-- Search -->
-        
+
         <!-- END Search -->
-        
+
         <div style="background-color:#F0F2F5;" class="block shadow-none">
                 <a href="/">Produk Lisensi </a>
                 <i class="fa fa-angle-right "></i>
@@ -32,7 +32,7 @@
                                 </div>
                                 <br>
                                 <div class="ml-15 mb-20">
-                                    <a href="https://www.mathworks.com/products/matlab.html" target="_blank"> 
+                                    <a href="https://www.mathworks.com/products/matlab.html" target="_blank">
                                         <button style="" type="button" class="btn btn-success shadow min-width-150 ">
                                         <i class="fa fa-globe mr-5"></i>Visit Website
                                         </button>
@@ -85,7 +85,7 @@
                                             </h4>
                                             @foreach($file_panduan as $pd)
 
-                                                @if(session()->has('login_session') == true)   
+                                                @if(session()->has('login_session') == true)
                                                 <a href="/downloadPanduan/{{$pd->id}}">
                                                     <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                     <div style="display:inline-block;" class="text">
@@ -94,7 +94,7 @@
                                                 </a>
                                                 <br>
                                                 @else
-                                                <a href="/login">
+                                                <a href="/auth">
                                                     <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                     <div style="display:inline-block;" class="text">
                                                         <p>{{$pd->nama_file_panduan}}</p>
@@ -104,7 +104,7 @@
                                                 @endif
                                             @endforeach
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <!-- END Photos -->
@@ -149,9 +149,9 @@
                         </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div>
-        
+
         <!-- END Results -->
     </div>
     <!-- END Page Content -->
