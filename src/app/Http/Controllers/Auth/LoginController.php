@@ -103,10 +103,10 @@ class LoginController extends Controller
                 $clientSecret = env('OIDC_CLIENT_SECRET');
 
                 $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
-                if(strtolower(config('app.env')) != 'production' && strtolower(config('app.env')) != 'prod') {
-                    $oidc->setVerifiyHost(false);
-                    $oidc->setVerifiyPeer(false);
-                }
+                // if(strtolower(config('app.env')) != 'production' && strtolower(config('app.env')) != 'prod') {
+                //     $oidc->setVerifiyHost(false);
+                //     $oidc->setVerifiyPeer(false);
+                // }
 
                 $idToken = session('auth.id_token');
                 $oidc->signOut($accessToken, $redirect);
