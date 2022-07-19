@@ -58,12 +58,12 @@ class LoginController extends Controller
                 $oidc -> setRedirectURL($redirectUri);
                 $oidc->addScope($scope);
 
-                if(strtolower(config('app.env')) != 'production' && strtolower(config('app.env')) != 'prod') {
+                if(in_array(strtolower(env('APP_ENV')), ['production', 'prod'])) {
                     $oidc->setVerifyHost(false);
                     $oidc->setVerifyPeer(false);
                 }
+
                 $oidc->authenticate();
-                Session::put('id_token', $oidc->getIdToken());
 
                 $userInfo = $oidc->requestUserInfo();
                 $idToken = $oidc->getIdToken();
@@ -71,10 +71,15 @@ class LoginController extends Controller
                 $user = User::whereIn('email', [$userInfo->email, $userInfo->alternate_email])->first();
 
                 if(!$user){
-                    return redirect('/auth');
+                    $user = User::create([
+                        'name' => $userInfo->name,
+                        'email' => $userInfo->email ?? $userInfo->alternate_email,
+                        'level' => 'user',
+                    ]);
                 }
 
                 Auth::login($user);
+                Session::put('id_token', $idToken);
 
                 if ($user->level == 'admin') {
                     session(['login_session' => 'admin']);
@@ -112,10 +117,11 @@ class LoginController extends Controller
                 $clientSecret = env('OIDC_CLIENT_SECRET');
 
                 $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
-                // if(strtolower(config('app.env')) != 'production' && strtolower(config('app.env')) != 'prod') {
-                //     $oidc->setVerifiyHost(false);
-                //     $oidc->setVerifiyPeer(false);
-                // }
+
+                if(in_array(strtolower(env('APP_ENV')), ['production', 'prod'])) {
+                    $oidc->setVerifyHost(false);
+                    $oidc->setVerifyPeer(false);
+                }
 
                 $idToken = session('auth.id_token');
                 $oidc->signOut($accessToken, $redirect);
