@@ -129,7 +129,7 @@
                                                         <td class="text-center">
                                                         <div class="btn-group">
 
-                                                            @if(session()->has('login_session') == true)
+                                                            @if(session()->has('id_token') == true)
                                                                 <a href="/downloadInstaller/{{$fi->id}}/{{ Request::path()}}">
                                                                     <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                         <i class="fa fa-download"></i>

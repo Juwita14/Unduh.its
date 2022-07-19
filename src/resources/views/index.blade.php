@@ -142,7 +142,7 @@
                         <a href="logout" >
                             logout
                         </a> -->
-                        @if(session()->get('login_session') == null)
+                        @if(session()->get('id_token') == null)
                         <a href="{{ url('auth') }}" >
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-rounded btn-dual-secondary" aria-haspopup="true" aria-expanded="false">
