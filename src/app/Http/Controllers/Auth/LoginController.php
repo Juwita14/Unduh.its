@@ -68,7 +68,7 @@ class LoginController extends Controller
                 
                 $userInfo = $oidc->requestUserInfo();
                 $idToken = $oidc->getIdToken();
-
+                return dd($userInfo);
                 $user = DB::connection('auth')
                     ->table('sdm')
                     ->where('id_user', '=', Sso::user()->getId())
