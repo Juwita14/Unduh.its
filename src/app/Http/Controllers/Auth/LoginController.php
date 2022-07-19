@@ -106,7 +106,7 @@ class LoginController extends Controller
 
     public function logout(){
         try{
-            $redirect = env('OPENID_REDIRECT_URI');
+            $redirect = env('OPENID_POST_LOGOUT_REDIRECT_URI');
             $accessToken = Session::get('id_token');
 
             $provider = env('OIDC_PROVIDER_URL');
