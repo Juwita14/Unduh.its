@@ -48,11 +48,11 @@ class LoginController extends Controller
         // return view('auth.login');
         if (!Session::has('id_token')) {
             try{
-                $provider ='https://dev-my.its.ac.id';
-                $clientId = '7B130245-DBA6-461B-A86F-8D4BB7B354AD';
-                $clientSecret = 'tkprs5jy580sc8cs8ogcko0g';
-                $redirectUri = 'https://dev-softwarehub.its.ac.id/auth';
-                $scope = 'email group phone profile resource role openid';
+                $provider = env('OIDC_PROVIDER_URL');
+                $clientId = env('OIDC_CLIENT_ID');
+                $clientSecret = env('OIDC_CLIENT_SECRET');
+                $redirectUri = env('OPENID_REDIRECT_URI');
+                $scope =  env('OPENID_SCOPE');
 
                 $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
                 $oidc -> setRedirectURL($redirectUri);
@@ -64,30 +64,25 @@ class LoginController extends Controller
                 }
                 $oidc->authenticate();
                 Session::put('id_token', $oidc->getIdToken());
-                // dd($oidc->getEmail());
                 
                 $userInfo = $oidc->requestUserInfo();
                 $idToken = $oidc->getIdToken();
                 
-                $user = DB::connection('auth')
-                    ->table('sdm')
-                    ->where('id_user', '=', Sso::user()->getId())
-                    ->first();
-                if(!$user || $user->deleted_at){
-                    return response()->view('Sso::illegitimate-role', ['provider' => config('openid.provider') ]);
-                }
-                Auth::loginUsingId(Sso::user()->getId());
+                $user = User::whereIn('email', [$userInfo->email, $userInfo->alternate_email])->first();
 
-                // Auth::login($user);
+                if(!$user){
+                    return redirect('/auth');
+                }
+                
+                Auth::login($user);
                 return redirect()->route('/');
             }
             catch (OpenIDConnectClientException $e) {
                 Auth::logout();
                 Session::flush();
                 Session::save();
-                if ($e->getMessage() === self::
-                OIDC_ERROR_STATE_UNDETERMINED) {
-                return redirect('expired');
+                if ($e->getMessage() === self::OIDC_ERROR_STATE_UNDETERMINED) {
+                    return redirect('expired');
                 }
                 return redirect('error');
             }
@@ -99,15 +94,15 @@ class LoginController extends Controller
 
     public function logout(){
         try{
-            $redirect = 'https://dev-my.its.ac.id';
+            $redirect = env('OPENID_REDIRECT_URI');
             if (Session::has('id_token')) {
                 $accessToken = Session::get('id_token');
                 Session::forget('id_token');
                 Session::save();
 
-                $provider ='https://dev-my.its.ac.id';
-                $clientId = '7B130245-DBA6-461B-A86F-8D4BB7B354AD';
-                $clientSecret = 'tkprs5jy580sc8cs8ogcko0g';
+                $provider = env('OIDC_PROVIDER_URL');
+                $clientId = env('OIDC_CLIENT_ID');
+                $clientSecret = env('OIDC_CLIENT_SECRET');
 
                 $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
                 if(strtolower(config('app.env')) != 'production' && strtolower(config('app.env')) != 'prod') {
