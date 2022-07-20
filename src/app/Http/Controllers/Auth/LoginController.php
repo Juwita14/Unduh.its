@@ -88,7 +88,7 @@ class LoginController extends Controller
                     session(['login_session' => 'user']);
                     return redirect()->intended('/');
                 }
-                dd(session()->all());
+
                 return redirect()->intended('/');
 
             }
