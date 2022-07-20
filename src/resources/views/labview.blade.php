@@ -86,7 +86,7 @@
                                             </h4>
                                             @foreach($file_panduan as $pd)
 
-                                                @if(session()->has('id_token'))
+                                                @if(session()->has('login_session') == true)
                                                 <a href="/downloadPanduan/{{$pd->id}}">
                                                     <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                     <div style="display:inline-block;" class="text">
