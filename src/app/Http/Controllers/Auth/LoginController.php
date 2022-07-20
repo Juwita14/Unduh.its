@@ -123,8 +123,8 @@ class LoginController extends Controller
 
             $idToken = session('auth.id_token');
             $oidc->signOut($accessToken, $redirect);
-            // header("Location: " . $redirect);
-            return redirect()->route('/');
+            header("Location: " . $redirect);
+            // return redirect()->route('index');
         }
         catch (OpenIDConnectClientException $e) {
             echo $e->getMessage();
