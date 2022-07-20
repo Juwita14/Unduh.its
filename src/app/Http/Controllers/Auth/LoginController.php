@@ -83,14 +83,14 @@ class LoginController extends Controller
 
                 if ($user->level == 'admin') {
                     session(['login_session' => 'admin']);
-
+                    dd(session()->all());
                     return redirect()->intended('admin');
                 } elseif ($user->level == 'user') {
                     session(['login_session' => 'user']);
                     return redirect()->intended('/');
                 }
                 return redirect()->intended('/');
-                dd(session()->all());
+
             }
             catch (OpenIDConnectClientException $e) {
                 Auth::logout();
