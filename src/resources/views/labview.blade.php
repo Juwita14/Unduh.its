@@ -92,12 +92,7 @@
                                                 </div>
                                             </a>
                                                 @if(session()->has('login_session') == true)
-                                                <a href="/downloadPanduan/{{$pd->id}}">
-                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
-                                                    <div style="display:inline-block;" class="text">
-                                                        <p>{{$pd->nama_file_panduan}}</p>
-                                                    </div>
-                                                </a>
+                                                a
                                                 <br>
                                                 @else
                                                 <a href="/auth">
