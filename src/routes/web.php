@@ -45,7 +45,7 @@ Route::get('/labview', [UserController::class, 'indexLabview']);
 Route::get('/matlab', [UserController::class, 'indexMatlab']);
 Route::get('/preVieww', [UserController::class, 'indexPreview']);
 Route::get('/adobe', [UserController::class, 'indexAdobe']);
-Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
+// Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
 
 
 // auth: admin || user
@@ -258,7 +258,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['cek_login:user']], function () {
         Route::resource('produk', UserController::class);
-        // Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
+        Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
         Route::get('/downloadInstaller/{id}/{route}', [UserController::class, 'getDownloadInstaller']);
 
     });
