@@ -89,8 +89,8 @@
                                             </h4>
                                             @foreach($file_panduan as $pd)
 
-                                                @if(session()->has('login_session') == true)
-                                                <a href="/downloadPanduan/{{$pd->id}}">
+                                                @if(session()->get('id_token') == null)
+                                                <a href="/auth">
                                                     <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                     <div style="display:inline-block;" class="text">
                                                         <p>{{$pd->nama_file_panduan}}</p>
@@ -98,7 +98,7 @@
                                                 </a>
                                                 <br>
                                                 @else
-                                                <a href="/auth">
+                                                <a href="/downloadPanduan/{{$pd->id}}">
                                                     <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                     <div style="display:inline-block;" class="text">
                                                         <p>{{$pd->nama_file_panduan}}</p>
@@ -129,13 +129,14 @@
                                                         <td class="text-center">
                                                         <div class="btn-group">
 
-                                                            @if(session()->has('id_token') == true)
-                                                                <a href="/downloadInstaller/{{$fi->id}}/{{ Request::path()}}">
+                                                            @if(session()->get('id_token') == null)
+                                                                <a href="/auth">
                                                                     <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                         <i class="fa fa-download"></i>
                                                                     </button>
+                                                                </a>
                                                                 @else
-                                                                <a href="/auth">
+                                                                <a href="/downloadInstaller/{{$fi->id}}/{{ Request::path()}}">
                                                                     <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                         <i class="fa fa-download"></i>
                                                                     </button>
