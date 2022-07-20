@@ -88,7 +88,7 @@ class LoginController extends Controller
                     session(['login_session' => 'user']);
                     return redirect()->intended('/');
                 }
-                return redirect()->intended('/');
+                return redirect('auth');
             }
             catch (OpenIDConnectClientException $e) {
                 Auth::logout();
