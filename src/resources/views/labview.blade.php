@@ -85,7 +85,7 @@
                                                 <a class="font-size-md  font-w700">File Panduan</a>
                                             </h4>
                                             @foreach($file_panduan as $pd)
-                                                @if(session()->get('id_token') == null)
+                                                @if(session()->get('id_token') != null)
                                                 <a href="/downloadPanduan/{{$pd->id}}">
                                                     <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                     <div style="display:inline-block;" class="text">
