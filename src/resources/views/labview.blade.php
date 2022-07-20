@@ -125,8 +125,8 @@
                                                     <td>{{$fi->size}} GB</td>
                                                         <td class="text-center">
                                                             <div class="btn-group">
-
-                                                                @if(auth()->user() != NULL)
+                                                                session()->has('login_session') == true
+                                                                @if(auth()->user()->name != NULL)
                                                                 <a href="/downloadInstaller/{{$fi->id}}/{{ Request::path()}}">
                                                                     <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                         <i class="fa fa-download"></i>
