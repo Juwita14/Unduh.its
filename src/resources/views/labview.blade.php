@@ -85,7 +85,8 @@
                                                 <a class="font-size-md  font-w700">File Panduan</a>
                                             </h4>
                                             @foreach($file_panduan as $pd)
-                                            dd(session()->all());
+                                            dd(session()->all())
+                                            {{ session()->get('name') }}
                                                 @if(session()->has('login_session') == true)
                                                 <a href="/downloadPanduan/{{$pd->id}}">
                                                     <i class="fa fa-file-pdf-o" style="color:red"></i>
