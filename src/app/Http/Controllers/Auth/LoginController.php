@@ -84,7 +84,7 @@ class LoginController extends Controller
                 if ($user->level == 'admin') {
                     return redirect()->intended('admin');
                 } elseif ($user->level == 'user') {
-                    return redirect()->intended('index');
+                    return redirect()->intended('/');
                 }
 
             }
