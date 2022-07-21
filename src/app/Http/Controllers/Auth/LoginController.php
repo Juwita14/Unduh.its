@@ -89,8 +89,6 @@ class LoginController extends Controller
                     return redirect()->intended('/');
                 }
 
-                return redirect()->intended('/');
-
             }
             catch (OpenIDConnectClientException $e) {
                 Auth::logout();
@@ -101,7 +99,7 @@ class LoginController extends Controller
             }
         }
         else{
-            return view('index');
+            return redirect()->route('index');
         }
     }
 
@@ -123,8 +121,7 @@ class LoginController extends Controller
 
             $idToken = session('auth.id_token');
             $oidc->signOut($accessToken, $redirect);
-            header("Location: " . $redirect);
-            // return redirect()->route('index');
+            return redirect()->route('index');
         }
         catch (OpenIDConnectClientException $e) {
             echo $e->getMessage();
