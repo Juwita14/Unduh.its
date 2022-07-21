@@ -82,11 +82,9 @@ class LoginController extends Controller
                 Session::put('id_token', $idToken);
 
                 if ($user->level == 'admin') {
-                    session(['login_session' => 'admin']);
                     return redirect()->intended('admin');
                 } elseif ($user->level == 'user') {
-                    session(['login_session' => 'user']);
-                    return redirect()->intended('/');
+                    return redirect()->intended('index');
                 }
 
             }
