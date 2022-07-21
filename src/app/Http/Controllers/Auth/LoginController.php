@@ -54,7 +54,7 @@ class LoginController extends Controller
                 $scope = 'email group phone profile resource role openid';
 
                 $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
-                $oidc -> setRedirectURL($redirectUri);
+                $oidc->setRedirectURL($redirectUri);
                 $oidc->addScope($scope);
 
                 if(strtolower(config('app.env')) != 'production' && strtolower(config('app.env')) != 'prod') {
@@ -78,14 +78,15 @@ class LoginController extends Controller
                     session(['login_session' => 'user']);
                     return redirect()->intended('/');
                 }
-                return redirect()->intended('/');
-                // return view('index');
+                
+                
             }
             
             catch (OpenIDConnectClientException $e) {
                 echo $e->getMessage();
             }
         }
+        return redirect()->route('index');
     }
 
     public function logout(){
@@ -102,13 +103,12 @@ class LoginController extends Controller
 
                 $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
 
-                $oidc->setVerifiyHost(false);
-                $oidc->setVerifiyPeer(false);
+                $oidc->setVerifyHost(false);
+                $oidc->setVerifyPeer(false);
 
-                $oidc->signOut($accesToken, $redirect);
+                $oidc->signOut($accessToken, $redirect);
             }
-            eader("Location: " . $redirect);
-            // return redirect()->route('index');
+            return redirect()->route('index');
         }
         catch (OpenIDConnectClientException $e) {
             echo $e->getMessage();
