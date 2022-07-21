@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\File_Panduan;
+use App\Models\FilePanduan;
 use App\Models\FileInstaller;
 use App\Models\Software;
 use Illuminate\Support\Facades\File;
