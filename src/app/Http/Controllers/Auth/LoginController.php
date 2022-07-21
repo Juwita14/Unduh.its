@@ -46,7 +46,7 @@ class LoginController extends Controller
      */
     public function index(){
         // return view('auth.login');
-        if (!Session::has('id_token')) {
+        // if (!Session::has('id_token')) {
             try{
                 $provider = env('OIDC_PROVIDER_URL');
                 $clientId = env('OIDC_CLIENT_ID');
@@ -95,10 +95,10 @@ class LoginController extends Controller
 
                 return redirect('error');
             }
-        }
-        else{
-            return redirect()->route('index');
-        }
+        //}
+        //else{
+            //return redirect()->route('index');
+        //}
     }
 
     public function logout(){
