@@ -51,7 +51,7 @@ Route::get('/adobe', [UserController::class, 'indexAdobe']);
 // auth: admin || user
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['cek_login:admin']], function () {
-        Route::resource('admin', AdminController::class);
+        Route::get('/admin', [AdminController::class, 'index']);
 
         //adobe
         Route::get('/admin/adobe/ringkasan', [RingkasanController::class, 'index']);
