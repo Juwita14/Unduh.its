@@ -45,60 +45,54 @@ class LoginController extends Controller
      * @return void
      */
     public function index(){
-        // return view('auth.login');
-        // if (!Session::has('id_token')) {
-            try{
-                $provider = env('OIDC_PROVIDER_URL');
-                $clientId = env('OIDC_CLIENT_ID');
-                $clientSecret = env('OIDC_CLIENT_SECRET');
-                $redirectUri = env('OPENID_REDIRECT_URI');
-                $scope =  env('OPENID_SCOPE');
+        try{
+            $provider = env('OIDC_PROVIDER_URL');
+            $clientId = env('OIDC_CLIENT_ID');
+            $clientSecret = env('OIDC_CLIENT_SECRET');
+            $redirectUri = env('OPENID_REDIRECT_URI');
+            $scope =  env('OPENID_SCOPE');
 
-                $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
-                $oidc -> setRedirectURL($redirectUri);
-                $oidc->addScope($scope);
+            $oidc = new OpenIDConnectClient($provider, $clientId, $clientSecret);
+            $oidc -> setRedirectURL($redirectUri);
+            $oidc->addScope($scope);
 
-                if(in_array(strtolower(env('APP_ENV')), ['production', 'prod'])) {
-                    $oidc->setVerifyHost(false);
-                    $oidc->setVerifyPeer(false);
-                }
-
-                $oidc->authenticate();
-
-                $userInfo = $oidc->requestUserInfo();
-                $idToken = $oidc->getIdToken();
-
-                $user = User::whereIn('email', [$userInfo->email, $userInfo->alternate_email])->first();
-
-                if(!$user){
-                    $user = User::create([
-                        'name' => $userInfo->name,
-                        'email' => $userInfo->email ?? $userInfo->alternate_email,
-                        'level' => 'user',
-                    ]);
-                }
-
-                Auth::login($user);
-                Session::put('id_token', $idToken);
-
-                if ($user->level == 'admin') {
-                    return redirect()->intended('admin');
-                } elseif ($user->level == 'user') {
-                    return redirect()->intended('/');
-                }
-
+            if(in_array(strtolower(env('APP_ENV')), ['production', 'prod'])) {
+                $oidc->setVerifyHost(false);
+                $oidc->setVerifyPeer(false);
             }
-            catch (OpenIDConnectClientException $e) {
-                Auth::logout();
-                Session::flush();
-                Session::save();
 
-                return redirect('error');
+            $oidc->authenticate();
+
+            $userInfo = $oidc->requestUserInfo();
+            $idToken = $oidc->getIdToken();
+
+            $user = User::whereIn('email', [$userInfo->email, $userInfo->alternate_email])->first();
+
+            if(!$user){
+                $user = User::create([
+                    'name' => $userInfo->name,
+                    'email' => $userInfo->email ?? $userInfo->alternate_email,
+                    'level' => 'user',
+                ]);
             }
-        //}
-        //else{
-            //return redirect()->route('index');
-        //}
+
+            Auth::login($user);
+            Session::put('id_token', $idToken);
+
+            if ($user->level == 'admin') {
+                return redirect()->intended('admin');
+            } elseif ($user->level == 'user') {
+                return redirect()->intended('/');
+            }
+
+        }
+        catch (OpenIDConnectClientException $e) {
+            Auth::logout();
+            Session::flush();
+            Session::save();
+
+            return redirect('error');
+        }
     }
     
     public function logout(){
