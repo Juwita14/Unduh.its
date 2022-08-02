@@ -19,7 +19,7 @@ class Software extends Model
 
     protected $guarded = [];
     public $timestamps = false;
-    
+
     public function fitur()
     {
         return $fitur->hasMany('App\Models\Fitur');
@@ -27,7 +27,7 @@ class Software extends Model
 
     public function persyaratan_sistem()
     {
-        return $persyaratan_sistem->hasMany('App\Models\Persyaratan_sistem');
+        return $persyaratan_sistem->hasMany('App\Models\PersyaratanSistem');
     }
 
     public function preview()
@@ -42,11 +42,11 @@ class Software extends Model
 
     public function file_panduan()
     {
-        return $ringkasan->hasMany('App\Models\File_panduan');
+        return $ringkasan->hasMany('App\Models\FilePanduan');
     }
 
-    public function File_installer()
+    public function FileInstaller()
     {
-        return $ringkasan->hasMany('App\Models\File_installer');
+        return $ringkasan->hasMany('App\Models\FileInstaller');
     }
 }

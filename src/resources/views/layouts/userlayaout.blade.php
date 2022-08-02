@@ -97,13 +97,13 @@
                     <div class="content-header-section">
                         <!-- Logo -->
                         <div class="float-left mr-5 mb-5">
-                            <img style="height: 48px; width: 45px;" class="img-avatar" src="/assets/media/photos/logo-its-biru-transparan.png" alt=""> 
+                            <img style="height: 48px; width: 45px;" class="img-avatar" src="/assets/media/photos/logo-its-biru-transparan.png" alt="">
                         </div>
                         <div class="content-header-item">
                             <a href="/" class=" font-w700" href="index">
                                 <span href="javascript:void(0)" style= "font-size: 200%; line-height: 125%;" class=" text-dual-primary">UNDUH</span>
                             </a>
-                            <a class="font-w300" href="index">
+                            <a class="font-w300" href="/">
                                 <p style="line-height: 0%;" class="font-size-sm mt-5 text-dual-primary-dark">Software Lisensi ITS</p>
                             </a>
                         </div>
@@ -133,8 +133,8 @@
 
                         <!-- Open Search Section -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        @if(session()->get('login_session') == null)
-                        <a href="{{ url('login') }}" >
+                        @if(session()->get('id_token') == null)
+                        <a href="{{ url('auth') }}" >
                             <div class="btn-group" role="group">
                                 <button type="button" class="btn btn-rounded btn-dual-secondary" aria-haspopup="true" aria-expanded="false">
                                     <img style="height: 30px; width:30px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
@@ -143,7 +143,7 @@
                                 </button>
                             </div>
                         </a>
-                        @else 
+                        @else
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-rounded btn-dual-secondary" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img style="height: 30px; width:30px;" class="img-avatar" src="assets/media/avatars/avatar5.jpg" alt="">
@@ -163,11 +163,6 @@
                                 <img style="height: 30px; width:30px;" class="img-avatar" src="/assets/media/avatars/avatar5.jpg" alt="">
                                 <i class="fa fa-user d-sm-none"></i>
                                 <span class="d-none d-sm-inline-block">
-                                    @if(session()->get('login_session') == null) 
-                                        Public
-                                    @else 
-                                        {{ auth()->user()->name }}
-                                    @endif
                                 </span>
                                 <i class="fa fa-angle-down ml-5"></i>
                             </button>

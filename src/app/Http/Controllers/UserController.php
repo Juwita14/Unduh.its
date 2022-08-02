@@ -8,9 +8,9 @@ use App\Models\User;
 use App\Models\Software;
 use App\Models\Ringkasan;
 use App\Models\Fitur;
-use App\Models\Persyaratan_sistem;
-use App\Models\File_Panduan;
-use App\Models\File_installer;
+use App\Models\PersyaratanSistem;
+use App\Models\FilePanduan;
+use App\Models\FileInstaller;
 use App\Models\Preview;
 
 use Illuminate\Support\Facades\Response;
@@ -38,10 +38,10 @@ class UserController extends Controller
     	$software = Software::where('id', '1')->get();
         $ringkasan = Ringkasan::where('id_software', '1')->get();
         $fitur = Fitur::where('id_software', '1')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '1')->get();
-        $file_panduan = File_panduan::where('id_software', '1')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '1')->get();
+        $file_panduan = FilePanduan::where('id_software', '1')->get();
         // dd($file_panduan);
-        $file_installer = File_installer::where('id_software', '1')->get();
+        $file_installer = FileInstaller::where('id_software', '1')->get();
         $preview = Preview::where('id_software', '1')->get();
 
         return view('adobe', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
@@ -52,24 +52,24 @@ class UserController extends Controller
     	$software = Software::where('id', '2')->get();
         $ringkasan = Ringkasan::where('id_software', '2')->get();
         $fitur = Fitur::where('id_software', '2')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '2')->get();
-        $file_panduan = File_panduan::where('id_software', '2')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '2')->get();
+        $file_panduan = FilePanduan::where('id_software', '2')->get();
         // dd($file_panduan);
-        $file_installer = File_installer::where('id_software', '2')->get();
+        $file_installer = FileInstaller::where('id_software', '2')->get();
         $preview = Preview::where('id_software', '2')->get();
 
         return view('matlab', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
     }
-    
+
     public function indexMathematica()
     {
     	$software = Software::where('id', '3')->get();
         $ringkasan = Ringkasan::where('id_software', '3')->get();
         $fitur = Fitur::where('id_software', '3')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '3')->get();
-        $file_panduan = File_panduan::where('id_software', '3')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '3')->get();
+        $file_panduan = FilePanduan::where('id_software', '3')->get();
         // dd($file_panduan);
-        $file_installer = File_installer::where('id_software', '3')->get();
+        $file_installer = FileInstaller::where('id_software', '3')->get();
         $preview = Preview::where('id_software', '3')->get();
 
         return view('mathematica', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
@@ -79,11 +79,11 @@ class UserController extends Controller
     	$software = Software::where('id', '4')->get();
         $ringkasan = Ringkasan::where('id_software', '4')->get();
         $fitur = Fitur::where('id_software', '4')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '4')->get();
-        $file_panduan = File_panduan::where('id_software', '4')->get();
-        $file_installer = File_installer::where('id_software', '4')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '4')->get();
+        $file_panduan = FilePanduan::where('id_software', '4')->get();
+        $file_installer = FileInstaller::where('id_software', '4')->get();
         $preview = Preview::where('id_software', '4')->get();
-        
+
         return view('labview', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
     }
 
@@ -92,20 +92,20 @@ class UserController extends Controller
     	$software = Software::where('id', '5')->get();
         $ringkasan = Ringkasan::where('id_software', '5')->get();
         $fitur = Fitur::where('id_software', '5')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '5')->get();
-        $file_panduan = File_panduan::where('id_software', '5')->get();
-        $file_installer = File_installer::where('id_software', '5')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '5')->get();
+        $file_panduan = FilePanduan::where('id_software', '5')->get();
+        $file_installer = FileInstaller::where('id_software', '5')->get();
         $preview = Preview::where('id_software', '5')->get();
-        
+
         return view('minitab', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
     }
 
     public function getDownloadPanduan($id)
     {
-        $file_panduan = File_panduan::find($id);
+        $file_panduan = FilePanduan::find($id);
         $namaFile=$file_panduan->namapanduan;
         $file= public_path("assets/media/filepanduan/{$namaFile}");
-       
+
         return response()->download($file);
     }
 
@@ -141,7 +141,7 @@ class UserController extends Controller
         $sessionhas=session()->has('login_session');
         // dd($sessionhas);
         // if($sessionhas == true){
-            $file_installer = File_installer::find($id);
+            $file_installer = FileInstaller::find($id);
             $filename = $file_installer->file_download;
             $path= public_path("assets/media/fileinstaller/{$filename}");
 
@@ -156,7 +156,7 @@ class UserController extends Controller
                 'Content-Length' => $fileSize,
                 'Content-Disposition' => $disposition,
             ]);
-            
+
             $response->setCallback(function () use ($path) {
                 $stream = fopen($path, 'r');
                 while (! feof($stream)) {

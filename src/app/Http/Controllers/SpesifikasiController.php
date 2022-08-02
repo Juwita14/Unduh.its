@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Fitur;
-use App\Models\Persyaratan_sistem;
+use App\Models\PersyaratanSistem;
 use App\Models\Software;
 
 class SpesifikasiController extends Controller
@@ -14,7 +14,7 @@ class SpesifikasiController extends Controller
     {
         // $fitur = Fitur::all();
         $fitur = Fitur::where('id_software', '1')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '1')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '1')->get();
         // dd($persyaratan_sistem);
         return view('admin.adobe.spesifikasi', compact(['fitur', 'persyaratan_sistem']));
         // return $fitur;
@@ -24,7 +24,7 @@ class SpesifikasiController extends Controller
     {
         // $fitur = Fitur::all();
         $fitur = Fitur::where('id_software', '2')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '2')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '2')->get();
         // dd($persyaratan_sistem);
         return view('admin.matlab.spesifikasiMatlab', compact(['fitur', 'persyaratan_sistem']));
         // return $fitur;
@@ -34,7 +34,7 @@ class SpesifikasiController extends Controller
     {
         // $fitur = Fitur::all();
         $fitur = Fitur::where('id_software', '3')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '3')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '3')->get();
         // dd($persyaratan_sistem);
         return view('admin.mathematica.spesifikasiMathematica', compact(['fitur', 'persyaratan_sistem']));
         // return $fitur;
@@ -44,7 +44,7 @@ class SpesifikasiController extends Controller
     {
         // $fitur = Fitur::all();
         $fitur = Fitur::where('id_software', '4')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '4')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '4')->get();
         // dd($persyaratan_sistem);
         return view('admin.labview.spesifikasiLabview', compact(['fitur', 'persyaratan_sistem']));
         // return $fitur;
@@ -54,7 +54,7 @@ class SpesifikasiController extends Controller
     {
         // $fitur = Fitur::all();
         $fitur = Fitur::where('id_software', '5')->get();
-        $persyaratan_sistem = Persyaratan_sistem::where('id_software', '5')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '5')->get();
         // dd($persyaratan_sistem);
         return view('admin.minitab.spesifikasiMinitab', compact(['fitur', 'persyaratan_sistem']));
         // return $fitur;
@@ -284,7 +284,7 @@ class SpesifikasiController extends Controller
     {
         //dd($request->except(['_token','submit']));
         $software = Software::where('id', 1)->value('id');
-        Persyaratan_sistem::create([
+        PersyaratanSistem::create([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
@@ -301,7 +301,7 @@ class SpesifikasiController extends Controller
     {
         //dd($request->except(['_token','submit']));
         $software = Software::where('id', 2)->value('id');
-        Persyaratan_sistem::create([
+        PersyaratanSistem::create([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
@@ -318,7 +318,7 @@ class SpesifikasiController extends Controller
     {
         //dd($request->except(['_token','submit']));
         $software = Software::where('id', 3)->value('id');
-        Persyaratan_sistem::create([
+        PersyaratanSistem::create([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
@@ -335,7 +335,7 @@ class SpesifikasiController extends Controller
     {
         //dd($request->except(['_token','submit']));
         $software = Software::where('id', 4)->value('id');
-        Persyaratan_sistem::create([
+        PersyaratanSistem::create([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
@@ -352,7 +352,7 @@ class SpesifikasiController extends Controller
     {
         //dd($request->except(['_token','submit']));
         $software = Software::where('id', 5)->value('id');
-        Persyaratan_sistem::create([
+        PersyaratanSistem::create([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
         ]);
@@ -363,7 +363,7 @@ class SpesifikasiController extends Controller
     public function editPS($id)
     {
         //dd($id);
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         //dd($fitur);
         return view('admin.adobe.editPersyaratanSistem', compact(['persyaratan_sistem']));
     }
@@ -371,7 +371,7 @@ class SpesifikasiController extends Controller
     public function updatePS($id, Request $request)
     {
         $software = Software::where('id', 1)->value('id');
-        Persyaratan_sistem::where('id', $id)
+        PersyaratanSistem::where('id', $id)
         ->update([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
@@ -382,7 +382,7 @@ class SpesifikasiController extends Controller
     public function editMatlabPS($id)
     {
         //dd($id);
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         //dd($fitur);
         return view('admin.matlab.editPersyaratanSistemMatlab', compact(['persyaratan_sistem']));
     }
@@ -390,7 +390,7 @@ class SpesifikasiController extends Controller
     public function updateMatlabPS($id, Request $request)
     {
         $software = Software::where('id', 2)->value('id');
-        Persyaratan_sistem::where('id', $id)
+        PersyaratanSistem::where('id', $id)
         ->update([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
@@ -401,7 +401,7 @@ class SpesifikasiController extends Controller
     public function editMathematicaPS($id)
     {
         //dd($id);
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         //dd($fitur);
         return view('admin.mathematica.editPersyaratanSistemMathematica', compact(['persyaratan_sistem']));
     }
@@ -409,7 +409,7 @@ class SpesifikasiController extends Controller
     public function updateMathematicaPS($id, Request $request)
     {
         $software = Software::where('id', 3)->value('id');
-        Persyaratan_sistem::where('id', $id)
+        PersyaratanSistem::where('id', $id)
         ->update([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
@@ -420,7 +420,7 @@ class SpesifikasiController extends Controller
     public function editLabviewPS($id)
     {
         //dd($id);
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         //dd($fitur);
         return view('admin.labview.editPersyaratanSistemLabview', compact(['persyaratan_sistem']));
     }
@@ -428,7 +428,7 @@ class SpesifikasiController extends Controller
     public function updateLabviewPS($id, Request $request)
     {
         $software = Software::where('id', 4)->value('id');
-        Persyaratan_sistem::where('id', $id)
+        PersyaratanSistem::where('id', $id)
         ->update([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
@@ -439,7 +439,7 @@ class SpesifikasiController extends Controller
     public function editMinitabPS($id)
     {
         //dd($id);
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         //dd($fitur);
         return view('admin.minitab.editPersyaratanSistemMinitab', compact(['persyaratan_sistem']));
     }
@@ -447,7 +447,7 @@ class SpesifikasiController extends Controller
     public function updateMinitabPS($id, Request $request)
     {
         $software = Software::where('id', 5)->value('id');
-        Persyaratan_sistem::where('id', $id)
+        PersyaratanSistem::where('id', $id)
         ->update([
             'id_software' => $software,
             'persyaratan_sistem' =>$request->persyaratan_sistem
@@ -457,35 +457,35 @@ class SpesifikasiController extends Controller
 
     public function destroyPS($id)
     {
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         $persyaratan_sistem->delete();
         return redirect('/admin/adobe/spesifikasi');
     }
 
     public function destroyMatlabPS($id)
     {
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         $persyaratan_sistem->delete();
         return redirect('/admin/matlab/spesifikasiMatlab');
     }
 
     public function destroyMathematicaPS($id)
     {
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         $persyaratan_sistem->delete();
         return redirect('/admin/mathematica/spesifikasiMathematica');
     }
 
     public function destroyLabviewPS($id)
     {
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         $persyaratan_sistem->delete();
         return redirect('/admin/labview/spesifikasiLabview');
     }
 
     public function destroyMinitabPS($id)
     {
-        $persyaratan_sistem = Persyaratan_sistem::find($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
         $persyaratan_sistem->delete();
         return redirect('/admin/minitab/spesifikasiMinitab');
     }
