@@ -93,8 +93,9 @@ class LoginController extends Controller
 
             return redirect('error');
         }
+        return redirect()->route('index');
     }
-    
+
     public function logout(){
         try{
             $redirect = env('OPENID_POST_LOGOUT_REDIRECT_URI');
