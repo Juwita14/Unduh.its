@@ -44,7 +44,6 @@ Route::get('/mathematica', [UserController::class, 'indexMathematica']);
 Route::get('/minitab', [UserController::class, 'indexMinitab']);
 Route::get('/labview', [UserController::class, 'indexLabview']);
 Route::get('/matlab', [UserController::class, 'indexMatlab']);
-Route::get('/preVieww', [UserController::class, 'indexPreview']);
 Route::get('/adobe', [UserController::class, 'indexAdobe']);
 // Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
 
@@ -53,6 +52,34 @@ Route::get('/adobe', [UserController::class, 'indexAdobe']);
 Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['cek_login:admin']], function () {
         Route::get('/admin', [AdminController::class, 'index']);
+
+        //microsoft
+        Route::get('/admin/microsoft/ringkasanMicrosoft', [RingkasanController::class, 'indexMicrosoft']);
+        Route::get('/admin/microsoft/ringkasanMicrosoft/createMicrosoft', [RingkasanController::class, 'createMicrosoft']);
+        Route::post('/admin/microsoft/ringkasanMicrosoft/storeMicrosoft', [RingkasanController::class, 'storeMicrosoft']);
+        Route::get('/admin/microsoft/ringkasanMicrosoft/editMicrosoft/{id}', [RingkasanController::class, 'editMicrosoft']);
+        Route::put('/admin/microsoft/ringkasanMicrosoft/updateMicrosoft/{id}', [RingkasanController::class, 'updateMicrosoft']);
+        Route::delete('/admin/microsoft/ringkasanMicrosoft/destroyMicrosoft/{id}', [RingkasanController::class, 'destroyMicrosoft']);
+
+        Route::get('/admin/microsoft/spesifikasiMicrosoft', [SpesifikasiController::class, 'indexMicrosoft']);
+        Route::get('/admin/microsoft/spesifikasiMicrosoft/createMicrosoft', [SpesifikasiController::class, 'createMicrosoft']);
+        Route::post('/admin/microsoft/spesifikasiMicrosoft/storeMicrosoft', [SpesifikasiController::class, 'storeMicrosoft']);
+        Route::get('/admin/microsoft/spesifikasiMicrosoft/editMicrosoft/{id}', [SpesifikasiController::class, 'editMicrosoft']);
+        Route::put('/admin/microsoft/spesifikasiMicrosoft/updateMicrosoft/{id}', [SpesifikasiController::class, 'updateMicrosoft']);
+        Route::delete('/admin/microsoft/spesifikasiMicrosoft/destroyMicrosoft/{id}', [SpesifikasiController::class, 'destroyMicrosoft']);
+
+        Route::get('/admin/microsoft/spesifikasiMicrosoft/createMicrosoftPS', [SpesifikasiController::class, 'createMicrosoftPS']);
+        Route::post('/admin/microsoft/spesifikasiMicrosoft/storeMicrosoftPS', [SpesifikasiController::class, 'storeMicrosoftPS']);
+        Route::get('/admin/microsoft/spesifikasiMicrosoft/editMicrosoftPS/{id}', [SpesifikasiController::class, 'editMicrosoftPS']);
+        Route::put('/admin/microsoft/spesifikasiMicrosoft/updateMicrosoftPS/{id}', [SpesifikasiController::class, 'updateMicrosoftPS']);
+        Route::delete('/admin/microsoft/spesifikasiMicrosoft/destroyMicrosoftPS/{id}', [SpesifikasiController::class, 'destroyMicrosoftPS']);
+
+        Route::get('/admin/microsoft/previewMicrosoft', [PreviewController::class, 'indexMicrosoft']);
+        Route::get('/admin/microsoft/previewMicrosoft/createMicrosoft', [PreviewController::class, 'createMicrosoft']);
+        Route::post('/admin/microsoft/previewMicrosoft/storeMicrosoft', [PreviewController::class, 'storeMicrosoft']);
+        Route::get('/admin/microsoft/previewMicrosoft/editMicrosoft/{id}', [PreviewController::class, 'editMicrosoft']);
+        Route::put('/admin/microsoft/previewMicrosoft/updateMicrosoft/{id}', [PreviewController::class, 'updateMicrosoft']);
+        Route::delete('/admin/microsoft/previewMicrosoft/destroyMicrosoft/{id}', [PreviewController::class, 'destroyMicrosoft']);
 
         //adobe
         Route::get('/admin/adobe/ringkasan', [RingkasanController::class, 'index']);

@@ -19,7 +19,7 @@
                 <div class="block">
                     <div class="block-content py-5">
                             <a class="block-rounded" >
-                                <img style= "width: 184px; height: 184px;"  class="img-responsive center-block d-block mx-auto mt-15 mb-15"src="assets/media/photos/labvuewww-removebg-preview.png" alt="">
+                                <img style= "width: 184px; height: 184px;"  class="img-responsive center-block d-block mx-auto mt-15 mb-15"src="assets/media/photos/microsoft.png" alt="">
                             </a>
                             <div class="ml-20">
                                 <div class="border-b">
@@ -27,12 +27,12 @@
                                         Microsoft
                                     </p>
                                     <p class="font-size-sm  font-w600 text-op  mb-0">
-                                    NI
+                                        Microsoft Corporation
                                     </p>
                                 </div>
                                 <br>
                                 <div class="ml-15 mb-20">
-                                    <a href="https://www.ni.com/en-id/shop/labview.html" target="_blank">
+                                    <a href="https://www.microsoft.com/id-id" target="_blank">
                                         <button style="" type="button" class="btn btn-success shadow min-width-150 ">
                                             <i class="fa fa-globe mr-5"></i>
                                             Visit Website
