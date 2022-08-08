@@ -120,12 +120,10 @@
                                                 @endif
                                         </div>
                                         <div class="col-lg-12 border-b">
-                                            <div class="col-lg-12 border-b">
                                                 <h4 class="h5 mb-5">
                                                     <a class="font-size-md  font-w700">File Installer</a>
                                                 </h4>
                                                 <p>Informasi tentang file download MATLAB, silakan kunjungi <a href="https://www.mathworks.com/products/matlab.html?s_tid=hp_products_matlab" target="_blank">Offical MATLAB.</a></p>
-                                            </div>
                                         </div>
 
                                     </div>
