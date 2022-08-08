@@ -26,11 +26,19 @@ class UserController extends Controller
     //     return view('index1');
     // }
 
-    public function indexPreview()
+    public function indexMicsrosoft()
     {
-        $preview = Preview::where('id_software', '1')->get();
+    	// $software = Software::where('id', '6')->get();
+        // $ringkasan = Ringkasan::where('id_software', '6')->get();
+        // $fitur = Fitur::where('id_software', '6')->get();
+        // $persyaratan_sistem = PersyaratanSistem::where('id_software', '6')->get();
+        // $file_panduan = FilePanduan::where('id_software', '6')->get();
+        // // dd($file_panduan);
+        // $file_installer = FileInstaller::where('id_software', '6')->get();
+        // $preview = Preview::where('id_software', '6')->get();
 
-        return view('preVieww', compact([ 'preview']));
+        // return view('microsoft', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
+        return view('microsoft');
     }
 
     public function indexAdobe()

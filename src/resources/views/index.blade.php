@@ -20,7 +20,7 @@
                         </div>
                         <div class="row gutters-tiny mt-20 ">
                             <div class="col-6 col-md-4 col-xl-2 mx-auto ">
-                                <a href="/adobe" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
+                                <a href="/microsoft" style="background-color:#FAFAFA;" class="block block-rounded block-bordered block-link-shadow text-center" href="javascript:void(0)">
                                     <img style= "width: 115px; height: 115px;" class="block-content block-content-full" src="assets/media/photos/microsoft.png" alt="">
                                     <p class="font-w600 mb-10">Microsoft</p>
                                 </a>

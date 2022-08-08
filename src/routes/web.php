@@ -39,6 +39,7 @@ Route::get('/auth', [LoginController::class, 'index'])->name('auth');
 // Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('/microsoft', [UserController::class, 'indexMicsrosoft']);
 Route::get('/mathematica', [UserController::class, 'indexMathematica']);
 Route::get('/minitab', [UserController::class, 'indexMinitab']);
 Route::get('/labview', [UserController::class, 'indexLabview']);
