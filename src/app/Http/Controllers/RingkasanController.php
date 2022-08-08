@@ -96,6 +96,21 @@ class RingkasanController extends Controller
         ]);
         return redirect('/admin/adobe/ringkasan');
     }
+    public function createMicrosoft()
+    {
+        return view('admin.microsoft.createRingkasanMicrosoft');
+    }
+
+    public function storeMicrosoft(Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $software = Software::where('id', 6)->value('id');
+        Ringkasan::create([
+            'id_software' => $software,
+            'ringkasan' =>$request->ringkasan
+        ]);
+        return redirect('/admin/microsoft/ringkasanMicrosoft');
+    }
 
     public function createMatlab()
     {
