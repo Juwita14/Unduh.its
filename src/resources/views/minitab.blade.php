@@ -97,7 +97,7 @@
                                                 </a>
                                                 <br>
                                                 @else
-                                                <a href="/downloadPanduan/{{$pd->id}}">
+                                                <a href="https://itsacid.sharepoint.com/:b:/s/softwarehub/EcDLs0SOSZ9BoLEV8pMhEYEBrZlqtwXWShYzfMBX8f17lA?e=st8nVB" target="_blank">
                                                     <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                     <div style="display:inline-block;" class="text">
                                                         <p>{{$pd->nama_file_panduan}}</p>
@@ -134,7 +134,7 @@
                                                                     </button>
                                                                 </a>
                                                                 @else
-                                                                <a href="/downloadInstaller/{{$fi->id}}/{{ Request::path()}}">
+                                                                <a href="https://itsacid.sharepoint.com/:u:/s/softwarehub/EdP84i0fz-1Dsj1am7og1zsB-YZSV8vhYr8LSlD_p4t6yQ?e=4RHeZt" target="_blank">
                                                                     <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                         <i class="fa fa-download"></i>
                                                                     </button>
