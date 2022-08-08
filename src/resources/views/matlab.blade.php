@@ -80,29 +80,12 @@
                                 <div class="tab-pane fade" id="search-filedownload" role="tabpanel">
                                     <div class="row items-push">
                                         <div class="col-lg-12 border-b">
-                                            <h4 class="h5 mb-5">
-                                                <a class="font-size-md  font-w700">File Panduan</a>
-                                            </h4>
-                                            @foreach($file_panduan as $pd)
-
-                                                @if(session()->get('id_token') == null)
-                                                <a href="/auth">
-                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
-                                                    <div style="display:inline-block;" class="text">
-                                                        <p>{{$pd->nama_file_panduan}}</p>
-                                                    </div>
-                                                </a>
-                                                <br>
-                                                @else
-                                                <a href="/downloadPanduan/{{$pd->id}}">
-                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
-                                                    <div style="display:inline-block;" class="text">
-                                                        <p>{{$pd->nama_file_panduan}}</p>
-                                                    </div>
-                                                </a>
-                                                <br>
-                                                @endif
-                                            @endforeach
+                                            <div class="col-lg-12 border-b">
+                                                <h4 class="h5 mb-5">
+                                                    <a class="font-size-md  font-w700">File Installer</a>
+                                                </h4>
+                                                <p>Informasi tentang file download MATLAB, silakan kunjungi <a href="https://www.mathworks.com/products/matlab.html?s_tid=hp_products_matlab" target="_blank">Offical MATLAB.</a></p>
+                                            </div>
                                         </div>
 
                                     </div>
