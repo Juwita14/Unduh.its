@@ -82,31 +82,6 @@
                                     <div class="row items-push">
                                         <div class="col-lg-12 border-b">
                                             <h4 class="h5 mb-5">
-                                                <a class="font-size-md  font-w700">File Panduan</a>
-                                            </h4>
-                                            {{-- @foreach($file_panduan as $pd)
-                                                @if(session()->get('id_token') == null)
-                                                <a href="/auth">
-                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
-                                                    <div style="display:inline-block;" class="text">
-                                                        <p>{{$pd->nama_file_panduan}}</p>
-                                                    </div>
-                                                </a>
-                                                <br>
-                                                @else
-                                                <a href="https://itsacid.sharepoint.com/:b:/s/softwarehub/EYvEQ7p1ckpBoyCoc5J8wEkBU6J5CS2r6xP8ppVmnXFXUg?e=oGn5u8" target="_blank">
-                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
-                                                    <div style="display:inline-block;" class="text">
-                                                        <p>{{$pd->nama_file_panduan}}</p>
-                                                    </div>
-                                                </a>
-                                                <br>
-                                                @endif
-
-                                            @endforeach --}}
-                                        </div>
-                                        <div class="col-lg-12 border-b">
-                                            <h4 class="h5 mb-5">
                                                 <a class="font-size-md  font-w700">File Installer</a>
                                             </h4>
                                             <table class="table table-borderless table-hover table-vcenter">
@@ -118,7 +93,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                {{-- @foreach($file_installer as $fi)
+                                                @foreach($file_installer as $fi)
                                                     </tr>
                                                     <td>{{$fi->nama_file_installer}}</td>
                                                     <td>{{$fi->size}} GB</td>
@@ -131,7 +106,7 @@
                                                                     </button>
                                                                 </a>
                                                                 @else
-                                                                <a href="https://itsacid.sharepoint.com/:u:/s/softwarehub/EWp8aLg5IqNBuCbVq1ih6RwBfG68TjBU5YqJzL3nhaE_MA?e=MtGqRO" target="_blank">
+                                                                <a href="https://itsacid.sharepoint.com/:u:/s/softwarehub/Ea4A43GzfRJPtVcR17TnV2UBasoy0bVskuEa6vC0zNBcSQ?e=14THt9" target="_blank">
                                                                     <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                         <i class="fa fa-download"></i>
                                                                     </button>
@@ -140,7 +115,7 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    @endforeach --}}
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
