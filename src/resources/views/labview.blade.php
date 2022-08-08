@@ -131,7 +131,7 @@
                                                                     </button>
                                                                 </a>
                                                                 @else
-                                                                <a href="https://itsacid.sharepoint.com/:f:/s/softwarehub/Es0BZX8R6oZFi7WxxNK69S0B_8PYqEurlF5i5arSF3hxSg?e=i2YCHa" target="_blank">
+                                                                <a href="https://itsacid.sharepoint.com/:u:/s/softwarehub/EWp8aLg5IqNBuCbVq1ih6RwBfG68TjBU5YqJzL3nhaE_MA?e=MtGqRO" target="_blank">
                                                                     <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                         <i class="fa fa-download"></i>
                                                                     </button>
