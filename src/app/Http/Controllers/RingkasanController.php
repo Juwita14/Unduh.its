@@ -17,6 +17,14 @@ class RingkasanController extends Controller
         return view('admin.adobe.ringkasan', compact(['ringkasan', 'software']));
     }
 
+    public function indexMicrosoft()
+    {
+    	$software = Software::where('id', '6')->get();
+        $ringkasan = Ringkasan::where('id_software', '6')->get();
+        //dd($software);
+        return view('admin.microsoft.ringkasanMicrosoft', compact(['ringkasan', 'software']));
+    }
+
     public function indexMatlab()
     {
     	$software = Software::where('id', '2')->get();
