@@ -67,11 +67,11 @@
                                     <div class="row items-push">
                                         <div class="col-lg-12 border-b">
                                             <h4 class="h5 mb-5">
-                                                <a class="font-size-md  font-w700">LabVIEW</a>
+                                                <a class="font-size-md  font-w700">Microsoft</a>
                                             </h4>
-                                            {{-- @foreach($ringkasan as $r)
+                                            @foreach($ringkasan as $r)
                                                 <p> {!! html_entity_decode($r->ringkasan) !!}</p>
-                                            @endforeach --}}
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -155,18 +155,18 @@
                                             <h4 class="h5 mb-5">
                                                 <a class="font-size-md  font-w700">Persyaratan Sistem</a>
                                             </h4>
-                                            {{-- @foreach($persyaratan_sistem as $p)
+                                            @foreach($persyaratan_sistem as $p)
                                                 <p> {!! html_entity_decode($p->persyaratan_sistem) !!}</p>
-                                            @endforeach --}}
+                                            @endforeach
 
                                         </div>
                                         <div class="col-lg-12 border-b">
                                             <h4 class="h5 mb-5">
                                                 <a class="font-size-md  font-w700">Fitur</a>
                                             </h4>
-                                                {{-- @foreach($fitur as $f)
+                                                @foreach($fitur as $f)
                                                 <p> {!! html_entity_decode($f->fitur) !!}</p>
-                                                @endforeach --}}
+                                                @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -175,12 +175,12 @@
                                 <!-- Preview -->
                                 <div class="tab-pane fade active" id="search-preview" role="tabpanel">
                                     <div class="js-slider slick-nav-black slick-dotted-inner slick-dotted-white show active" data-dots="true" data-arrows="true">
-                                        {{-- @foreach($preview as $p)
+                                        @foreach($preview as $p)
                                             <div>
                                                 <p class="font-size-base font-400  mb-0" style="text-align:center"><strong>{{$p->nama_gambar}}</strong></p>
                                                 <img class="img-fluid center-block mx-auto border" style="" src="{{ asset('assets/media/preview/'.$p->namaFiles) }}" alt="" title="">
                                             </div>
-                                        @endforeach --}}
+                                        @endforeach
                                     </div>
                                 </div>
                                 <!-- END Projects -->
