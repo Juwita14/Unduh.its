@@ -20,6 +20,16 @@ class SpesifikasiController extends Controller
         // return $fitur;
     }
 
+    public function indexMicrosoft()
+    {
+        // $fitur = Fitur::all();
+        $fitur = Fitur::where('id_software', '6')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '6')->get();
+        // dd($persyaratan_sistem);
+        return view('admin.microsoft.spesifikasiMicrosoft', compact(['fitur', 'persyaratan_sistem']));
+        // return $fitur;
+    }
+
     public function indexMatlab()
     {
         // $fitur = Fitur::all();
@@ -75,6 +85,23 @@ class SpesifikasiController extends Controller
         ]);
         // Fitur::create($request->except(['_token','submit']));
         return redirect('/admin/adobe/spesifikasi');
+    }
+
+    public function createMicrosoft()
+    {
+        return view('admin.microsoft.createFiturMicrosoft');
+    }
+
+    public function storeMicrosoft(Request $request)
+    {
+        //dd($request->except(['_token','submit']));
+        $software = Software::where('id', 6)->value('id');
+        Fitur::create([
+            'id_software' => $software,
+            'fitur' =>$request->fitur
+        ]);
+        // Fitur::create($request->except(['_token','submit']));
+        return redirect('/admin/microsoft/spesifikasiMicrosoft');
     }
 
     public function createMatlab()
@@ -164,6 +191,25 @@ class SpesifikasiController extends Controller
         return redirect('/admin/adobe/spesifikasi');
     }
 
+    public function editMicrosoft($id)
+    {
+        //dd($id);
+        $fitur = Fitur::find($id);
+        //dd($fitur);
+        return view('admin.microsoft.editFiturMicrosoft', compact(['fitur']));
+    }
+
+    public function updateMicrosoft($id, Request $request)
+    {
+        $software = Software::where('id', 6)->value('id');
+        Fitur::where('id', $id)
+        ->update([
+            'id_software' => $software,
+            'fitur' =>$request->fitur
+        ]);
+        return redirect('/admin/microsoft/spesifikasiMicrosoft');
+    }
+
     public function editMatlab($id)
     {
         //dd($id);
@@ -247,6 +293,13 @@ class SpesifikasiController extends Controller
         return redirect('/admin/adobe/spesifikasi');
     }
 
+    public function destroyMicrosoft($id)
+    {
+        $fitur = Fitur::find($id);
+        $fitur->delete();
+        return redirect('/admin/microsoft/spesifikasiMicrosoft');
+    }
+
     public function destroyMatlab($id)
     {
         $fitur = Fitur::find($id);
@@ -290,6 +343,23 @@ class SpesifikasiController extends Controller
         ]);
         // Fitur::create($request->except(['_token','submit']));
         return redirect('/admin/adobe/spesifikasi');
+    }
+
+    public function createMicrosoftPS()
+    {
+        return view('admin.microsoft.createPersyaratanSistemMicrosoft');
+    }
+
+    public function storeMicrosoftPS(Request $request)
+    {
+        //dd($request->except(['_token','submit']));
+        $software = Software::where('id', 6)->value('id');
+        PersyaratanSistem::create([
+            'id_software' => $software,
+            'persyaratan_sistem' =>$request->persyaratan_sistem
+        ]);
+        // Fitur::create($request->except(['_token','submit']));
+        return redirect('/admin/microsoft/spesifikasiMicrosoft');
     }
 
     public function createMatlabPS()
@@ -379,6 +449,25 @@ class SpesifikasiController extends Controller
         return redirect('/admin/adobe/spesifikasi');
     }
 
+    public function editMicrosoftPS($id)
+    {
+        //dd($id);
+        $persyaratan_sistem = PersyaratanSistem::find($id);
+        //dd($fitur);
+        return view('admin.microsoft.editPersyaratanSistemMicrosoft', compact(['persyaratan_sistem']));
+    }
+
+    public function updateMicrosoftPS($id, Request $request)
+    {
+        $software = Software::where('id', 6)->value('id');
+        PersyaratanSistem::where('id', $id)
+        ->update([
+            'id_software' => $software,
+            'persyaratan_sistem' =>$request->persyaratan_sistem
+        ]);
+        return redirect('/admin/microsoft/spesifikasiMicrosoft');
+    }
+
     public function editMatlabPS($id)
     {
         //dd($id);
@@ -460,6 +549,13 @@ class SpesifikasiController extends Controller
         $persyaratan_sistem = PersyaratanSistem::find($id);
         $persyaratan_sistem->delete();
         return redirect('/admin/adobe/spesifikasi');
+    }
+
+    public function destroyMicrosoftPS($id)
+    {
+        $persyaratan_sistem = PersyaratanSistem::find($id);
+        $persyaratan_sistem->delete();
+        return redirect('/admin/microsoft/spesifikasi Microsoft');
     }
 
     public function destroyMatlabPS($id)

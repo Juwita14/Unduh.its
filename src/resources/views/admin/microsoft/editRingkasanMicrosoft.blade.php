@@ -9,7 +9,7 @@
                 <h3 class="block-title">Edit Data</h3>
             </div>
             <div class="block-content">
-                <form action="/admin/microsoft/ringkasanMicrosoft/editMicrosoft/{{$ringkasan->id}}" method="POST" >
+                <form action="/admin/microsoft/ringkasanMicrosoft/updateMicrosoft/{{$ringkasan->id}}" method="POST" >
                     @method('PUT')
                     @csrf
                     <div class="form-group row">
