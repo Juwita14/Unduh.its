@@ -555,7 +555,7 @@ class SpesifikasiController extends Controller
     {
         $persyaratan_sistem = PersyaratanSistem::find($id);
         $persyaratan_sistem->delete();
-        return redirect('/admin/microsoft/spesifikasi Microsoft');
+        return redirect('/admin/microsoft/spesifikasiMicrosoft');
     }
 
     public function destroyMatlabPS($id)
