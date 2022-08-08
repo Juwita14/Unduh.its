@@ -48,7 +48,7 @@
                 <h3 class="block-title">Persyaratan Sistem</h3>
             </div>
             <div class="block-content">
-                <a href="/admin/adobe/spesifikasi/createPS" class="btn btn-md btn-success mb-3">TAMBAH PERSYARATAN SISTEM</a>
+                <a href="/admin/microsoft/spesifikasiMicrosoft/createMicrosoftPS" class="btn btn-md btn-success mb-3">TAMBAH PERSYARATAN SISTEM</a>
                 <table class="table table-hover table-vcenter">
                     <thead>
                         <tr>
@@ -65,11 +65,11 @@
                             <td class="text-center">
                                 <div class="btn-group">
                                     <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                        <a href="/admin/adobe/spesifikasi/editPS/{{$p->id}}" >
+                                        <a href="/admin/microsoft/spesifikasiMicrosoft/editMicrosoftPS/{{$p->id}}" >
                                             <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                         </a>
                                     </button>
-                                    <form action="/admin/adobe/spesifikasi/destroyPS/{{$p->id}}" method="POST">
+                                    <form action="/admin/microsoft/spesifikasiMicrosoft/destroyMicrosoftPS/{{$p->id}}" method="POST">
                                         @method('delete')
                                         @csrf
                                         <button onclick="return confirm('Are you sure?')"  type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
