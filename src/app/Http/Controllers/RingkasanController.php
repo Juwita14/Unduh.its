@@ -194,6 +194,24 @@ class RingkasanController extends Controller
         return redirect('/admin/adobe/ringkasan');
     }
 
+    public function editMicrosoft($id)
+    {
+        //dd($id);
+        $software = Software::find($id);
+        $ringkasan = Ringkasan::find($id);
+        //dd($software);
+        return view('admin.microsoft.editRingkasanMicrosoft', compact(['ringkasan', 'software']));
+    }
+
+    public function updateMicrosoft($id, Request $request)
+    {
+        // $software = Software::find($id);
+        $ringkasan = Ringkasan::find($id);
+        // dd($ringkasan);
+        $ringkasan->update($request->except(['_token','submit']));
+        return redirect('/admin/microsoft/ringkasanMicrosoft');
+    }
+
     public function editMatlab($id)
     {
         //dd($id);
@@ -265,6 +283,13 @@ class RingkasanController extends Controller
         $ringkasan = Ringkasan::find($id);
         $ringkasan->delete();
         return redirect('/admin/adobe/ringkasan');
+    }
+
+    public function destroyMicrosoft($id)
+    {
+        $ringkasan = Ringkasan::find($id);
+        $ringkasan->delete();
+        return redirect('/admin/microsoft/ringkasanMicrosoft');
     }
 
     public function destroyMatlab($id)
