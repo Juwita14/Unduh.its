@@ -80,6 +80,46 @@
                                 <div class="tab-pane fade" id="search-filedownload" role="tabpanel">
                                     <div class="row items-push">
                                         <div class="col-lg-12 border-b">
+                                            <h4 class="h5 mb-5">
+                                                <a class="font-size-md  font-w700">File Panduan</a>
+                                            </h4>
+                                                @if(session()->get('id_token') == null)
+                                                <a href="/auth">
+                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                    <div style="display:inline-block;" class="text">
+                                                        <p>Petunjuk Installasi Matlab Lisensi Concurrent 2018b</p>
+                                                    </div>
+                                                </a>
+                                                <br>
+                                                @else
+                                                <a href="https://itsacid.sharepoint.com/:b:/s/softwarehub/Ebc7P9IMoT9IuxTlINcitp4B1jt8LptDuRXoyaoY6aeYVA?e=LojTE3" target="_blank">
+                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                    <div style="display:inline-block;" class="text">
+                                                        <p>Petunjuk Installasi Matlab Lisensi Concurrent 2018b</p>
+                                                    </div>
+                                                </a>
+                                                <br>
+                                                @endif
+
+                                                @if(session()->get('id_token') == null)
+                                                <a href="/auth">
+                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                    <div style="display:inline-block;" class="text">
+                                                        <p>Panduan Install dan Aktivasi Matlab ITS</p>
+                                                    </div>
+                                                </a>
+                                                <br>
+                                                @else
+                                                <a href="https://itsacid.sharepoint.com/:b:/s/softwarehub/EbBPT1xg179GvHv54llzXqIBUqrmg29Me3ZmoKzLchXjgg?e=KbXOu5" target="_blank">
+                                                    <i class="fa fa-file-pdf-o" style="color:red"></i>
+                                                    <div style="display:inline-block;" class="text">
+                                                        <p>Panduan Install dan Aktivasi Matlab ITS</p>
+                                                    </div>
+                                                </a>
+                                                <br>
+                                                @endif
+                                        </div>
+                                        <div class="col-lg-12 border-b">
                                             <div class="col-lg-12 border-b">
                                                 <h4 class="h5 mb-5">
                                                     <a class="font-size-md  font-w700">File Installer</a>
