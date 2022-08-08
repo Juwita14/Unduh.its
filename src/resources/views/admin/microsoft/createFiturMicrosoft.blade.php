@@ -9,7 +9,7 @@
                 <h3 class="block-title">Edit Fitur</h3>
             </div>
             <div class="block-content">
-                <form action="/admin/microsoft/spesifikasiMicrosoft/updateMicrosoft/{{$fitur->id}}" method="POST" >
+                <form action="/admin/microsoft/spesifikasiMicrosoft/storeMicrosoft}" method="POST" >
                     @method('PUT')
                     @csrf
                     <div class="form-group row">
