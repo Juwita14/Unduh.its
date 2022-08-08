@@ -102,7 +102,7 @@ class PreviewController extends Controller
         $namaFiles = $request->namaFiles;
         $namaFile = $namaFiles-> getClientOriginalName();
         $destinationPath = 'assets/media/preview';
-        $software = Software::where('id', 1)->value('id');
+        $software = Software::where('id', 6)->value('id');
         Preview::create([
             'id_software' => $software,
             'nama_gambar' =>$request->nama_gambar,
