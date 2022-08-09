@@ -148,7 +148,9 @@ class UserController extends Controller
     public function getDownloadInstaller($id)
     {
         $file_installer = FileInstaller::find($id);
+        dd($file_installer);
         $url=$file_installer->file_download;
+        dd($url);
         return Redirect::away($url);
     }
 
