@@ -159,6 +159,9 @@
                                         <a class="{{ request()->is('admin/microsoft/ringkasanMicrosoft') ? ' active' : '' }}" href="/admin/microsoft/ringkasanMicrosoft" >Ringkasan</a>
                                     </li>
                                     <li>
+                                        <a class="{{ request()->is('admin/microsoft/filedownloadMicrosoft') ? ' active' : '' }}" href="/admin/microsoft/filedownloadMicrosoft">File Download</a>
+                                    </li>
+                                    <li>
                                         <a class="{{ request()->is('admin/microsoft/spesifikasiMicrosoft') ? ' active' : '' }}" href="/admin/microsoft/spesifikasiMicrosoft">Spesifikasi</a>
                                     </li>
                                     <li>

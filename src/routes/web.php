@@ -61,6 +61,13 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/admin/microsoft/ringkasanMicrosoft/updateMicrosoft/{id}', [RingkasanController::class, 'updateMicrosoft']);
         Route::delete('/admin/microsoft/ringkasanMicrosoft/destroyMicrosoft/{id}', [RingkasanController::class, 'destroyMicrosoft']);
 
+        Route::get('/admin/microsoft/filedownloadMicrosoft', [FileDownloadController::class, 'indexMicrosoft']);
+        Route::get('/admin/microsoft/filedownloadMicrosoft/createMicrosoftFI', [FileDownloadController::class, 'createMicrosoftFI']);
+        Route::post('/admin/microsoft/filedownloadMicrosoft/storeMicrosoftFI', [FileDownloadController::class, 'storeMicrosoftFI']);
+        Route::get('/admin/microsoft/filedownloadMicrosoft/editMicrosoftFI/{id}', [FileDownloadController::class, 'editMicrosoftFI']);
+        Route::put('/admin/microsoft/filedownloadMicrosoft/updateMicrosoftFI/{id}', [FileDownloadController::class, 'updateMicrosoftFI']);
+        Route::delete('/admin/microsoft/filedownloadMicrosoft/destroyMicrosoftFI/{id}', [FileDownloadController::class, 'destroyMicrosoftFI']);
+
         Route::get('/admin/microsoft/spesifikasiMicrosoft', [SpesifikasiController::class, 'indexMicrosoft']);
         Route::get('/admin/microsoft/spesifikasiMicrosoft/createMicrosoft', [SpesifikasiController::class, 'createMicrosoft']);
         Route::post('/admin/microsoft/spesifikasiMicrosoft/storeMicrosoft', [SpesifikasiController::class, 'storeMicrosoft']);
