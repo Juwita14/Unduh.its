@@ -6,7 +6,7 @@
     <!-- Hover Table -->
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Ubah Preview</h3>
+            <h3 class="block-title">Ubah File Panduan Matlab</h3>
         </div>
         <div class="block-content">
             <form action="/admin/matlab/filedownloadMatlab/updateMatlab/{{$file_panduan->id}}" method="POST" enctype='multipart/form-data'>
