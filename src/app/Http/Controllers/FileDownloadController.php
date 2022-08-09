@@ -98,7 +98,7 @@ class FileDownloadController extends Controller
             'id_software' => $software,
             'nama_file_panduan' =>$request->nama_file_panduan,
             'namaFIles' =>$request->namaFIles,
-            'namapanduan' =>$request->namaFiles
+            'namapanduan' =>$request->namaFIles
         ]);
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
