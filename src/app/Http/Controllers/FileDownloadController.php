@@ -371,6 +371,13 @@ class FileDownloadController extends Controller
         return redirect('/admin/minitab/filedownloadMinitab');
     }
 
+    public function destroyMicrosoftFI($id)
+    {
+        $file_installer = FileInstaller::find($id);
+        $file_installer->delete();
+        return redirect('/admin/microsoft/filedownloadMicrosoft');
+    }
+
     public function destroyMathematicaFI($id)
     {
         $file_installer = FileInstaller::find($id);
