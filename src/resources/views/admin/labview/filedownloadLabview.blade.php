@@ -15,7 +15,7 @@
                             <tr>
                                 <th class="text-center" style="width: 50px;">#</th>
                                 <th class="d-none d-sm-table-cell" style="width: 40%;">Nama File Panduan</th>
-                                <th class="d-none d-sm-table-cell" style="width: 50%;">File Panduan</th>
+                                <th class="d-none d-sm-table-cell" style="width: 50%;">Url Link</th>
                                 <th class="text-center" style="width: 100px;">Actions</th>
                             </tr>
                         </thead>
@@ -43,7 +43,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -57,7 +57,7 @@
                             <tr>
                                 <th class="text-center" style="width: 50px;">#</th>
                                 <th class="d-none d-sm-table-cell" style="width: 30%;">Nama File Installer</th>
-                                <th class="d-none d-sm-table-cell" style="width: 40%;">File Download</th>
+                                <th class="d-none d-sm-table-cell" style="width: 40%;">Url Link</th>
                                 <th class="d-none d-sm-table-cell" style="width: 30%;">Size</th>
                                 <th class="text-center" style="width: 100px;">Actions</th>
                             </tr>
@@ -87,7 +87,7 @@
                                 </td>
                             </tr>
                             @endforeach
-                            
+
                         </tbody>
                     </table>
                 </div>
