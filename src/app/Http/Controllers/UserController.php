@@ -113,6 +113,7 @@ class UserController extends Controller
     {
         $file_panduan = FilePanduan::find($id);
         $url=$file_panduan->namapanduan;
+
         return Redirect::away($url);
     }
 
