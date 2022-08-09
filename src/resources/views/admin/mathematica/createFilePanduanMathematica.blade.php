@@ -20,7 +20,7 @@
                     <div class="form-group row">
                         <label class="col-12" >Url Link</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="namaFiles" placeholder="Nama File Panduan">
+                            <input type="text" class="form-control" name="namaFIles" placeholder="Nama File Panduan">
                         </div>
                     </div>
                     <div class="form-group row">
