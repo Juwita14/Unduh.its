@@ -134,7 +134,7 @@
                                                                     </button>
                                                                 </a>
                                                                 @else
-                                                                <a href="https://itsacid.sharepoint.com/:u:/s/softwarehub/EdP84i0fz-1Dsj1am7og1zsB-YZSV8vhYr8LSlD_p4t6yQ?e=4RHeZt" target="_blank">
+                                                                <a href="/downloadInstaller/{{$fi->id}}"  target="_blank">
                                                                     <button style="color:#3F9CE8" type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Download">
                                                                         <i class="fa fa-download"></i>
                                                                     </button>
