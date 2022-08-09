@@ -19,6 +19,12 @@ class FileDownloadController extends Controller
         return view('admin.adobe.filedownload', compact(['file_panduan', 'file_installer']));
     }
 
+    public function indexMicrosoft()
+    {
+        $file_installer = FileInstaller::where('id_software', '6')->get();
+        return view('admin.microsoft.filedownloadMicrosoft', compact(['file_installer']));
+    }
+
     public function indexMatlab()
     {
         $file_panduan = FilePanduan::where('id_software', '2')->get();
@@ -131,6 +137,23 @@ class FileDownloadController extends Controller
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
+    public function createMicrosoftFI()
+    {
+        return view('admin.microsoft.createFileInstallerMicrosoft');
+    }
+
+    public function storeMicrosoftFI(Request $request)
+    {
+        $software = Software::where('id', 6)->value('id');
+        FileInstaller::create([
+            'id_software' => $software,
+            'nama_file_installer' =>$request->nama_file_installer,
+            'size' =>$request->size,
+            'file_download' =>$request->file_download
+        ]);
+        return redirect('/admin/microsoft/filedownloadMicrosoft');
+    }
+
     public function createLabviewFI()
     {
         return view('admin.labview.createFileInstallerLabview');
@@ -241,6 +264,23 @@ class FileDownloadController extends Controller
             'namaFIles' =>$request->namapanduan
         ]);
         return redirect('/admin/minitab/filedownloadMinitab');
+    }
+    public function editMicrosoftFI($id)
+    {
+        $file_installer = FileInstaller::find($id);
+        return view('admin.microsoft.editFileInstallerMicrosoft', compact(['file_installer']));
+    }
+
+    public function updateMicrosoftFI($id, Request $request)
+    {
+        $file_installer = Software::where('id', 6)->value('id');
+        FileInstaller::where('id', $id)
+        ->update([
+            'nama_file_installer' =>$request->nama_file_installer,
+            'file_download' =>$request->file_download,
+            'size' => $request->size
+        ]);
+        return redirect('/admin/microsoft/filedownloadMicrosoft');
     }
 
     public function editMathematicaFI($id)
