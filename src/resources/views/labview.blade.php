@@ -94,7 +94,7 @@
                                                 </a>
                                                 <br>
                                                 @else
-                                                <a href="https://itsacid.sharepoint.com/:b:/s/softwarehub/EYvEQ7p1ckpBoyCoc5J8wEkBU6J5CS2r6xP8ppVmnXFXUg?e=oGn5u8" target="_blank">
+                                                <a href="/downloadPanduan/{{$pd->id}}" target="_blank">
                                                     <i class="fa fa-file-pdf-o" style="color:red"></i>
                                                     <div style="display:inline-block;" class="text">
                                                         <p>{{$pd->nama_file_panduan}}</p>

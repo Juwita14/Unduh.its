@@ -112,10 +112,8 @@ class UserController extends Controller
     public function getDownloadPanduan($id)
     {
         $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        $file= public_path("assets/media/filepanduan/{$namaFile}");
-
-        return response()->download($file);
+        $rrl=$file_panduan->namapanduan;
+        return Redirect::away($url);
     }
 
     public function getDownloadInstaller($id)
