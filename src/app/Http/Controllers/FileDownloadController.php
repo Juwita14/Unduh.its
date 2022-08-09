@@ -494,14 +494,6 @@ class FileDownloadController extends Controller
     public function destroyMatlab($id)
     {
         $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-
-        $path = public_path("assets/media/filepanduan/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
         $file_panduan->delete();
         return redirect('/admin/matlab/filedownloadMatlab');
     }
