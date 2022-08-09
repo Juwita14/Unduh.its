@@ -160,8 +160,8 @@ class FileDownloadController extends Controller
         FileInstaller::create([
             'id_software' => $software,
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$request->file_download,
-            'size' =>$request->size
+            'size' =>$request->size,
+            'file_download' =>$request->file_download
         ]);
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
