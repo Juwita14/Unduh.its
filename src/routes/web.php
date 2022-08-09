@@ -286,6 +286,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['cek_login:user']], function () {
         Route::resource('produk', UserController::class);
-
+        Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
+        Route::get('/downloadInstaller/{id}', [UserController::class, 'getDownloadInstaller']);
     });
 });

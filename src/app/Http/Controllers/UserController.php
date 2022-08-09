@@ -16,6 +16,7 @@ use App\Models\Preview;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Illuminate\Support\Facades\Redirect;
 
 use File;
 
@@ -144,44 +145,11 @@ class UserController extends Controller
         return $mime;
     }
 
-    public function getDownloadInstaller($id, $route, $name = null, array $headers = [], $disposition = 'inline')
+    public function getDownloadInstaller($id)
     {
-        $sessionhas=session()->has('login_session');
-        // dd($sessionhas);
-        // if($sessionhas == true){
-            $file_installer = FileInstaller::find($id);
-            $filename = $file_installer->file_download;
-            $path= public_path("assets/media/fileinstaller/{$filename}");
-
-            $response = new StreamedResponse;
-            $disposition = $response->headers->makeDisposition(
-                $disposition, $filename
-            );
-
-            $fileSize = File::size($path);
-            $response->headers->replace($headers + [
-                'Content-Type' => $this->getMimeType($path),
-                'Content-Length' => $fileSize,
-                'Content-Disposition' => $disposition,
-            ]);
-
-            $response->setCallback(function () use ($path) {
-                $stream = fopen($path, 'r');
-                while (! feof($stream)) {
-                    echo fread($stream, 2048);
-                }
-                dd($stream);
-                fclose($stream);
-            });
-
-            return $response;
-        // }
-        // else{
-        //     return redirect('login');
-        // }
-        // Session::flash('login_session', $filename);
-
-        // return Redirect::to($route);
+        $file_installer = FileInstaller::find($id);
+        $url=$file_installer->file_download;
+        return Redirect::away($url);
     }
 
 }
