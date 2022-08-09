@@ -80,7 +80,7 @@ class FileDownloadController extends Controller
         FilePanduan::create([
             'id_software' => $software,
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namaFIles' =>$request->namaFiles,
+            'namaFIles' =>$request->namaFIles,
             'namapanduan' =>$request->namaFiles
         ]);
         return redirect('/admin/matlab/filedownloadMatlab');
@@ -259,33 +259,18 @@ class FileDownloadController extends Controller
 
     public function editMatlab($id)
     {
-        //dd($id);
         $file_panduan = FilePanduan::find($id);
-        //dd($fitur);
         return view('admin.matlab.editFilePanduanMatlab', compact(['file_panduan']));
     }
 
     public function updateMatlab($id, Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        $path = public_path("assets/media/filepanduan/");
-        $pathfilelama = public_path("assets/media/filepanduan/{$namaFile}");
-        // dd($path);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->namapanduan;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 2)->value('id');
-        FilePanduan::where('id', $id)
+        $file_panduan = FilePanduan::where('id', 2)->value('id');
+        PersyaratanSistem::where('id', $id)
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namapanduan' =>$namapanduanbaru
+            'namaFIles' =>$request->namaFIles,
+            'namapanduan' =>$request->$namapanduan
         ]);
         return redirect('/admin/matlab/filedownloadMatlab');
     }
