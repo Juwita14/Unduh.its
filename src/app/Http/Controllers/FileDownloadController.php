@@ -144,7 +144,7 @@ class FileDownloadController extends Controller
 
     public function storeMicrosoftFI(Request $request)
     {
-        dd($request);
+        // dd($request);
         $software = Software::where('id', 6)->value('id');
         FileInstaller::create([
             'id_software' => $software,
