@@ -112,7 +112,7 @@ class UserController extends Controller
     public function getDownloadPanduan($id)
     {
         $file_panduan = FilePanduan::find($id);
-        $rrl=$file_panduan->namapanduan;
+        $url=$file_panduan->namapanduan;
         return Redirect::away($url);
     }
 
