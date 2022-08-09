@@ -498,7 +498,7 @@ class FileDownloadController extends Controller
 
     public function destroyMathematicaFI($id)
     {
-        $file_installer = File_Installer::find($id);
+        $file_installer = FileInstaller::find($id);
         $file_installer->delete();
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
