@@ -104,7 +104,7 @@ class FileDownloadController extends Controller
 
     public function storeMinitab(Request $request)
     {
-        $software = Software::where('id', 6)->value('id');
+        $software = Software::where('id', 5)->value('id');
         FilePanduan::create([
             'id_software' => $software,
             'nama_file_panduan' =>$request->nama_file_panduan,
