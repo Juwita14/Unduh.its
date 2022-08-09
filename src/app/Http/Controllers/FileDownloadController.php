@@ -76,19 +76,13 @@ class FileDownloadController extends Controller
 
     public function storeMatlab(Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->namaFiles;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/filepanduan';
         $software = Software::where('id', 2)->value('id');
         FilePanduan::create([
             'id_software' => $software,
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namaFiles' =>$namaFile,
-            'namapanduan' =>$namaFile
+            'namaFIles' =>$request->namaFiles,
+            'namapanduan' =>$request->namaFiles
         ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/matlab/filedownloadMatlab');
     }
 

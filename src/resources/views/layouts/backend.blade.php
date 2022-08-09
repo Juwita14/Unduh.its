@@ -173,9 +173,6 @@
                                         <a class="{{ request()->is('admin/adobe/ringkasan') ? ' active' : '' }}" href="/admin/adobe/ringkasan" >Ringkasan</a>
                                     </li>
                                     <li>
-                                        <a class="{{ request()->is('admin/adobe/filedownload') ? ' active' : '' }}" href="/admin/adobe/filedownload">File Download</a>
-                                    </li>
-                                    <li>
                                         <a class="{{ request()->is('admin/adobe/spesifikasi') ? ' active' : '' }}" href="/admin/adobe/spesifikasi">Spesifikasi</a>
                                     </li>
                                     <li>

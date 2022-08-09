@@ -89,13 +89,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::put('/admin/adobe/ringkasan/update/{id}', [RingkasanController::class, 'update']);
         Route::delete('/admin/adobe/ringkasan/destroy/{id}', [RingkasanController::class, 'destroy']);
 
-        Route::get('/admin/adobe/filedownload', [FileDownloadController::class, 'index']);
-        Route::get('/admin/adobe/filedownload/create', [FileDownloadController::class, 'create']);
-        Route::post('/admin/adobe/filedownload/store', [FileDownloadController::class, 'store']);
-        Route::get('/admin/adobe/filedownload/edit/{id}', [FileDownloadController::class, 'edit']);
-        Route::put('/admin/adobe/filedownload/update/{id}', [FileDownloadController::class, 'update']);
-        Route::delete('/admin/adobe/filedownload/destroy/{id}', [FileDownloadController::class, 'destroy']);
-
         Route::get('/admin/adobe/spesifikasi', [SpesifikasiController::class, 'index']);
         Route::get('/admin/adobe/spesifikasi/create', [SpesifikasiController::class, 'create']);
         Route::post('/admin/adobe/spesifikasi/store', [SpesifikasiController::class, 'store']);
