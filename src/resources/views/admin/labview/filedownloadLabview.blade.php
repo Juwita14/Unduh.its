@@ -15,7 +15,7 @@
                             <tr>
                                 <th class="text-center" style="width: 50px;">#</th>
                                 <th class="d-none d-sm-table-cell" style="width: 40%;">Nama File Panduan</th>
-                                <th class="d-none d-sm-table-cell" style="width: 50%;">Url Link</th>
+                                <th class="d-none d-sm-table-cell" style="width: 40%;">Url Link</th>
                                 <th class="text-center" style="width: 100px;">Actions</th>
                             </tr>
                         </thead>
