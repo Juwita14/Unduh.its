@@ -21,7 +21,7 @@
                 <div class="form-group row">
                     <label class="col-12">Url Link</label>
                     <div class="col-md-9">
-                        <input type="file" class="form-control" name="namapanduan" >
+                        <input type="text" class="form-control" name="namapanduan" >
                     </div>
                 </div>
                 <div class="form-group row">
