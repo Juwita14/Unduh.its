@@ -269,8 +269,8 @@ class FileDownloadController extends Controller
         FilePanduan::where('id', $id)
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namaFIles' =>$request->namaFIles,
-            'namapanduan' =>$request->namapanduan
+            'namapanduan' =>$request->namapanduan,
+            'namaFIles' =>$request->namapanduan
         ]);
         return redirect('/admin/matlab/filedownloadMatlab');
     }
