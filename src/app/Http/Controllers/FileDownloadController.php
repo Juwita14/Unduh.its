@@ -270,7 +270,7 @@ class FileDownloadController extends Controller
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
             'namaFIles' =>$request->namaFIles,
-            'namapanduan' =>$request->$namapanduan
+            'namapanduan' =>$request->namapanduan
         ]);
         return redirect('/admin/matlab/filedownloadMatlab');
     }
