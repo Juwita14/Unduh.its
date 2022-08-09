@@ -16,6 +16,7 @@ use App\Models\Preview;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Illuminate\Support\Facades\Redirect;
 
 use File;
 
@@ -26,11 +27,19 @@ class UserController extends Controller
     //     return view('index1');
     // }
 
-    public function indexPreview()
+    public function indexMicsrosoft()
     {
-        $preview = Preview::where('id_software', '1')->get();
+    	$software = Software::where('id', '6')->get();
+        $ringkasan = Ringkasan::where('id_software', '6')->get();
+        $fitur = Fitur::where('id_software', '6')->get();
+        $persyaratan_sistem = PersyaratanSistem::where('id_software', '6')->get();
+        $file_panduan = FilePanduan::where('id_software', '6')->get();
+        // dd($file_panduan);
+        $file_installer = FileInstaller::where('id_software', '6')->get();
+        $preview = Preview::where('id_software', '6')->get();
 
-        return view('preVieww', compact([ 'preview']));
+        return view('microsoft', compact(['ringkasan', 'software', 'fitur', 'persyaratan_sistem', 'file_panduan', 'file_installer', 'preview']));
+
     }
 
     public function indexAdobe()
@@ -103,77 +112,16 @@ class UserController extends Controller
     public function getDownloadPanduan($id)
     {
         $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        $file= public_path("assets/media/filepanduan/{$namaFile}");
+        $url=$file_panduan->namapanduan;
 
-        return response()->download($file);
+        return Redirect::away($url);
     }
 
-    static function getMimeType($fileName)
+    public function getDownloadInstaller($id)
     {
-        $mime = null;
-        // Try fileinfo first
-        if (function_exists('finfo_open')) {
-            $finfo = finfo_open(FILEINFO_MIME);
-            if ($finfo !== false) {
-                $mime = finfo_file($finfo, $fileName);
-                finfo_close($finfo);
-            }
-        }
-        // Fallback to mime_content_type() if finfo didn't work
-        if (is_null($mime) && function_exists('mime_content_type')) {
-            $mime = mime_content_type($fileName);
-        }
-        // Final fallback, detection based on extension
-        if (is_null($mime)) {
-            $extension = self::getTypeIcon(getTypeIcon);
-            if (array_key_exists($extension, self::$mimeMap)) {
-                $mime = self::$mimeMap[$extension];
-            } else {
-                $mime = "application/octet-stream";
-            }
-        }
-        return $mime;
-    }
-
-    public function getDownloadInstaller($id, $route, $name = null, array $headers = [], $disposition = 'inline')
-    {
-        $sessionhas=session()->has('login_session');
-        // dd($sessionhas);
-        // if($sessionhas == true){
-            $file_installer = FileInstaller::find($id);
-            $filename = $file_installer->file_download;
-            $path= public_path("assets/media/fileinstaller/{$filename}");
-
-            $response = new StreamedResponse;
-            $disposition = $response->headers->makeDisposition(
-                $disposition, $filename
-            );
-
-            $fileSize = File::size($path);
-            $response->headers->replace($headers + [
-                'Content-Type' => $this->getMimeType($path),
-                'Content-Length' => $fileSize,
-                'Content-Disposition' => $disposition,
-            ]);
-
-            $response->setCallback(function () use ($path) {
-                $stream = fopen($path, 'r');
-                while (! feof($stream)) {
-                    echo fread($stream, 2048);
-                }
-                dd($stream);
-                fclose($stream);
-            });
-
-            return $response;
-        // }
-        // else{
-        //     return redirect('login');
-        // }
-        // Session::flash('login_session', $filename);
-
-        // return Redirect::to($route);
+        $file_installer = FileInstaller::find($id);
+        $url=$file_installer->file_download;
+        return Redirect::away($url);
     }
 
 }

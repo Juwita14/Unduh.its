@@ -6,36 +6,38 @@
         <!-- Hover Table -->
         <div class="block">
                 <div class="block-header block-header-default">
-                    <h3 class="block-title">File Panduan</h3>
+                    <h3 class="block-title">Ringkasan</h3>
                 </div>
                 <div class="block-content">
-                    <a href="/admin/matlab/filedownloadMatlab/createMatlab" class="btn btn-md btn-success mb-3">TAMBAH FILE PANDUAN</a>
+                    <a href="/admin/microsoft/ringkasanMicrosoft/createMicrosoft" class="btn btn-md btn-success mb-3">TAMBAH RINGKASAN</a>
                     <table class="table table-hover table-vcenter">
                         <thead>
                             <tr>
-                                <th class="text-center" style="width: 50px;">#</th>
-                                <th class="d-none d-sm-table-cell" style="width: 30%;">Nama File Panduan</th>
-                                <th class="d-none d-sm-table-cell" style="width: 40%;">Url Link</th>
+                                <th style="width: 50px;">#</th>
+                                <th>Nama</th>
+                                <th class="d-none d-sm-table-cell" style="width: 50%;">Ringkasan Microsoft</th>
                                 <th class="text-center" style="width: 100px;">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($file_panduan as $pd)
+                        @foreach($ringkasan as $r)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$pd->nama_file_panduan}}</td>
-                                <td>{{$pd->namapanduan}}</td>
+                                @foreach ($software as $s)
+                                <td>{{$s->nama_software}}</td>
+                                @endforeach
+                                <td>{{$r->ringkasan}}</td>
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <button  type="button" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Edit">
-                                            <a href="/admin/matlab/filedownloadMatlab/editMatlab/{{$pd->id}}" >
+                                            <a href="/admin/microsoft/ringkasanMicrosoft/editMicrosoft/{{$r->id}}" >
                                                 <i style="color:#3A8CBD"class="fa fa-pencil"></i>
                                             </a>
                                         </button>
-                                        <form action="/admin/matlab/filedownloadMatlab/destroyMatlab/{{$pd->id}}" method="POST">
+                                        <form action="/admin/microsoft/ringkasanMicrosoft/destroyMicrosoft/{{$r->id}}" method="POST">
                                             @method('delete')
                                             @csrf
-                                            <button onclick="return confirm('Are you sure?')"  type="submit" class="btn btn-sm btn-secondary" data-toggle="tooltip" title="Delete">
+                                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-sm btn-secondary"  title="Delete">
                                                 <i style="color:#EF5350" class="fa fa-times"></i>
                                             </button>
                                         </form>
@@ -43,7 +45,6 @@
                                 </td>
                             </tr>
                             @endforeach
-
                         </tbody>
                     </table>
                 </div>

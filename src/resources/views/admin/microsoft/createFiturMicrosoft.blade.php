@@ -9,18 +9,12 @@
                 <h3 class="block-title">Tambah</h3>
             </div>
             <div class="block-content">
-                <form action="/admin/matlab/filedownloadMatlab/storeMatlab" method="POST" enctype='multipart/form-data'>
-                    @csrf
+            <form action="/admin/microsoft/spesifikasiMicrosoft/storeMicrosoft" method="POST" >
+                @csrf
                     <div class="form-group row">
-                        <label class="col-12" >Nama File Panduan</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="nama_file_panduan" placeholder="Nama File Panduan">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12" >Url Link</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="namaFiles" placeholder="Nama File Panduan">
+                        <label class="col-12">Fitur</label>
+                        <div class="col-12">
+                            <textarea id="js-ckeditor" name="fitur"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -33,6 +27,6 @@
         </div>
             <!-- END Hover Table -->
     </div>
-    <!-- END Page Content -->
+<!-- END Page Content -->
 
 @endsection

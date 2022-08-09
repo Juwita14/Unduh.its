@@ -19,6 +19,12 @@ class FileDownloadController extends Controller
         return view('admin.adobe.filedownload', compact(['file_panduan', 'file_installer']));
     }
 
+    public function indexMicrosoft()
+    {
+        $file_installer = FileInstaller::where('id_software', '6')->get();
+        return view('admin.microsoft.filedownloadMicrosoft', compact(['file_installer']));
+    }
+
     public function indexMatlab()
     {
         $file_panduan = FilePanduan::where('id_software', '2')->get();
@@ -46,29 +52,6 @@ class FileDownloadController extends Controller
         return view('admin.minitab.filedownloadMinitab', compact(['file_panduan', 'file_installer']));
     }
 
-    public function create()
-    {
-        return view('admin.adobe.createFilePanduan');
-    }
-
-    public function store(Request $request)
-    {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->namaFiles;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/filepanduan';
-        $software = Software::where('id', 1)->value('id');
-        FilePanduan::create([
-            'id_software' => $software,
-            'nama_file_panduan' =>$request->nama_file_panduan,
-            'namaFiles' =>$namaFile,
-            'namapanduan' =>$namaFile
-        ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
-        return redirect('/admin/adobe/filedownload');
-    }
-
     public function createMatlab()
     {
         return view('admin.matlab.createFilePanduanMatlab');
@@ -76,19 +59,13 @@ class FileDownloadController extends Controller
 
     public function storeMatlab(Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->namaFiles;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/filepanduan';
         $software = Software::where('id', 2)->value('id');
         FilePanduan::create([
             'id_software' => $software,
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namaFiles' =>$namaFile,
-            'namapanduan' =>$namaFile
+            'namaFIles' =>$request->namaFIles,
+            'namapanduan' =>$request->namaFIles
         ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/matlab/filedownloadMatlab');
     }
 
@@ -99,19 +76,13 @@ class FileDownloadController extends Controller
 
     public function storeMathematica(Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->namaFiles;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/filepanduan';
         $software = Software::where('id', 3)->value('id');
         FilePanduan::create([
             'id_software' => $software,
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namaFiles' =>$namaFile,
-            'namapanduan' =>$namaFile
+            'namaFIles' =>$request->namaFIles,
+            'namapanduan' =>$request->namaFIles
         ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
@@ -122,19 +93,13 @@ class FileDownloadController extends Controller
 
     public function storeLabview(Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->namaFiles;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/filepanduan';
         $software = Software::where('id', 4)->value('id');
         FilePanduan::create([
             'id_software' => $software,
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namaFiles' =>$namaFile,
-            'namapanduan' =>$namaFile
+            'namaFIles' =>$request->namaFIles,
+            'namapanduan' =>$request->namaFIles
         ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/labview/filedownloadLabview');
     }
 
@@ -145,19 +110,13 @@ class FileDownloadController extends Controller
 
     public function storeMinitab(Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->namaFiles;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/filepanduan';
         $software = Software::where('id', 5)->value('id');
         FilePanduan::create([
             'id_software' => $software,
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namaFiles' =>$namaFile,
-            'namapanduan' =>$namaFile
+            'namaFIles' =>$request->namaFIles,
+            'namapanduan' =>$request->namaFIles
         ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/minitab/filedownloadMinitab');
     }
 
@@ -168,20 +127,32 @@ class FileDownloadController extends Controller
 
     public function storeMathematicaFI(Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->file_download;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/fileinstaller';
         $software = Software::where('id', 3)->value('id');
         FileInstaller::create([
             'id_software' => $software,
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namaFile,
-            'size' =>$request->size
+            'size' =>$request->size,
+            'file_download' =>$request->file_download
         ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/mathematica/filedownloadMathematica');
+    }
+
+    public function createMicrosoftFI()
+    {
+        return view('admin.microsoft.createFileInstallerMicrosoft');
+    }
+
+    public function storeMicrosoftFI(Request $request)
+    {
+        // dd($request);
+        $software = Software::where('id', 6)->value('id');
+        FileInstaller::create([
+            'id_software' => $software,
+            'nama_file_installer' =>$request->nama_file_installer,
+            'size' =>$request->size,
+            'file_download' =>$request->file_download
+        ]);
+        return redirect('/admin/microsoft/filedownloadMicrosoft');
     }
 
     public function createLabviewFI()
@@ -191,19 +162,13 @@ class FileDownloadController extends Controller
 
     public function storeLabviewFI(Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->file_download;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/fileinstaller';
         $software = Software::where('id', 4)->value('id');
         FileInstaller::create([
             'id_software' => $software,
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namaFile,
-            'size' =>$request->size
+            'size' =>$request->size,
+            'file_download' =>$request->file_download
         ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/labview/filedownloadLabview');
     }
 
@@ -214,84 +179,30 @@ class FileDownloadController extends Controller
 
     public function storeMinitabFI(Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->file_download;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/fileinstaller';
         $software = Software::where('id', 5)->value('id');
         FileInstaller::create([
             'id_software' => $software,
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namaFile,
-            'size' =>$request->size
+            'size' =>$request->size,
+            'file_download' =>$request->file_download
         ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/minitab/filedownloadMinitab');
-    }
-
-    public function edit($id)
-    {
-        //dd($id);
-        $file_panduan = FilePanduan::find($id);
-        //dd($fitur);
-        return view('admin.adobe.editFilePanduan', compact(['file_panduan']));
-    }
-
-    public function update($id, Request $request)
-    {
-        // dd($request->except(['_token','submit']));
-        $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        $path = public_path("assets/media/filepanduan/");
-        $pathfilelama = public_path("assets/media/filepanduan/{$namaFile}");
-        // dd($path);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->namapanduan;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 1)->value('id');
-        FilePanduan::where('id', $id)
-        ->update([
-            'nama_file_panduan' =>$request->nama_file_panduan,
-            'namapanduan' =>$namapanduanbaru
-        ]);
-        return redirect('/admin/adobe/filedownload');
     }
 
     public function editMatlab($id)
     {
-        //dd($id);
         $file_panduan = FilePanduan::find($id);
-        //dd($fitur);
         return view('admin.matlab.editFilePanduanMatlab', compact(['file_panduan']));
     }
 
     public function updateMatlab($id, Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        $path = public_path("assets/media/filepanduan/");
-        $pathfilelama = public_path("assets/media/filepanduan/{$namaFile}");
-        // dd($path);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->namapanduan;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 2)->value('id');
+        $file_panduan = Software::where('id', 2)->value('id');
         FilePanduan::where('id', $id)
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namapanduan' =>$namapanduanbaru
+            'namapanduan' =>$request->namapanduan,
+            'namaFIles' =>$request->namapanduan
         ]);
         return redirect('/admin/matlab/filedownloadMatlab');
     }
@@ -306,25 +217,12 @@ class FileDownloadController extends Controller
 
     public function updateMathematica($id, Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        $path = public_path("assets/media/filepanduan/");
-        $pathfilelama = public_path("assets/media/filepanduan/{$namaFile}");
-        // dd($path);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->namapanduan;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 3)->value('id');
+        $file_panduan = Software::where('id', 3)->value('id');
         FilePanduan::where('id', $id)
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namapanduan' =>$namapanduanbaru
+            'namapanduan' =>$request->namapanduan,
+            'namaFIles' =>$request->namapanduan
         ]);
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
@@ -339,25 +237,12 @@ class FileDownloadController extends Controller
 
     public function updateLabview($id, Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        $path = public_path("assets/media/filepanduan/");
-        $pathfilelama = public_path("assets/media/filepanduan/{$namaFile}");
-        // dd($path);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->namapanduan;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 4)->value('id');
+        $file_panduan = Software::where('id', 4)->value('id');
         FilePanduan::where('id', $id)
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namapanduan' =>$namapanduanbaru
+            'namapanduan' =>$request->namapanduan,
+            'namaFIles' =>$request->namapanduan
         ]);
         return redirect('/admin/labview/filedownloadLabview');
     }
@@ -372,27 +257,31 @@ class FileDownloadController extends Controller
 
     public function updateMinitab($id, Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        $path = public_path("assets/media/filepanduan/");
-        $pathfilelama = public_path("assets/media/filepanduan/{$namaFile}");
-        // dd($path);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->namapanduan;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 5)->value('id');
+        $file_panduan = Software::where('id', 5)->value('id');
         FilePanduan::where('id', $id)
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
-            'namapanduan' =>$namapanduanbaru
+            'namapanduan' =>$request->namapanduan,
+            'namaFIles' =>$request->namapanduan
         ]);
         return redirect('/admin/minitab/filedownloadMinitab');
+    }
+    public function editMicrosoftFI($id)
+    {
+        $file_installer = FileInstaller::find($id);
+        return view('admin.microsoft.editFileInstallerMicrosoft', compact(['file_installer']));
+    }
+
+    public function updateMicrosoftFI($id, Request $request)
+    {
+        $file_installer = Software::where('id', 6)->value('id');
+        FileInstaller::where('id', $id)
+        ->update([
+            'nama_file_installer' =>$request->nama_file_installer,
+            'file_download' =>$request->file_download,
+            'size' => $request->size
+        ]);
+        return redirect('/admin/microsoft/filedownloadMicrosoft');
     }
 
     public function editMathematicaFI($id)
@@ -405,25 +294,11 @@ class FileDownloadController extends Controller
 
     public function updateMathematicaFI($id, Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $file_installer = FileInstaller::find($id);
-        $namaFile=$file_installer->file_download;
-        $path = public_path("assets/media/fileinstaller/");
-        $pathfilelama = public_path("assets/media/fileinstaller/{$namaFile}");
-        // dd($pathfilelama);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->file_download;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 3)->value('id');
+        $file_installer = Software::where('id', 3)->value('id');
         FileInstaller::where('id', $id)
         ->update([
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namapanduanbaru,
+            'file_download' =>$request->file_download,
             'size' => $request->size
         ]);
         return redirect('/admin/mathematica/filedownloadMathematica');
@@ -439,25 +314,11 @@ class FileDownloadController extends Controller
 
     public function updateLabviewFI($id, Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $file_installer = FileInstaller::find($id);
-        $namaFile=$file_installer->file_download;
-        $path = public_path("assets/media/fileinstaller/");
-        $pathfilelama = public_path("assets/media/fileinstaller/{$namaFile}");
-        // dd($pathfilelama);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->file_download;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 4)->value('id');
+        $file_installer = Software::where('id', 4)->value('id');
         FileInstaller::where('id', $id)
         ->update([
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namapanduanbaru,
+            'file_download' =>$request->file_download,
             'size' => $request->size
         ]);
         return redirect('/admin/labview/filedownloadLabview');
@@ -473,56 +334,19 @@ class FileDownloadController extends Controller
 
     public function updateMinitabFI($id, Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $file_installer = FileInstaller::find($id);
-        $namaFile=$file_installer->file_download;
-        $path = public_path("assets/media/fileinstaller/");
-        $pathfilelama = public_path("assets/media/fileinstaller/{$namaFile}");
-        // dd($pathfilelama);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->file_download;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 5)->value('id');
+        $file_installer = Software::where('id', 5)->value('id');
         FileInstaller::where('id', $id)
         ->update([
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namapanduanbaru,
+            'file_download' =>$request->file_download,
             'size' => $request->size
         ]);
         return redirect('/admin/minitab/filedownloadMinitab');
     }
 
-    public function destroy($id)
-    {
-        $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-
-        $path = public_path("assets/media/filepanduan/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
-        $file_panduan->delete();
-        return redirect('/admin/adobe/filedownload');
-    }
-
     public function destroyMatlab($id)
     {
         $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-
-        $path = public_path("assets/media/filepanduan/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
         $file_panduan->delete();
         return redirect('/admin/matlab/filedownloadMatlab');
     }
@@ -530,14 +354,6 @@ class FileDownloadController extends Controller
     public function destroyMathematica($id)
     {
         $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        // dd($namaFile);
-        $path = public_path("assets/media/filepanduan/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
         $file_panduan->delete();
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
@@ -545,14 +361,6 @@ class FileDownloadController extends Controller
     public function destroyLabview($id)
     {
         $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        // dd($namaFile);
-        $path = public_path("assets/media/filepanduan/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
         $file_panduan->delete();
         return redirect('/admin/labview/filedownloadLabview');
     }
@@ -560,59 +368,34 @@ class FileDownloadController extends Controller
     public function destroyMinitab($id)
     {
         $file_panduan = FilePanduan::find($id);
-        $namaFile=$file_panduan->namapanduan;
-        // dd($namaFile);
-        $path = public_path("assets/media/filepanduan/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
         $file_panduan->delete();
         return redirect('/admin/minitab/filedownloadMinitab');
     }
 
+    public function destroyMicrosoftFI($id)
+    {
+        $file_installer = FileInstaller::find($id);
+        $file_installer->delete();
+        return redirect('/admin/microsoft/filedownloadMicrosoft');
+    }
+
     public function destroyMathematicaFI($id)
     {
-        $file_installer = File_Installer::find($id);
-        $namaFile=$file_installer->file_download;
-        // dd($namaFile);
-        $path = public_path("assets/media/fileinstaller/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
+        $file_installer = FileInstaller::find($id);
         $file_installer->delete();
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
     public function destroyLabviewFI($id)
     {
-        $file_installer = File_Installer::find($id);
-        $namaFile=$file_installer->file_download;
-        // dd($namaFile);
-        $path = public_path("assets/media/fileinstaller/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
+        $file_installer = FileInstaller::find($id);
         $file_installer->delete();
         return redirect('/admin/labview/filedownloadLabview');
     }
 
     public function destroyMinitabFI($id)
     {
-        $file_installer = File_Installer::find($id);
-        $namaFile=$file_installer->file_download;
-        // dd($namaFile);
-        $path = public_path("assets/media/fileinstaller/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
+        $file_installer = FileInstaller::find($id);
         $file_installer->delete();
         return redirect('/admin/minitab/filedownloadMinitab');
     }

@@ -41,11 +41,11 @@ Route::get('/auth', [LoginController::class, 'index'])->name('auth');
 // Route::post('/login/authenticate', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::get('/microsoft', [UserController::class, 'indexMicsrosoft']);
 Route::get('/mathematica', [UserController::class, 'indexMathematica']);
 Route::get('/minitab', [UserController::class, 'indexMinitab']);
 Route::get('/labview', [UserController::class, 'indexLabview']);
 Route::get('/matlab', [UserController::class, 'indexMatlab']);
-Route::get('/preVieww', [UserController::class, 'indexPreview']);
 Route::get('/adobe', [UserController::class, 'indexAdobe']);
 // Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
 
@@ -63,6 +63,41 @@ Route::group(['middleware' => ['auth']], function () {
     Route::group(['middleware' => ['cek_login:admin']], function () {
         Route::get('/admin', [AdminController::class, 'index']);
 
+        //microsoft
+        Route::get('/admin/microsoft/ringkasanMicrosoft', [RingkasanController::class, 'indexMicrosoft']);
+        Route::get('/admin/microsoft/ringkasanMicrosoft/createMicrosoft', [RingkasanController::class, 'createMicrosoft']);
+        Route::post('/admin/microsoft/ringkasanMicrosoft/storeMicrosoft', [RingkasanController::class, 'storeMicrosoft']);
+        Route::get('/admin/microsoft/ringkasanMicrosoft/editMicrosoft/{id}', [RingkasanController::class, 'editMicrosoft']);
+        Route::put('/admin/microsoft/ringkasanMicrosoft/updateMicrosoft/{id}', [RingkasanController::class, 'updateMicrosoft']);
+        Route::delete('/admin/microsoft/ringkasanMicrosoft/destroyMicrosoft/{id}', [RingkasanController::class, 'destroyMicrosoft']);
+
+        Route::get('/admin/microsoft/filedownloadMicrosoft', [FileDownloadController::class, 'indexMicrosoft']);
+        Route::get('/admin/microsoft/filedownloadMicrosoft/createMicrosoftFI', [FileDownloadController::class, 'createMicrosoftFI']);
+        Route::post('/admin/microsoft/filedownloadMicrosoft/storeMicrosoftFI', [FileDownloadController::class, 'storeMicrosoftFI']);
+        Route::get('/admin/microsoft/filedownloadMicrosoft/editMicrosoftFI/{id}', [FileDownloadController::class, 'editMicrosoftFI']);
+        Route::put('/admin/microsoft/filedownloadMicrosoft/updateMicrosoftFI/{id}', [FileDownloadController::class, 'updateMicrosoftFI']);
+        Route::delete('/admin/microsoft/filedownloadMicrosoft/destroyMicrosoftFI/{id}', [FileDownloadController::class, 'destroyMicrosoftFI']);
+
+        Route::get('/admin/microsoft/spesifikasiMicrosoft', [SpesifikasiController::class, 'indexMicrosoft']);
+        Route::get('/admin/microsoft/spesifikasiMicrosoft/createMicrosoft', [SpesifikasiController::class, 'createMicrosoft']);
+        Route::post('/admin/microsoft/spesifikasiMicrosoft/storeMicrosoft', [SpesifikasiController::class, 'storeMicrosoft']);
+        Route::get('/admin/microsoft/spesifikasiMicrosoft/editMicrosoft/{id}', [SpesifikasiController::class, 'editMicrosoft']);
+        Route::put('/admin/microsoft/spesifikasiMicrosoft/updateMicrosoft/{id}', [SpesifikasiController::class, 'updateMicrosoft']);
+        Route::delete('/admin/microsoft/spesifikasiMicrosoft/destroyMicrosoft/{id}', [SpesifikasiController::class, 'destroyMicrosoft']);
+
+        Route::get('/admin/microsoft/spesifikasiMicrosoft/createMicrosoftPS', [SpesifikasiController::class, 'createMicrosoftPS']);
+        Route::post('/admin/microsoft/spesifikasiMicrosoft/storeMicrosoftPS', [SpesifikasiController::class, 'storeMicrosoftPS']);
+        Route::get('/admin/microsoft/spesifikasiMicrosoft/editMicrosoftPS/{id}', [SpesifikasiController::class, 'editMicrosoftPS']);
+        Route::put('/admin/microsoft/spesifikasiMicrosoft/updateMicrosoftPS/{id}', [SpesifikasiController::class, 'updateMicrosoftPS']);
+        Route::delete('/admin/microsoft/spesifikasiMicrosoft/destroyMicrosoftPS/{id}', [SpesifikasiController::class, 'destroyMicrosoftPS']);
+
+        Route::get('/admin/microsoft/previewMicrosoft', [PreviewController::class, 'indexMicrosoft']);
+        Route::get('/admin/microsoft/previewMicrosoft/createMicrosoft', [PreviewController::class, 'createMicrosoft']);
+        Route::post('/admin/microsoft/previewMicrosoft/storeMicrosoft', [PreviewController::class, 'storeMicrosoft']);
+        Route::get('/admin/microsoft/previewMicrosoft/editMicrosoft/{id}', [PreviewController::class, 'editMicrosoft']);
+        Route::put('/admin/microsoft/previewMicrosoft/updateMicrosoft/{id}', [PreviewController::class, 'updateMicrosoft']);
+        Route::delete('/admin/microsoft/previewMicrosoft/destroyMicrosoft/{id}', [PreviewController::class, 'destroyMicrosoft']);
+
         //adobe
         Route::get('/admin/adobe/ringkasan', [RingkasanController::class, 'index']);
         Route::get('/admin/adobe/ringkasan/create', [RingkasanController::class, 'create']);
@@ -70,13 +105,6 @@ Route::group(['middleware' => ['auth']], function () {
         Route::get('/admin/adobe/ringkasan/edit/{id}', [RingkasanController::class, 'edit']);
         Route::put('/admin/adobe/ringkasan/update/{id}', [RingkasanController::class, 'update']);
         Route::delete('/admin/adobe/ringkasan/destroy/{id}', [RingkasanController::class, 'destroy']);
-
-        Route::get('/admin/adobe/filedownload', [FileDownloadController::class, 'index']);
-        Route::get('/admin/adobe/filedownload/create', [FileDownloadController::class, 'create']);
-        Route::post('/admin/adobe/filedownload/store', [FileDownloadController::class, 'store']);
-        Route::get('/admin/adobe/filedownload/edit/{id}', [FileDownloadController::class, 'edit']);
-        Route::put('/admin/adobe/filedownload/update/{id}', [FileDownloadController::class, 'update']);
-        Route::delete('/admin/adobe/filedownload/destroy/{id}', [FileDownloadController::class, 'destroy']);
 
         Route::get('/admin/adobe/spesifikasi', [SpesifikasiController::class, 'index']);
         Route::get('/admin/adobe/spesifikasi/create', [SpesifikasiController::class, 'create']);
@@ -269,5 +297,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::group(['middleware' => ['cek_login:user']], function () {
         Route::resource('produk', UserController::class);
+        Route::get('/downloadPanduan/{id}', [UserController::class, 'getDownloadPanduan']);
+        Route::get('/downloadInstaller/{id}', [UserController::class, 'getDownloadInstaller']);
     });
 });

@@ -16,6 +16,13 @@ class PreviewController extends Controller
         return view('admin.adobe.preview', compact(['preview']));
     }
 
+    public function indexMicrosoft()
+    {
+        $preview = Preview::where('id_software', '6')->get();
+        // dd($preview);
+        return view('admin.microsoft.previewMicrosoft', compact(['preview']));
+    }
+
     public function indexMatlab()
     {
         $preview = Preview::where('id_software', '2')->get();
@@ -58,7 +65,7 @@ class PreviewController extends Controller
             'namaFiles' =>$namaFile
         ]);
 
-        $namaFiles->move($destinationPath, $namaFile); 
+        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/matlab/previewMatlab');
     }
 
@@ -80,8 +87,30 @@ class PreviewController extends Controller
             'namaFiles' =>$namaFile
         ]);
 
-        $namaFiles->move($destinationPath, $namaFile); 
+        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/adobe/preview');
+    }
+
+    public function createMicrosoft()
+    {
+        return view('admin.microsoft.createPreviewMicrosoft');
+    }
+
+    public function storeMicrosoft(Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $namaFiles = $request->namaFiles;
+        $namaFile = $namaFiles-> getClientOriginalName();
+        $destinationPath = 'assets/media/preview';
+        $software = Software::where('id', 6)->value('id');
+        Preview::create([
+            'id_software' => $software,
+            'nama_gambar' =>$request->nama_gambar,
+            'namaFiles' =>$namaFile
+        ]);
+
+        $namaFiles->move($destinationPath, $namaFile);
+        return redirect('/admin/microsoft/previewMicrosoft');
     }
 
     public function createMathematica()
@@ -102,7 +131,7 @@ class PreviewController extends Controller
             'namaFiles' =>$namaFile
         ]);
 
-        $namaFiles->move($destinationPath, $namaFile); 
+        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/mathematica/previewMathematica');
     }
 
@@ -124,7 +153,7 @@ class PreviewController extends Controller
             'namaFiles' =>$namaFile
         ]);
 
-        $namaFiles->move($destinationPath, $namaFile); 
+        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/labview/previewLabview');
     }
 
@@ -146,7 +175,7 @@ class PreviewController extends Controller
             'namaFiles' =>$namaFile
         ]);
 
-        $namaFiles->move($destinationPath, $namaFile); 
+        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/minitab/previewMinitab');
     }
 
@@ -180,8 +209,42 @@ class PreviewController extends Controller
             'nama_gambar' =>$request->nama_gambar,
             'namaFiles' =>$namaPreviewbaru
         ]);
-        
+
         return redirect('/admin/adobe/preview');
+    }
+
+    public function editMicrosoft($id)
+    {
+        //dd($id);
+        $preview = Preview::find($id);
+        //dd($fitur);
+        return view('admin.microsoft.editPreviewMicrosoft', compact(['preview']));
+    }
+
+    public function updateMicrosoft($id, Request $request)
+    {
+        // dd($request->except(['_token','submit']));
+        $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+        $path = public_path("assets/media/preview/");
+        $pathfilelama = public_path("assets/media/preview/{$namaFile}");
+        // dd($pathfilelama);
+        $isExists = file_exists($pathfilelama);
+        unlink($pathfilelama);
+
+        $previewbaru = $request->namaFiles;
+        $namaPreviewbaru = $previewbaru->getClientOriginalName();
+        // dd($namaPreviewbaru);
+        $previewbaru->move($path, $namaPreviewbaru);
+
+        $software = Software::where('id', 6)->value('id');
+        Preview::where('id', $id)
+        ->update([
+            'nama_gambar' =>$request->nama_gambar,
+            'namaFiles' =>$namaPreviewbaru
+        ]);
+
+        return redirect('/admin/microsoft/previewMicrosoft');
     }
 
     public function editMatlab($id)
@@ -214,7 +277,7 @@ class PreviewController extends Controller
             'nama_gambar' =>$request->nama_gambar,
             'namaFiles' =>$namaPreviewbaru
         ]);
-        
+
         return redirect('/admin/matlab/previewMatlab');
     }
 
@@ -248,7 +311,7 @@ class PreviewController extends Controller
             'nama_gambar' =>$request->nama_gambar,
             'namaFiles' =>$namaPreviewbaru
         ]);
-        
+
         return redirect('/admin/mathematica/previewMathematica');
     }
 
@@ -315,7 +378,7 @@ class PreviewController extends Controller
         ->update([
             'nama_gambar' =>$request->nama_gambar,
             'namaFiles' =>$namaPreviewbaru
-        ]); 
+        ]);
         return redirect('/admin/minitab/previewMinitab');
     }
 
@@ -332,6 +395,21 @@ class PreviewController extends Controller
         unlink($path);
         $preview->delete();
         return redirect('/admin/adobe/preview');
+    }
+
+    public function destroyMicrosoft($id)
+    {
+        $preview = Preview::find($id);
+        $namaFile=$preview->namaFiles;
+
+        $path = public_path("assets/media/preview/{$namaFile}");
+
+        $isExists = file_exists($path);
+
+        // dd($isExists);
+        unlink($path);
+        $preview->delete();
+        return redirect('/admin/microsoft/previewMicrosoft');
     }
 
     public function destroyMatlab($id)

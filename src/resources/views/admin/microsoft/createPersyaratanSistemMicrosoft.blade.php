@@ -6,21 +6,15 @@
         <!-- Hover Table -->
         <div class="block">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Tambah File Panduan</h3>
+                <h3 class="block-title">Tambah Persyaratan SIstem</h3>
             </div>
             <div class="block-content">
-                <form action="/admin/minitab/filedownloadMinitab/storeMinitab" method="POST" enctype='multipart/form-data'>
-                    @csrf
+            <form action="/admin/microsoft/spesifikasiMicrosoft/storeMicrosoftPS" method="POST" >
+                @csrf
                     <div class="form-group row">
-                        <label class="col-12" >Nama File Panduan</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="nama_file_panduan" placeholder="Nama File Panduan">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-12" >Url Link</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" name="namaFIles" placeholder="Nama File Panduan">
+                        <label class="col-12">Peryaratan Sistem</label>
+                        <div class="col-12">
+                            <textarea id="js-ckeditor" name="persyaratan_sistem"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">

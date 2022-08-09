@@ -6,27 +6,27 @@
         <!-- Hover Table -->
         <div class="block">
             <div class="block-header block-header-default">
-                <h3 class="block-title">Ubah File Panduan</h3>
+                <h3 class="block-title">Tambah File Installer</h3>
             </div>
             <div class="block-content">
-                <form action="/admin/mathematica/filedownloadMathematica/updateMathematica/{{$file_panduan->id}}" method="POST" enctype='multipart/form-data'>
-                    @method('PUT')
+                <form action="/admin/microsoft/filedownloadMicrosoft/storeMicrosoftFI" method="POST" enctype='multipart/form-data'>
                     @csrf
                     <div class="form-group row">
-                        <label class="col-12" >Nama File Panduan</label>
+                        <label class="col-12" >Nama File Installer</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="nama_file_panduan" value="{{$file_panduan->nama_file_panduan}}"placeholder="Nama File">
+                            <input type="text" class="form-control" name="nama_file_installer" placeholder="Nama File Installer">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-12" >Size</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="size" placeholder="size">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-12">Url Link</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" name="namapanduan" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-9">
-                        <td>{{$file_panduan->namapanduan}}</td>
+                            <input type="text" class="form-control" name="file_download">
                         </div>
                     </div>
                     <div class="form-group row">

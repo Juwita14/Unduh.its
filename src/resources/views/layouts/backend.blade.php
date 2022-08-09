@@ -83,7 +83,7 @@
         -->
         <div id="page-container" class="sidebar-o sidebar-inverse enable-page-overlay side-scroll page-header-fixed main-content-narrow">
             <!-- Side Overlay-->
-            
+
             <!-- END Side Overlay -->
 
             <!-- Sidebar -->
@@ -125,7 +125,7 @@
                             <!-- Logo -->
                             <div class="content-header-item">
                                 <div class="float-left mr-5 mb-5">
-                                    <img style="height: 48px; width: 45px;" class="img-avatar" src="/assets/media/photos/logo-its-biru-transparan.png" alt=""> 
+                                    <img style="height: 48px; width: 45px;" class="img-avatar" src="/assets/media/photos/logo-its-biru-transparan.png" alt="">
                                 </div>
                                 <div class="content-header-item">
                                     <a class=" font-w700" href="index">
@@ -143,7 +143,7 @@
                     <!-- END Side Header -->
 
                     <!-- Side User -->
-                    
+
                     <!-- END Side User -->
 
                     <!-- Side Navigation -->
@@ -152,14 +152,28 @@
                             <li>
                                 <a class="{{ request()->is('admin') ? ' active' : '' }}" href="/admin"><i class="si si-cup"></i><span class="sidebar-mini-hide">Dashboard</span></a>
                             </li>
+                            <li class="{{ request()->is('admin/microsoft/*') ? ' open' : '' }}">
+                                <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Microsoft</span></a>
+                                <ul>
+                                    <li>
+                                        <a class="{{ request()->is('admin/microsoft/ringkasanMicrosoft') ? ' active' : '' }}" href="/admin/microsoft/ringkasanMicrosoft" >Ringkasan</a>
+                                    </li>
+                                    <li>
+                                        <a class="{{ request()->is('admin/microsoft/filedownloadMicrosoft') ? ' active' : '' }}" href="/admin/microsoft/filedownloadMicrosoft">File Download</a>
+                                    </li>
+                                    <li>
+                                        <a class="{{ request()->is('admin/microsoft/spesifikasiMicrosoft') ? ' active' : '' }}" href="/admin/microsoft/spesifikasiMicrosoft">Spesifikasi</a>
+                                    </li>
+                                    <li>
+                                        <a class="{{ request()->is('admin/microsoft/previewMicrosoft') ? ' active' : '' }}" href="/admin/microsoft/previewMicrosoft">Preview</a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="{{ request()->is('admin/adobe/*') ? ' open' : '' }}">
                                 <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i><span class="sidebar-mini-hide">Adobe</span></a>
                                 <ul>
                                     <li>
                                         <a class="{{ request()->is('admin/adobe/ringkasan') ? ' active' : '' }}" href="/admin/adobe/ringkasan" >Ringkasan</a>
-                                    </li>
-                                    <li>
-                                        <a class="{{ request()->is('admin/adobe/filedownload') ? ' active' : '' }}" href="/admin/adobe/filedownload">File Download</a>
                                     </li>
                                     <li>
                                         <a class="{{ request()->is('admin/adobe/spesifikasi') ? ' active' : '' }}" href="/admin/adobe/spesifikasi">Spesifikasi</a>
@@ -201,7 +215,7 @@
                                     <li>
                                         <a class="{{ request()->is('admin/mathematica/previewMathematica') ? ' active' : '' }}" href="/admin/mathematica/previewMathematica">Preview</a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                             <li class="{{ request()->is('admin/labview/*') ? ' open' : '' }}">
@@ -236,7 +250,7 @@
                                     <li>
                                         <a class="{{ request()->is('admin/minitab/previewMinitab') ? ' active' : '' }}" href="/admin/minitab/previewMinitab">Preview</a>
                                     </li>
-                                    
+
                                 </ul>
                             </li>
                         </ul>
@@ -262,12 +276,12 @@
 
                         <!-- Open Search Section -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        
+
                         <!-- END Open Search Section -->
 
                         <!-- Layout Options (used just for demonstration) -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        
+
                         <!-- END Layout Options -->
                     </div>
                     <!-- END Left Section -->
@@ -289,12 +303,12 @@
                         </div>
                         <!-- END User Dropdown -->
 
-                        
+
                         <!-- END Notifications -->
 
                         <!-- Toggle Side Overlay -->
                         <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                        
+
                         <!-- END Toggle Side Overlay -->
                     </div>
                     <!-- END Right Section -->
@@ -302,12 +316,12 @@
                 <!-- END Header Content -->
 
                 <!-- Header Search -->
-                
+
                 <!-- END Header Search -->
 
                 <!-- Header Loader -->
                 <!-- Please check out the Activity page under Elements category to see examples of showing/hiding it -->
-                
+
                 <!-- END Header Loader -->
             </header>
             <!-- END Header -->

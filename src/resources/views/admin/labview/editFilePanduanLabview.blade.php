@@ -6,22 +6,22 @@
     <!-- Hover Table -->
     <div class="block">
         <div class="block-header block-header-default">
-            <h3 class="block-title">Ubah Preview</h3>
+            <h3 class="block-title">Ubah File Panduan Labview</h3>
         </div>
         <div class="block-content">
             <form action="/admin/labview/filedownloadLabview/updateLabview/{{$file_panduan->id}}" method="POST" enctype='multipart/form-data'>
                 @method('PUT')
                 @csrf
                 <div class="form-group row">
-                    <label class="col-12" >Nama Gambar</label>
+                    <label class="col-12" >Nama File Panduan</label>
                     <div class="col-md-9">
                         <input type="text" class="form-control" name="nama_file_panduan" value="{{$file_panduan->nama_file_panduan}}"placeholder="Nama File">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-12">File Gambar</label>
+                    <label class="col-12">Url Link</label>
                     <div class="col-md-9">
-                        <input type="file" class="form-control" name="namapanduan" placeholder="Pendiri..">
+                        <input type="text" class="form-control" name="namapanduan" >
                     </div>
                 </div>
                 <div class="form-group row">
