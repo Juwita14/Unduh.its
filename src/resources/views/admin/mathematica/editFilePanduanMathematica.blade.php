@@ -13,15 +13,15 @@
                     @method('PUT')
                     @csrf
                     <div class="form-group row">
-                        <label class="col-12" >Nama Gambar</label>
+                        <label class="col-12" >Nama File Panduan</label>
                         <div class="col-md-9">
                             <input type="text" class="form-control" name="nama_file_panduan" value="{{$file_panduan->nama_file_panduan}}"placeholder="Nama File">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-12">File Gambar</label>
+                        <label class="col-12">Url Link</label>
                         <div class="col-md-9">
-                            <input type="file" class="form-control" name="namapanduan" placeholder="Pendiri..">
+                            <input type="text" class="form-control" name="namapanduan" >
                         </div>
                     </div>
                     <div class="form-group row">
