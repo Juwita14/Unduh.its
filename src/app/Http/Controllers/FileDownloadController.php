@@ -266,7 +266,7 @@ class FileDownloadController extends Controller
     public function updateMatlab($id, Request $request)
     {
         $file_panduan = FilePanduan::where('id', 2)->value('id');
-        PersyaratanSistem::where('id', $id)
+        FilePanduan::where('id', $id)
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
             'namaFIles' =>$request->namaFIles,
