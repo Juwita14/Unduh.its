@@ -15,7 +15,7 @@
                         <tr>
                             <th class="text-center" style="width: 50px;">#</th>
                             <th class="d-none d-sm-table-cell" style="width: 30%;">Nama File Installer</th>
-                            <th class="d-none d-sm-table-cell" style="width: 30%;">Url Link</th>
+                            <th class="d-none d-sm-table-cell" style="width: 20%;">Url Link</th>
                             <th class="d-none d-sm-table-cell" style="width: 30%;">Size</th>
                             <th class="text-center" style="width: 100px;">Actions</th>
                         </tr>
