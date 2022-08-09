@@ -156,19 +156,13 @@ class FileDownloadController extends Controller
 
     public function storeMathematicaFI(Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $namaFiles = $request->file_download;
-        $namaFile = $namaFiles-> getClientOriginalName();
-        $destinationPath = 'assets/media/fileinstaller';
         $software = Software::where('id', 3)->value('id');
         FileInstaller::create([
             'id_software' => $software,
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namaFile,
+            'file_download' =>$request->file_download,
             'size' =>$request->size
         ]);
-
-        $namaFiles->move($destinationPath, $namaFile);
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
 
@@ -259,7 +253,7 @@ class FileDownloadController extends Controller
 
     public function updateMatlab($id, Request $request)
     {
-        $file_panduan = FilePanduan::where('id', 2)->value('id');
+        $file_panduan = Software::where('id', 2)->value('id');
         FilePanduan::where('id', $id)
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
@@ -279,7 +273,7 @@ class FileDownloadController extends Controller
 
     public function updateMathematica($id, Request $request)
     {
-        $file_panduan = FilePanduan::where('id', 3)->value('id');
+        $file_panduan = Software::where('id', 3)->value('id');
         FilePanduan::where('id', $id)
         ->update([
             'nama_file_panduan' =>$request->nama_file_panduan,
@@ -365,25 +359,11 @@ class FileDownloadController extends Controller
 
     public function updateMathematicaFI($id, Request $request)
     {
-        // dd($request->except(['_token','submit']));
-        $file_installer = FileInstaller::find($id);
-        $namaFile=$file_installer->file_download;
-        $path = public_path("assets/media/fileinstaller/");
-        $pathfilelama = public_path("assets/media/fileinstaller/{$namaFile}");
-        // dd($pathfilelama);
-        $isExists = file_exists($pathfilelama);
-        unlink($pathfilelama);
-
-        $panduanbaru = $request->file_download;
-        $namapanduanbaru = $panduanbaru->getClientOriginalName();
-        // dd($namapanduanbaru);
-        $panduanbaru->move($path, $namapanduanbaru);
-
-        $software = Software::where('id', 3)->value('id');
+        $file_installer = Software::where('id', 3)->value('id');
         FileInstaller::where('id', $id)
         ->update([
             'nama_file_installer' =>$request->nama_file_installer,
-            'file_download' =>$namapanduanbaru,
+            'file_download' =>$request->file_download,
             'size' => $request->size
         ]);
         return redirect('/admin/mathematica/filedownloadMathematica');
@@ -519,14 +499,6 @@ class FileDownloadController extends Controller
     public function destroyMathematicaFI($id)
     {
         $file_installer = File_Installer::find($id);
-        $namaFile=$file_installer->file_download;
-        // dd($namaFile);
-        $path = public_path("assets/media/fileinstaller/{$namaFile}");
-
-        $isExists = file_exists($path);
-
-        // dd($isExists);
-        unlink($path);
         $file_installer->delete();
         return redirect('/admin/mathematica/filedownloadMathematica');
     }
