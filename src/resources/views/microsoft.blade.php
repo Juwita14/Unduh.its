@@ -126,16 +126,16 @@
                                 <!-- Spesifikasi -->
                                 <div class="tab-pane fade" id="search-spesifikasi" role="tabpanel">
                                     <div class="row items-push">
-                                    <div class="col-lg-12 border-b">
-                                            <h4 class="h5 mb-5">
-                                                <a class="font-size-md  font-w700">Persyaratan Sistem</a>
-                                            </h4>
-                                            @foreach($persyaratan_sistem as $p)
-                                                <p> {!! html_entity_decode($p->persyaratan_sistem) !!}</p>
-                                            @endforeach
-
-                                        {{-- </div>
                                         <div class="col-lg-12 border-b">
+                                                <h4 class="h5 mb-5">
+                                                    <a class="font-size-md  font-w700">Persyaratan Sistem</a>
+                                                </h4>
+                                                @foreach($persyaratan_sistem as $p)
+                                                    <p> {!! html_entity_decode($p->persyaratan_sistem) !!}</p>
+                                                @endforeach
+
+                                        </div>
+                                        {{-- <div class="col-lg-12 border-b">
                                             <h4 class="h5 mb-5">
                                                 <a class="font-size-md  font-w700">Fitur</a>
                                             </h4>
