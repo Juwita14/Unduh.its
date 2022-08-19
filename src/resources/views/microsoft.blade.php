@@ -134,7 +134,7 @@
                                                 <p> {!! html_entity_decode($p->persyaratan_sistem) !!}</p>
                                             @endforeach
 
-                                        </div>
+                                        {{-- </div>
                                         <div class="col-lg-12 border-b">
                                             <h4 class="h5 mb-5">
                                                 <a class="font-size-md  font-w700">Fitur</a>
@@ -142,7 +142,7 @@
                                                 @foreach($fitur as $f)
                                                 <p> {!! html_entity_decode($f->fitur) !!}</p>
                                                 @endforeach
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <!-- END Spesifikasi -->
