@@ -27,7 +27,7 @@
                                         MATLAB
                                     </p>
                                     <p class="font-size-sm  font-w600 text-op  mb-0">
-                                        The Mathwork
+                                        Company: MathWorks
                                     </p>
                                 </div>
                                 <br>
@@ -108,7 +108,7 @@
                                                 <h4 class="h5 mb-5">
                                                     <a class="font-size-md  font-w700">File Installer</a>
                                                 </h4>
-                                                <p>Informasi tentang file download MATLAB, silakan kunjungi <a href="https://www.mathworks.com/products/matlab.html?s_tid=hp_products_matlab" target="_blank">Offical MATLAB.</a></p>
+                                                <p>Informasi tentang file download MATLAB, silakan kunjungi <a href="https://www.mathworks.com/products/matlab.html?s_tid=hp_products_matlab" target="_blank">www.mathworks.com/products/matlab.html</a></p>
                                         </div>
 
                                     </div>

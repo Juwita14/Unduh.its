@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-        <title>Unduh.its.ac.id</title>
+        <title>Software Hub</title>
 
         <meta name="description" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
         <meta name="author" content="pixelcave">
@@ -97,7 +97,7 @@
                     <div class="content-header-section">
                         <!-- Logo -->
                         <div class="float-left mr-5 mb-5">
-                            <img style="height: 48px; width: 45px;" class="img-avatar" src="/assets/media/photos/logo-its-biru-transparan.png" alt="">
+                            <img style="height: 48px; width: 45px;" class="img-avatar" src="/assets/media/photos/code-branch-solid.svg" alt="">
                         </div>
                         <div class="content-header-item">
                             <a href="/" class=" font-w700" href="index">

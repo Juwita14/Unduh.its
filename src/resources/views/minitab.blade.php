@@ -27,7 +27,7 @@
                                         Minitab Statistical Software
                                     </p>
                                     <p class="font-size-sm  font-w600 text-op  mb-0">
-                                        Minitab
+                                        Company: Minitab, Inc
                                     </p>
                                 </div>
                                 <br>

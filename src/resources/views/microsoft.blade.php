@@ -27,7 +27,7 @@
                                         Microsoft
                                     </p>
                                     <p class="font-size-sm  font-w600 text-op  mb-0">
-                                        Microsoft Corporation
+                                        Company: Microsoft Corporation
                                     </p>
                                 </div>
                                 <br>

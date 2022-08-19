@@ -5,9 +5,9 @@
     <!-- Page Content -->
     <div class="content">
         <!-- Search -->
-        
+
         <!-- END Search -->
-        
+
         <div style="background-color:#F0F2F5;" class="block shadow-none">
                 <a href="/">Produk Lisensi </a>
                 <i class="fa fa-angle-right "></i>
@@ -27,12 +27,12 @@
                                         Adobe
                                     </p>
                                     <p class="font-size-sm  font-w600 text-op  mb-0">
-                                        Adobe Inc.
+                                        Company: Adobe Inc.
                                     </p>
                                 </div>
                                 <br>
                                 <div class="ml-15 mb-20">
-                                    <a href="https://www.adobe.com/id_en/creativecloud.html?sdid=WKRCJ9VF&mv=search&ef_id=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE:G:s&s_kwcid=AL!3085!3!447025602704!e!!g!!adobe!636853869!31669464044&gclid=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE" target="_blank"> 
+                                    <a href="https://www.adobe.com/id_en/creativecloud.html?sdid=WKRCJ9VF&mv=search&ef_id=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE:G:s&s_kwcid=AL!3085!3!447025602704!e!!g!!adobe!636853869!31669464044&gclid=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE" target="_blank">
                                         <button style="" type="button" class="btn btn-success shadow min-width-150 ">
                                         <i class="fa fa-globe mr-5"></i>Visit Website
                                         </button>
@@ -71,7 +71,7 @@
                                             @foreach($ringkasan as $r)
                                                 <p> {!! html_entity_decode($r->ringkasan) !!}</p>
                                             @endforeach
-                                            <p>Informasi tentang Adobe Creative Cloud, silakan kunjungi <a href="https://www.adobe.com/id_en/creativecloud.html?sdid=WKRCJ9VF&amp;mv=search&amp;ef_id=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE:G:s&amp;s_kwcid=AL!3085!3!447025602704!e!!g!!adobe!636853869!31669464044&amp;gclid=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE" target="_blank">Offical Adobe.</a></p>
+                                            <p>Informasi tentang Adobe Creative Cloud, silakan kunjungi <a href="https://www.adobe.com/id_en/creativecloud.html" target="_blank">www.adobe.com/id_en/creativecloud.html</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                                             <h4 class="h5 mb-5">
                                                 <a class="font-size-md  font-w700">File Installer</a>
                                             </h4>
-                                            <p>Informasi tentang file download Adobe Creative Cloud, silakan kunjungi <a href="https://www.adobe.com/id_en/creativecloud.html?sdid=WKRCJ9VF&mv=search&ef_id=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE:G:s&s_kwcid=AL!3085!3!447025602704!e!!g!!adobe!636853869!31669464044&gclid=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE" target="_blank">Offical Adobe.</a></p>
+                                            <p>Informasi tentang file download Adobe Creative Cloud, silakan kunjungi <a href="https://www.adobe.com/id_en/creativecloud.html" target="_blank">www.adobe.com/id_en/creativecloud.html</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -122,14 +122,14 @@
                                                 @foreach($fitur as $f)
                                                 <p> {!! html_entity_decode($f->fitur) !!}</p>
                                                 @endforeach -->
-                                                <p>Informasi tentang fitur dan spesifikasi perangkat lunak Adobe Creative Cloud , silakan kunjungi <a href="https://www.adobe.com/id_en/creativecloud.html?sdid=WKRCJ9VF&mv=search&ef_id=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE:G:s&s_kwcid=AL!3085!3!447025602704!e!!g!!adobe!636853869!31669464044&gclid=CjwKCAjwtcCVBhA0EiwAT1fY74TX1e_0hDiKnJ73yDTW4ZaNo6t-v0_kOgK5KKx6GKw_y6h8H2G0ABoCthcQAvD_BwE" target="_blank">Offical Adobe.</a></p>
+                                                <p>Informasi tentang fitur dan spesifikasi perangkat lunak Adobe Creative Cloud , silakan kunjungi <a href="https://helpx.adobe.com/creative-cloud/system-requirements.html" target="_blank">helpx.adobe.com/creative-cloud/system-requirements.html</a></p>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                                 <!-- END Users -->
 
-                                <!-- Preview --> 
+                                <!-- Preview -->
                                 <div class="tab-pane fade active" id="search-preview" role="tabpanel">
                                     <div class="js-slider slick-nav-black slick-dotted-inner slick-dotted-white show active" data-dots="true" data-arrows="true">
                                         @foreach($preview as $p)

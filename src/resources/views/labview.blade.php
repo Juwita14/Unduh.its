@@ -27,7 +27,7 @@
                                         LabVIEW
                                     </p>
                                     <p class="font-size-sm  font-w600 text-op  mb-0">
-                                    NI
+                                    Company: National Instruments
                                     </p>
                                 </div>
                                 <br>
