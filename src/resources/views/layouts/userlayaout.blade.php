@@ -97,11 +97,11 @@
                     <div class="content-header-section">
                         <!-- Logo -->
                         <div class="float-left mr-5 mb-5">
-                            <img style="height: 45px; width: 42px;" src="/assets/media/photos/logonew.png" alt="">
+                            <img style="height: 45px; width: 42px;" src="/assets/media/photos/logonew1.png" alt="">
                         </div>
                         <div class="content-header-item">
                             <a href="/" class=" font-w700" href="index">
-                                <span href="javascript:void(0)" style= "font-size: 200%; line-height: 125%; color: #013880" class=" text-dual-primary">UNDUH</span>
+                                <span href="javascript:void(0)" style= "font-size: 200%; line-height: 125%;" class=" text-dual-primary">UNDUH</span>
                             </a>
                             <a class="font-w300" href="/">
                                 <p style="line-height: 0%;" class="font-size-sm mt-5 text-dual-primary-dark">Software Lisensi ITS</p>
