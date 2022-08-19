@@ -97,7 +97,7 @@
                     <div class="content-header-section">
                         <!-- Logo -->
                         <div class="float-left mr-5 mb-5">
-                            <img style="height: 48px; width: 45px;" src="/assets/media/photos/logonew1.png" alt="">
+                            <img  src="/assets/media/photos/logonew1.png" alt="">
                         </div>
                         <div class="content-header-item">
                             <a href="/" class=" font-w700" href="index">
